@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: zsalesrebate
+type: application
+framework:
+  name: SAPUI5
+  version: 1.114.0
+  libraries:
+    - name: sap.m
+    - name: sap.ui.core
+    - name: sap.f
+    - name: sap.suite.ui.generic.template
+    - name: sap.ui.comp
+    - name: sap.ui.generic.app
+    - name: sap.ui.table
+    - name: sap.ushell
+    - name: themelib_sap_horizon
+server:
+  customMiddleware:
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+          - path:
+            url:
+            client:
+          - path: /sap
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZGD_SERVICE_BINDING
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZLDT_CDS
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZAPI_CASH_DIS
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZGDT_STATE_BINDING
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZGD_SALES_GROUP
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZCUSTOMERCODE
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZPRICE_SERVICE_BINDING
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZLFD_INV
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZPRICEDEFF_BINDING
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZCREATED_IN_NO
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZRETURN_QTY_BINDING
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: zsalesrebate
+        ui5Theme: sap_horizon

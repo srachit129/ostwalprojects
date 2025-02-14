@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:F="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <SelectDialog id="PurchaseOrderSelectDialog" search=".onSearchPurchaseOrder" noDataText="No Data Found" confirm="._handlePurchaseOrderValueHelpClose" cancel="._handlePurchaseOrderValueHelpClose" showClearButton="true" >
+            
+    </SelectDialog>
+</core:FragmentDefinition>

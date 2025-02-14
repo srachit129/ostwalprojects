@@ -1,0 +1,17 @@
+<mvc:View controllerName="zstoprint.controller.FirstScreen"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:F="sap.ui.layout.form" xmlns:C="sap.ui.core" xmlns:Tab="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <F:SimpleForm id="Form1" layout="ResponsiveGridLayout" columnsL="3" columnsXL="3" columnsM="2" editable="true">
+                <F:content>
+                        <Label id="PONumberLab" text="PO Number" />
+                        <Input id="PO_Number" editable="true" />
+                        <Label id="ButtonLab"/>
+                        <Button id="GotoNextViewButton" text="Get" press="Call_StoPrint"/>
+                        <C:Title id="coret"/>
+                    </F:content>
+                </F:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

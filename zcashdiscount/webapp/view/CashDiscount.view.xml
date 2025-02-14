@@ -1,0 +1,100 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="zcashdiscount.controller.CashDiscount"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Button text="Excel upload" press="onConfirmDialog" />
+            <table:Table id="table1" rows="{oTableItemModel>/aTableItem}" selectionMode="MultiToggle" visibleRowCountMode="Auto" ariaLabelledBy="title">
+                <table:extension>
+                    <OverflowToolbar style="Clear">
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://save" text="Save" tooltip="Add item" press="saveData" />
+                        <Button icon="sap-icon://add" tooltip="Add item" press="addRow" />
+                        <Button icon="sap-icon://delete" tooltip="Add item" press="deleteRow" />
+                        <!-- <Button icon="sap-icon://delete" tooltip="Delete Table records" press="onDelete" /> -->
+                    </OverflowToolbar>
+                </table:extension>
+
+                <table:columns>
+                    <table:Column>
+                        <Label text="Sales Group" />
+                        <table:template>
+                            <Input id="idMixingNo." value="{oTableItemModel>SalesGroup}" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+
+                    <table:Column>
+                        <Label text="District" />
+                        <table:template>
+                            <!-- <Input id="District" value="{oTableItemModel>CustomerDistrict}" editable="true" /> -->
+                            <ComboBox items="{DistrictObject>/District}" value="{oTableItemModel>CustomerDistrict}">
+                                <items>
+                                    <core:Item text="{DistrictObject>Description}"></core:Item>
+                                </items>
+                            </ComboBox>
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column>
+                        <Label text="Circular No" />
+                        <table:template>
+                            <Input id="circular_no" value="{oTableItemModel>CircularNumber}" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column>
+                        <Label text="Payment Term" />
+                        <table:template>
+                            <Input id="payment_term" value="{oTableItemModel>PaymentTerms}" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column>
+                        <Label text="Material" />
+                        <table:template>
+                            <Input id="material" value="{oTableItemModel>MaterialCode}" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column>
+                        <Label text="Amount" />
+                        <table:template>
+                            <Input id="amount" value="{oTableItemModel>Amount}" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+
+                    <!-- <table:Column width="7rem">
+                        <Label text="Created By" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Created By}" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column width="7rem">
+                        <Label text="Created On" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Created On}" id="stockinval" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column width="9rem">
+                        <Label text="Changed By" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Changed By}" id="reqqtyinkg" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column width="11rem">
+                        <Label text="Changed On" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Changed On}" id="Reqqtyinbale" editable="true" submit="onSubmit" />
+                        </table:template>
+                    </table:Column> -->
+                </table:columns>
+            </table:Table>
+        </content>
+    </Page>
+</mvc:View>

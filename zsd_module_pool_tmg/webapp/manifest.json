@@ -1,0 +1,521 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "zsdmodulepooltmg",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.10.3",
+            "toolsId": "5463498d-37d2-4e31-9133-880a256e4d3a"
+        },
+        "dataSources": {
+            "ZQDT_SERVICE_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZQDT_SERVICE_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZQDT_SERVICE_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZQUANTITY_DISCOUNT_VALID": {
+                "uri": "/sap/opu/odata/sap/ZQUANTITY_DISCOUNT_VALID",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZQUANTITY_DISCOUNT_VALID/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZAPI_CASH_DIS": {
+                "uri": "/sap/opu/odata/sap/ZAPI_CASH_DIS",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZAPI_CASH_DIS/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZLDT_CDS": {
+                "uri": "/sap/opu/odata/sap/ZLDT_CDS",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZLDT_CDS/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZGD_SERVICE_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZGD_SERVICE_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZGD_SERVICE_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZGDT_STATE_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZGDT_STATE_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZGDT_STATE_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZDISTRICT_STATE_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZDISTRICT_STATE_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZDISTRICT_STATE_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZMATERIAL_PRICE_GROUP_BIND": {
+                "uri": "/sap/opu/odata/sap/ZMATERIAL_PRICE_GROUP_BIND",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZMATERIAL_PRICE_GROUP_BIND/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZSTATE_CODE_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZSTATE_CODE_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZSTATE_CODE_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZGD_SALES_GROUP": {
+                "uri": "/sap/opu/odata/sap/ZGD_SALES_GROUP",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZGD_SALES_GROUP/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZPRICE_SERVICE_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZPRICE_SERVICE_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZPRICE_SERVICE_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZSALESGROUP": {
+                "uri": "/sap/opu/odata/sap/ZSALESGROUP",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZSALESGROUP/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZCASHDIS": {
+                "uri": "/sap/opu/odata/sap/ZCASHDIS",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZCASHDIS/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZLFD_INV": {
+                "uri": "/sap/opu/odata/sap/ZLFD_INV",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZLFD_INV/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZPRICEDEFF_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZPRICEDEFF_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZPRICEDEFF_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZCIRCULAR_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZCIRCULAR_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZCIRCULAR_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZCREDIT_NOT_GL": {
+                "uri": "/sap/opu/odata/sap/ZCREDIT_NOT_GL",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZCREDIT_NOT_GL/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "zsdmodulepooltmg-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "ZSD_TMG",
+                    "action": "Display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.116.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zsdmodulepooltmg.i18n.i18n"
+                }
+            },
+            "": {
+                "preload": true,
+                "dataSource": "ZQDT_SERVICE_BINDING",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZQUANTITY_DISCOUNT_VALID": {
+                "dataSource": "ZQUANTITY_DISCOUNT_VALID",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZAPI_CASH_DIS": {
+                "dataSource": "ZAPI_CASH_DIS",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZLDT_CDS": {
+                "dataSource": "ZLDT_CDS",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZGD_SERVICE_BINDING": {
+                "dataSource": "ZGD_SERVICE_BINDING",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZGDT_STATE_BINDING": {
+                "dataSource": "ZGDT_STATE_BINDING",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZDISTRICT_STATE_BINDING": {
+                "dataSource": "ZDISTRICT_STATE_BINDING",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZMATERIAL_PRICE_GROUP_BIND": {
+                "dataSource": "ZMATERIAL_PRICE_GROUP_BIND",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZSTATE_CODE_BINDING": {
+                "dataSource": "ZSTATE_CODE_BINDING",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZGD_SALES_GROUP": {
+                "dataSource": "ZGD_SALES_GROUP",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZPRICE_SERVICE_BINDING": {
+                "dataSource": "ZPRICE_SERVICE_BINDING",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZSALESGROUP": {
+                "dataSource": "ZSALESGROUP",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZCASHDIS": {
+                "dataSource": "ZCASHDIS",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZLFD_INV": {
+                "dataSource": "ZLFD_INV",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZPRICEDEFF_BINDING": {
+                "dataSource": "ZPRICEDEFF_BINDING",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZCIRCULAR_BINDING": {
+                "dataSource": "ZCIRCULAR_BINDING",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZCREDIT_NOT_GL": {
+                "dataSource": "ZCREDIT_NOT_GL",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "zsdmodulepooltmg.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteFirstView",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetFirstView"
+                    ]
+                },
+                {
+                    "name": "Quantity_Discounts_Tmg",
+                    "pattern": "Quantity_Discounts_Tmg",
+                    "target": [
+                        "Quantity_Discounts_Tmg"
+                    ]
+                },
+                {
+                    "name": "Sales_Rebates_Tmg",
+                    "pattern": "Sales_Rebates_Tmg",
+                    "target": [
+                        "Sales_Rebates_Tmg"
+                    ]
+                },
+                {
+                    "name": "Cash_Discount_Tmg",
+                    "pattern": "Cash_Discount_Tmg",
+                    "target": [
+                        "Cash_Discount_Tmg"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetFirstView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "FirstView",
+                    "viewName": "FirstView"
+                },
+                "Quantity_Discounts_Tmg": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Quantity_Discounts_Tmg",
+                    "viewName": "Quantity_Discounts_Tmg"
+                },
+                "Sales_Rebates_Tmg": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Sales_Rebates_Tmg",
+                    "viewName": "Sales_Rebates_Tmg"
+                },
+                "Cash_Discount_Tmg": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Cash_Discount_Tmg",
+                    "viewName": "Cash_Discount_Tmg"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "zsdmodulepooltmg.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

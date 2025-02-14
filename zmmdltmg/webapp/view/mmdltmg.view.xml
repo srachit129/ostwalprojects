@@ -1,0 +1,139 @@
+<mvc:View controllerName="zmmdltmg.controller.mmdltmg"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <!-- <Button text="Excel upload" press="onConfirmDialog" /> -->
+            <table:Table id="table1" rows="{oTableItemModel>/aTableItem}" selectionMode="MultiToggle" visibleRowCountMode="Auto" ariaLabelledBy="title">
+                <table:extension>
+                    <OverflowToolbar id="OverflowToolbar" style="Clear">
+                        <Button id="Table_ExcelUploadButton" icon="sap-icon://excel-attachment" text="Upload" tooltip="Excel Upload" press="onConfirmDialog"/>
+                        <Button id="Table_ExcelDownloadButton" icon="sap-icon://excel-attachment" type="Default" text="Download" tooltip="Excel Upload" press="OnDownloadExcel"/>
+                        <Button id="GetData" text="Get Data" press="CallBackendData" />
+                        <!-- <Button text="Send Email" press="onSendEmailPress" /> -->
+                        <ToolbarSpacer id="Tbs" />
+                        <!-- <Button icon="sap-icon://excel-attachment" text="Download Excel" press="onDataExport"/> -->
+                        <Button id="Refresh_Button" text="Refresh" press="RefreshTableData" />
+                        <Button id="save_Button" icon="sap-icon://save" text="Save" tooltip="Add item" press="onSave" />
+                        <Button id="add_Button" icon="sap-icon://add" tooltip="Add item" press="addRow" />
+                        <Button id="delete_Button" icon="sap-icon://delete" tooltip="Add item" press="deleteRow" />
+                        <!-- <Button icon="sap-icon://delete" tooltip="Delete Table records" press="onDelete" /> -->
+                    </OverflowToolbar>
+                </table:extension>
+                <table:columns>
+                    <table:Column id="tc1" width="9rem">
+                        <Label id="tl1" text="Di Number" />
+                        <table:template>
+                            <Input id="DiNumber" value="{oTableItemModel>DiNumber}" submit="DiNumberFunction" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column id="tc2" width="9rem">
+                        <Label id="tl2" text="Company Code" />
+                        <table:template>
+                            <!-- <Input maxLength="4" value="{oTableItemModel>CompanyCode}" editable="true" /> -->
+                            <Input id="CompanyCode" type="Text" value="{oTableItemModel>CompanyCode}" placeholder="Select Material Code" showValueHelp="true" valueHelpOnly="true" valueHelpIconSrc="sap-icon://value-help" valueHelpRequest="onValueHelpRequest">
+                                <customData>
+                                    <core:CustomData key="CompanyCode" />
+                                </customData>
+                            </Input>
+                        </table:template>
+                    </table:Column>
+
+
+                    <table:Column id="tc3" width="9rem">
+                        <Label id="tl3" text="Plant" />
+                        <table:template>
+                            <Input id="Plant" type="Text" value="{oTableItemModel>Plant}" placeholder="Select Material Code" showValueHelp="true" valueHelpOnly="true" valueHelpIconSrc="sap-icon://value-help" valueHelpRequest="onValueHelpRequest">
+                                <customData>
+                                    <core:CustomData key="Plant" />
+                                </customData>
+                            </Input>
+                            <!-- <Input maxLength="4" value="{oTableItemModel>Plant}" editable="true" /> -->
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column id="tc4" width="14rem">
+                        <Label id="tl4" text="Material Code" width="10rem"/>
+                        <table:template>
+                            <Input id="MaterialCode" type="Text" value="{oTableItemModel>MaterialCode}" placeholder="Select Material Code" showValueHelp="true" valueHelpOnly="true" valueHelpIconSrc="sap-icon://value-help" valueHelpRequest="onValueHelpRequest">
+                                <customData>
+                                    <core:CustomData key="MC" />
+                                </customData>
+                            </Input>
+                            <!-- <Input value="{oTableItemModel>MaterialCode}" editable="true" /> -->
+                        </table:template>
+                    </table:Column>
+                    <table:Column id="tc5" width="14rem">
+                        <Label id="tl5" text="Material Description" width="10rem"/>
+                        <table:template>
+                            <Input id="MaterialDescription" editable="false" type="Text" value="{oTableItemModel>MaterialDescription}" />
+                            <!-- <Input id="MaterialDescription" type="Text" value="{oTableItemModel>MaterialDescription}" placeholder="Select Material Description" showValueHelp="true" valueHelpOnly="true" valueHelpIconSrc="sap-icon://value-help" valueHelpRequest="handleValueHelp" />  -->
+
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column id="tc6" width="14rem">
+                        <Label id="tl6" text="Material Group" />
+                        <table:template>
+                            <Input id="MaterialGroup" type="Text" value="{oTableItemModel>MaterialGroup}" placeholder="Select Material Group" showValueHelp="true" valueHelpOnly="true" valueHelpIconSrc="sap-icon://value-help" valueHelpRequest="onValueHelpRequest">
+                                <customData>
+                                    <core:CustomData key="PC" />
+                                </customData>
+                            </Input>
+                            <!-- <Input id="material" value="{oTableItemModel>MaterialGroup}" editable="true" /> -->
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column id="tc7" width="14rem">
+                        <Label id="tl7" text="Material Group Text" />
+                        <table:template>
+                            <!-- <Input id="MaterialGroupText" type="Text" value="{oTableItemModel>MaterialGroupText}" placeholder="Select Material Group Text" showValueHelp="true" valueHelpOnly="true" valueHelpIconSrc="sap-icon://value-help" valueHelpRequest="handleValueHelp" />  -->
+
+                            <Input id="MaterialGroupText" type="Text" editable="false" value="{oTableItemModel>MaterialGroupText}" />
+                            <!-- <Input id="material" value="{oTableItemModel>MaterialGroup}" editable="true" /> -->
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column id="tc8" width="9rem">
+                        <Label id="tl8" text="Actual Qty" />
+                        <table:template>
+                            <Input id="amount" value="{oTableItemModel>ActualQty}" submit="ActualQuantityFunction" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+
+                    <table:Column id="tc9" width="9rem">
+                        <Label id="tl9" text="Received Qty" />
+                        <table:template>
+                            <Input id="ReceivedQty" value="{oTableItemModel>ReceivedQty}" editable="false" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column id="tc10" width="9rem">
+                        <Label id="tl10" text="Pending Qty" />
+                        <table:template>
+                            <Input id="PendingQty" value="{oTableItemModel>PendingQty}" editable="false" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column id="tc11" width="11rem">
+                        <Label id="tl11" text="Start Date" />
+                        <table:template>
+                            <DatePicker id="StartDate" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oTableItemModel>StartDate}" editable="true" />
+                        </table:template>
+                    </table:Column>
+
+                    <table:Column id="tc12" width="11rem">
+                        <Label id="tl12" text="End Date" />
+                        <table:template>
+                            <DatePicker id="EndDate" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oTableItemModel>EndDate}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+        </content>
+    </Page>
+</mvc:View>

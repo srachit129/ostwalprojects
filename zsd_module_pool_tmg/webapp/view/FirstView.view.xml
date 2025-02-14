@@ -1,0 +1,40 @@
+<mvc:View controllerName="zsdmodulepooltmg.controller.FirstView"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:F="sap.ui.layout.form" xmlns:C="sap.ui.core" xmlns:Tab="sap.ui.table" >
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel  id="Panel1">
+                <Label required="true" visible="{oCircularVisibleModel>/aCircularVisibleorNot}" id="CircularNumberLab" labelFor="CircularNumber" class="Circular_LabelClass" design="Bold" text="Circular Number:" />
+                <!-- <Input visible="{oCircularVisibleModel>/aCircularVisibleorNot}" id="CircularNumber" width="15rem" editable="true"/> -->
+                <Input id="CircularNumber" visible="{oCircularVisibleModel>/aCircularVisibleorNot}"  width="15rem" placeholder="Enter Circular Numbery" showSuggestion="true" showValueHelp="true" valueLiveUpdate="true" maxSuggestionWidth="55%" valueHelpRequest=".handleValueHelpCircularNumber" suggestionRows="{path : 'CircularNumberModel>/aData', length:5000000}">
+                            <suggestionColumns>
+                                <Column id="Column1">
+                                    <Label id="Column_Label1" text="circular_no"/>
+                                </Column>
+                                <Column id="Column2">
+                                    <Label id="Column_Label2" text="SAP_Description"/>
+                                </Column>
+                            </suggestionColumns>
+                            <suggestionRows>
+                                <ColumnListItem id="ColumnListItem1">
+                                    <Label id="ColumnListItem_Label1" text="{CircularNumberModel>circular_no}" />
+                                    <Label id="ColumnListItem_Label2" text="{CircularNumberModel>SAP_Description}" />
+                                </ColumnListItem>
+                            </suggestionRows>
+                        </Input>
+                <VBox id="Vbox1">
+                    <RadioButtonGroup select="CircularVisibleorNotFunction" columns="1" id="idActionRadioBtnGroup" >
+                        <buttons>
+                            <RadioButton text="Quantity Discount" id="Quantity_Discount" />
+                            <RadioButton text="Sales Rebate" id="Sales_Rebate"/>
+                            <RadioButton text= "Cash Discount" id="cash_discount"></RadioButton>
+                            <RadioButton text= "Update" id="Update"></RadioButton>
+                            <RadioButton text= "Print" id="Print"></RadioButton>
+                        </buttons>
+                    </RadioButtonGroup>
+                    <Button id="next" width="100px" type="Emphasized"  text="Next"  press="NextView"  ></Button>
+                </VBox>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

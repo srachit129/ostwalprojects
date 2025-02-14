@@ -1,0 +1,237 @@
+<mvc:View controllerName="zpaymentrequest.controller.paymentrequest"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:Tab="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="Panel1" >
+                <form:SimpleForm id="Form1" layout="ResponsiveGridLayout" columnsL="3" editable="true">
+                    <core:Title id="coreTitle1"></core:Title>
+                    <Label id="CompanyCodeLab" design="Bold" text="Company Code" required="true"></Label>
+                    <!-- <Input id="idCompanyCode" maxLength="4"></Input> -->
+                    <ComboBox id="idCompanyCode" selectedKey="0">
+                        <items>
+                            <core:Item id="com1" key="0" text="1000" />
+                            <core:Item id="com2" key="1" text="2000" />
+                            <core:Item id="com3" key="2" text="3000" />
+                            <core:Item id="com4" key="3" text="4000" />
+                        </items>
+                    </ComboBox>
+                    <Label id="FiscalYearLab" design="Bold" text="Fiscal Year" required="true"></Label>
+                    <DatePicker id="idFiscalYear" displayFormat="yyyy" valueFormat="yyyy"></DatePicker>
+                    <!-- <Input id="idFiscalYear"></Input> -->
+                    <Label id="PostingDateLab" design="Bold" text="Key Date" required="true"></Label>
+                    <!-- <DatePicker id="idPostingDateFrom" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd"></DatePicker> -->
+                    <DatePicker id="idPostingDateTo" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd"></DatePicker>
+                    <!-- <Label id="SupplierLab" design="Bold" text="Supplier"></Label>
+                    <Input id="idSupplier"></Input>
+                    <Label design="Bold" text="Account Group"></Label>
+                    <Input id="idAccntGrp"></Input> -->
+                    <!-- <Label design="Bold" text="Accounting Document Entry"></Label>
+                    <Input id="idAccountingDocument"></Input>
+                    <Label design="Bold" text="Clearing Document Entry"></Label>
+                    <Input id="idClearingDocument"></Input> -->
+                    <Label id="Lab" design="Bold"></Label>
+                    <HBox id="HBox1">
+                        <VBox id="VBox1">
+                            <Button id="GetTableDataButton" class="sapUiSmallMarginTop" text="Get Data" press="GetTableData1"></Button>
+                        </VBox>
+                    </HBox>
+                    <core:Title id="CoreTitle1"></core:Title>
+                    <!-- <Label text="Aging Grid"></Label>
+                    <Input id="grid1" submit="changeColumnName"></Input>
+                    <Input id="grid2" submit="changeColumnName"></Input>
+                    <Input id="grid3" submit="changeColumnName"></Input>
+                    <Input id="grid4" submit="changeColumnName" visible="false"></Input> -->
+                </form:SimpleForm>
+            </Panel>
+            <Panel id="Panel2">
+                <Tab:Table id="FirstTable" rows="{oTableDataModel>/aTableData}" cellClick="onSelect" rowSelectionChange="onSelect">
+                    <Tab:extension>
+                        <OverflowToolbar id="oftb" style="Clear">
+                            <ToolbarSpacer id="tbs" />
+                            <!-- <Button id="Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="saveTableData"/> -->
+                            <!-- <Button id="Table_AddButton" icon="sap-icon://add" tooltip="Add One Empty Table Row" press="AddTableData"/> -->
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column id="Table_tc1" width="10rem">
+                            <Label id="Table_Label1" text="Account Group" />
+                            <Tab:template>
+                                <Input id="Table_Input1" type="Text" editable="false" value="{oTableDataModel>SupplierAccountGroup}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc2" width="12rem" >
+                            <Label id="Table_Label2" text="Account Group Text" />
+                            <Tab:template>
+                                <Input id="Table_Input2" type="Text" editable="false" value="{oTableDataModel>AccountGroupText}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc12" width="8rem" visible="false">
+                            <Label id="Table_Label12" text="Due on" />
+                            <Tab:template>
+                                <Input id="Table_Input12" type="Text" editable="false" value="{oTableDataModel>NetDueDate}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column filterProperty="OverDueDays" id="Table_tc13" width="8rem" visible="false">
+                            <Label id="Table_Label13" text="Overdue by days" />
+                            <Tab:template>
+                                <Input id="Remark" editable="false" value="{oTableDataModel>OverDueDays}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc3" width="9rem" visible="true">
+                            <Label id="Table_Label3" text="{oGenericModel>/labeltype}" />
+                            <Tab:template>
+                                <Input id="Table_Input3" type="Text" editable="false" value="{oTableDataModel>Labeltype}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc4" width="9rem">
+                            <Label id="Table_Label4" text="{oGenericModel>/labeltype1}" />
+                            <Tab:template>
+                                <Input id="Table_Input4" type="Text" editable="false" value="{oTableDataModel>Labeltype1}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc5" width="9rem">
+                            <Label id="Table_Label5" text="{oGenericModel>/labeltype2}" />
+                            <Tab:template>
+                                <Input id="Table_Input5" type="Text" editable="false" value="{oTableDataModel>Labeltype2}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc6" width="10rem">
+                            <Label id="Table_Label6" text="{oGenericModel>/labeltype3}" />
+                            <Tab:template>
+                                <Input id="Table_Input6" type="Text" editable="false" value="{oTableDataModel>Labeltype3}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column  width="10rem">
+                            <Label text="GL Balance" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oTableDataModel>GLBalance}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="10rem">
+                            <Label text="Partial Payment" />
+                            <Tab:template>
+                                <Input type="Text" editable="{oTableDataModel>paymentblockingreason}" value="{oTableDataModel>Partialpayment}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="8rem">
+                            <Label text="Remark" />
+                            <Tab:template>
+                                <Input value="{oTableDataModel>Remark}" editable="{oTableDataModel>paymentblockingreason}" ></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="13rem">
+                            <Label text="Requested / Rejected" />
+                            <Tab:template>
+                                <Text id="Requested_ColumneText" text="{oTableDataModel>Requested}"/>
+                                <!-- <Input value="{oTableDataModel>Remark}"></Input> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="8rem">
+                            <Label text="Request" />
+                            <Tab:template>
+                                <Button text="Request" enabled="{oTableDataModel>paymentblockingreason}" visible="{oTableDataModel>Request_Button}" press="onRequest"></Button>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="10rem">
+                            <Label text="Supplier Details" />
+                            <Tab:template>
+                                <Button text="Get Supplier Details" press="supplierDetails"></Button>
+                            </Tab:template>
+                        </Tab:Column>
+
+
+                        <!-- <Tab:Column width="8rem">
+                            <Label text="Advice Amount" />
+                            <Tab:template>
+                                <Input value="{oTableDataModel>AdviceAmount}" editable="false"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="8rem">
+                            <Label text="Advance Advice" />
+                            <Tab:template>
+                                <Input value="{oTableDataModel>AdvanceAdvice}" editable="false"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="14rem">
+                            <Label text="GL balance after advice process" />
+                            <Tab:template>
+                                <Input value="{oTableDataModel>GLBalanceAfterAdvice}" editable="false"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        
+
+                        <Tab:Column width="10rem" visible="false">
+                            <Label text="Account Document" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oTableDataModel>AccountingDocument}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="10rem" visible="false">
+                            <Label text="Company Code" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oTableDataModel>CompanyCode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+
+                        <Tab:Column id="Table_tc223" width="10rem" visible="true">
+                            <Label id="Table_Label223" text="Supplier" />
+                            <Tab:template>
+                                <Input id="Table_Input223" type="Text" editable="false" value="{oTableDataModel>Supplier}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="12rem" visible="true">
+                            <Label text="Supplier Name" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oTableDataModel>SupplierName}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc2" width="7rem">
+                            <Label id="Table_Label2" text="Ref Date" />
+                            <Tab:template>
+                                <Input id="Table_Input2" type="Text" editable="false" value="{oTableDataModel>RefDate}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="7rem">
+                            <Label text="Ref No" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oTableDataModel>DocumentReference}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="7rem">
+                            <Label text="Item" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value=""/>
+                            </Tab:template>
+                        </Tab:Column>
+
+                        <Tab:Column id="Table_tc9" width="10rem">
+                            <Label id="Table_Label9" text="Not Due Amount" />
+                            <Tab:template>
+                                <Input id="Table_Input9" type="Text" editable="false" value="{oTableDataModel>NotDueAmt}"/>
+                            </Tab:template>
+                        </Tab:Column>
+
+                        <Tab:Column id="Table_tc10" width="10rem">
+                            <Label id="Table_Label10" text="Pending Amount" />
+                            <Tab:template>
+                                <Input id="Table_Input10" type="Text" editable="false" value="{oTableDataModel>PendingAmount}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc11" width="9rem">
+                            <Label id="Table_Label11" text="GST Input" />
+                            <Tab:template>
+                                <Input id="Table_Input11" type="Text" editable="false" value=""/>
+                            </Tab:template>
+                        </Tab:Column> -->
+
+                        
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

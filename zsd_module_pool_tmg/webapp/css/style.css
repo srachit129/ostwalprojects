@@ -1,0 +1,8 @@
+/* Enter your custom styles here */
+div[id*='Form1'] div h5 {   
+    display: none !important;
+}
+.Circular_LabelClass{
+    margin-top: 7px;
+    margin-right: 5px;
+}

@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: zmmdltmg
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: MY405122
+          url: https://my405122-api.s4hana.cloud.sap
+        app:
+          name: ZDIDETAIL
+          description: ""
+          package: ZMM_DL_TMG
+          transport: XNDK900790
+        exclude:
+          - /test/

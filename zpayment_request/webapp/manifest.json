@@ -1,0 +1,234 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "zpaymentrequest",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.10.3",
+            "toolsId": "11d8cfec-bf99-4277-b052-60f576330d9d"
+        },
+        "dataSources": {
+            "Z_VENDOR_BI": {
+                "uri": "/sap/opu/odata/sap/Z_VENDOR_BI",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/Z_VENDOR_BI/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZFIPAYMENT_PROGRAM": {
+                "uri": "/sap/opu/odata/sap/ZFIPAYMENT_PROGRAM",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZFIPAYMENT_PROGRAM/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZACC_GROUP_TOTAL": {
+                "uri": "/sap/opu/odata/sap/ZACC_GROUP_TOTAL",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZACC_GROUP_TOTAL/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZPAYMENT_WORKFLOW_BIN": {
+                "uri": "/sap/opu/odata/sap/ZPAYMENT_WORKFLOW_BIN",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZPAYMENT_WORKFLOW_BIN/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "zpaymentrequest-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "zfipayment",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.116.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zpaymentrequest.i18n.i18n"
+                }
+            },
+            "": {
+                "preload": true,
+                "dataSource": "Z_VENDOR_BI",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZFIPAYMENT_PROGRAM": {
+                "dataSource": "ZFIPAYMENT_PROGRAM",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZACC_GROUP_TOTAL": {
+                "dataSource": "ZACC_GROUP_TOTAL",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZPAYMENT_WORKFLOW_BIN": {
+                "dataSource": "ZPAYMENT_WORKFLOW_BIN",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "zpaymentrequest.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "Routepaymentrequest",
+                    "pattern": ":?query:",
+                    "target": [
+                        "Targetpaymentrequest"
+                    ]
+                },
+                {
+                    "name": "supplierdetails",
+                    "pattern": "supplierdetails",
+                    "target": [
+                        "supplierdetails"
+                    ]
+                },
+                {
+                    "name": "ThirdScrenData",
+                    "pattern": "ThirdScrenData",
+                    "target": [
+                        "ThirdScrenData"
+                    ]
+                }
+            ],
+            "targets": {
+                "Targetpaymentrequest": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "paymentrequest",
+                    "viewName": "paymentrequest"
+                },
+                "supplierdetails": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "supplierdetails",
+                    "viewName": "supplierdetails"
+                },
+                "ThirdScrenData": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "ThirdScrenData",
+                    "viewName": "ThirdScrenData"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "zpaymentrequest.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

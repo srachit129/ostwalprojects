@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zparts_life_cycle_def" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="PARTS_life_Cycle_reportType" sap:semantics="aggregate" sap:label="RESPONCE CDS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="maintenanceorder" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:label="Maintenance Order"/>
+                <Property Name="maintenanceordertype" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Maintenance Order Type"/>
+                <Property Name="scheduledbasicstartdate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Scheduled Basic Start Date"/>
+                <Property Name="mainworkcenter" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Main Work Center"/>
+                <Property Name="mainworkcenterplant" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Main Work Center Plant"/>
+                <Property Name="maintenanceplanningplant" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Maintenance Planning Plant"/>
+                <Property Name="companycode" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Company Code"/>
+                <Property Name="costcenter" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Cost Center"/>
+                <Property Name="equipment" Type="Edm.String" MaxLength="20" sap:aggregation-role="dimension" sap:label="Equipment"/>
+                <Property Name="materialdocumentitemtext" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Material Document Item Text"/>
+                <Property Name="material" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Material"/>
+                <Property Name="equipmentname" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Equipment Name"/>
+                <Property Name="functionallocation" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Functional Location"/>
+                <Property Name="maintenanceactivitytype" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Maintenance Activity Type"/>
+                <Property Name="plantsection" Type="Edm.String" MaxLength="20" sap:aggregation-role="dimension" sap:label="Plant Section"/>
+                <Property Name="plant" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Issuing Plant"/>
+                <Property Name="storagelocation" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Issuing Storage Location"/>
+                <Property Name="reservation" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Reservation"/>
+                <Property Name="reservationitem" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:label="Reservation Item"/>
+                <Property Name="goodsrecipientname" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Goods Recipient Name"/>
+                <Property Name="postingdate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Posting Date"/>
+                <Property Name="maintenanceorderdesc" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension" sap:label="Maintenance Order Desc"/>
+                <Property Name="life_cycle" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Life_Cycle"/>
+                <Property Name="EntryUnit" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:label="Entry Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="quantityinentryunit" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="measure" sap:unit="EntryUnit" sap:label="Quantity Entry Unit" sap:filterable="false"/>
+                <Property Name="CompanyCodeCurrency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:label="CompanyCodeCurrency" sap:semantics="currency-code"/>
+                <Property Name="totalgoodsmvtamtincccrcy" Type="Edm.Decimal" Precision="13" Scale="2" sap:aggregation-role="measure" sap:unit="CompanyCodeCurrency" sap:variable-scale="true" sap:label="Total Goods Amt In Currency" sap:filterable="false"/>
+                <Property Name="MaterialGroup" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension"/>
+                <Property Name="MaterialDescription" Type="Edm.String" MaxLength="50" sap:aggregation-role="dimension"/>
+                <Property Name="TechnicalObjcetType" Type="Edm.String" MaxLength="40" sap:aggregation-role="dimension"/>
+                <Property Name="PurchaseOrder" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension"/>
+                <Property Name="PurchaseRequisition" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension"/>
+                <Property Name="MaintOrdProcessSubPhaseCode" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:display-format="NonNegative"/>
+            </EntityType>
+            <EntityContainer Name="cds_zparts_life_cycle_def_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="PARTS_life_Cycle_report" EntityType="cds_zparts_life_cycle_def.PARTS_life_Cycle_reportType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="cds_zparts_life_cycle_def.cds_zparts_life_cycle_def_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_zparts_life_cycle_def.cds_zparts_life_cycle_def_Entities/PARTS_life_Cycle_report" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                                <PropertyPath>quantityinentryunit</PropertyPath>
+                                <PropertyPath>totalgoodsmvtamtincccrcy</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ID</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zparts_life_cycle_def.cds_zparts_life_cycle_def_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/sap/ZPARTS_LIFE_CYCLE_BINDING/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/sap/ZPARTS_LIFE_CYCLE_BINDING/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,170 @@
+<mvc:View controllerName="zquantitydiscountmodulepool.controller.rebatedetailsWithAdvance"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table">
+    <Page id="page" title="Quantity Discount With Advance" >
+        <content>
+            <Panel id="Panel1">
+                <f:SimpleForm id="SimpleForm1" layout="ResponsiveGridLayout" columnsL="3" editable="true">
+                    <f:content>
+                        <core:Title text="" id="Ctitle1"/>
+                        <Label text="Customer Code" id="CustomerCodeLabel" />
+                        <Input id="CustomerCode" editable="false" value="{oHeaderModel>/BILLTOPARTY}"></Input>
+                        <Label id="ShiptoCodeLabel" text="Ship to Code" />
+                        <Input id="ShiptoCode" editable="false"></Input>
+                        <Label id="CustomerDistrictLabel" text="Customer District" />
+                        <Input id="CustomerDistrict" editable="false" value="{oHeaderModel>/DistrictName}"></Input>
+                        <core:Title id="Ctitle2"/>
+
+                        <!-- <Input placeholder="Enter To Location" id="Toloc" /> -->
+                        <Label id="CustomerNameLabel" text="Customer Name" />
+                        <Input id="CustomerName" editable="false" value="{oHeaderModel>/CustomerName}" submit="onReadData" />
+                        <Label id="ShiptoNameLabel" text="Ship to Name" />
+                        <Input id="ShiptoName" editable="false" value="{oHeaderModel>/SHIPTONAME}" submit="onReadData" />
+
+                        <Label id="BookingQuantityLabel" text="Booking Quantity" />
+                        <Input id="BookingQuantity" editable="false" />
+                        <core:Title id="Ctitle3"/>
+                    </f:content>
+                </f:SimpleForm>
+
+                <table:Table id="idMyTable" rows="{oTableItemModel>/aTableItem}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar style="Clear" id="MyTableOFD">
+                            <ToolbarSpacer id="MyTableTBS"/>
+                            <!-- <Button icon="sap-icon://add" tooltip="Add item" press="addRow" /> -->
+                            <Button id="CalculateGdBtn" text="Calculate QD" press="GeneralDiscountvalueChange"></Button>
+                            <!-- <Button id="DeleteTableRecordsButton" icon="sap-icon://delete" tooltip="Delete Table records" press="removeRow" /> -->
+                            <!-- <Button id="AddTableRecordsButton" icon="sap-icon://add" tooltip="Add Table records" press="addRow" /> -->
+                            <!-- <Button text="billing" press="BillingAmount" /> -->
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+                        <table:Column id="tc" width="7rem" visible="false">
+                            <Label id="lab" text="Item" />
+                            <table:template>
+                                <Input id="Input" value="{oTableItemModel>BillingDocumentItem}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn1" width="7rem">
+                            <Label id="TabLabel1" text="Invoice Date" />
+                            <table:template>
+                                <Input id="InvoiceDate" value="{oTableItemModel>InvoiceDate}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn2" width="14rem">
+                            <Label id="TabLabel2" text="Circular No" />
+                            <table:template>
+                                <Input id="CircularNo" value="{oTableItemModel>CircularNo}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn3" width="7rem" visible="false">
+                            <Label id="TabLabel3" text="Sales Group" />
+                            <table:template>
+                                <Input id="SalesGroup" value="{oTableItemModel>SalesGroup}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn4" width="7rem" visible="false">
+                            <Label id="TabLabel4" text="District" />
+                            <table:template>
+                                <Input id="District" value="{oTableItemModel>District}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn5" width="7rem">
+                            <Label id="TabLabel5" text="Invoice No." />
+                            <table:template>
+                                <Input id="InvoiceNo" value="{oTableItemModel>InvoiceNo}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn6" width="10rem">
+                            <Label id="TabLabel6" text="Material" />
+                            <table:template>
+                                <Input id="idMaterial" value="{oTableItemModel>Material}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn7" width="7rem">
+                            <Label id="TabLabel7" text="Quantity" />
+                            <table:template>
+                                <Input id="Quantity" value="{oTableItemModel>Quantity}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn8" width="10rem">
+                            <Label id="TabLabel8" text="Rate" />
+                            <table:template>
+                                <Input id="Rate" value="{oTableItemModel>Rate}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn9" width="7rem">
+                            <Label id="TabLabel9" text="Billing Amount" />
+                            <table:template>
+                                <Input id="BillingAmount" value="{oTableItemModel>BillingAmount}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn10" width="7rem">
+                            <Label id="TabLabel10" text="GST" />
+                            <table:template>
+                                <Input id="GST" value="{oTableItemModel>GST}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn11" width="10rem">
+                            <Label id="TabLabel11" text="Quantity Discount" />
+                            <table:template>
+                                <Input id="GeneralDiscount" value="{oTableItemModel>GeneralDiscount}" submit="calculateGD" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn111" width="7rem">
+                            <Label id="TabLabel111" text="Total Discount" />
+                            <table:template>
+                                <Input id="GeneralDiscount1" value="{oTableItemModel>TotalDiscount}" submit="calculateGD" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <!-- <table:Column id="TabColumn12" width="11rem">
+                            <Label id="TabLabel12" text="Cash Discount" />
+                            <table:template>
+                                <Input id="CashDiscount" value="{oTableItemModel>CashDiscount}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn13" width="11rem">
+                            <Label id="TabLabel13" text="Lifting Discount" />
+                            <table:template>
+                                <Input id="LiftingDiscount" value="{oTableItemModel>LiftingDiscount}" editable="true" submit="onSubmit" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn14" width="11rem">
+                            <Label id="TabLabel14" text="Special Discount" />
+                            <table:template>
+                                <Input id="SpecialDiscount" value="{oTableItemModel>SpecialDiscount}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn15" width="7rem">
+                            <Label id="TabLabel15" text="Other Discount" />
+                            <table:template>
+                                <Input id="OtherDiscount" value="{oTableItemModel>OtherDiscount}" editable="true" />
+                            </table:template>
+                        </table:Column> -->
+                        <table:Column id="TabColumn16" width="7rem">
+                            <Label id="TabLabel16" text="Credit Note No." />
+                            <table:template>
+                                <Input id="CreditNoteNo" value="{oTableItemModel>CreditNoteNo}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TabColumn161" width="7rem">
+                            <Label id="TabLabel161" text="Credit Note No." />
+                            <table:template>
+                                <Button id="GenerateBtn" visible="{oTableItemModel>ButtonGenerate}" text="Generate" press="GenerateNote"></Button>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="tcc" width="7rem">
+                            <Label id="label" text="Credit Note No." />
+                            <table:template>
+                                <Button id="butt" text="Reject" visible="{oTableItemModel>ButtonReject}" press="RejectNote" ></Button>
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

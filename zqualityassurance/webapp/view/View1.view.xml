@@ -1,0 +1,49 @@
+<mvc:View controllerName="zqualityassurance.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:C="sap.ui.core"
+    xmlns:Tab="sap.ui.table"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="Panel1" class="sapUiSmallMarginBottom">
+                <F:SimpleForm id="Form1" layout="ResponsiveGridLayout" editable="true">
+                    <F:content>
+                        <Label id="Companycode" design="Bold" text="Company Code" />
+                        <ComboBox id="companycode" change="ChangePlantAcoordingCompanyCode">
+                            <items>
+                                <C:Item id="com1" text="1000" />
+                                <C:Item id="com2" text="2000" />
+                                <C:Item id="com3" text="3000" />
+                                <C:Item id="com4" text="4000" />
+                            </items>
+                        </ComboBox>
+                        <!-- <Input id="companycode" editable="true"/> -->
+                        <Label id="Plant" design="Bold" text="Plant" />
+                        <ComboBox id="plant" selectedKey="{oSelectedKeyModel>/aSelectedKeyData}" items="{oCompanyCode>/CompanyCode}">
+                            <C:Item id="coreItem" key="{oCompanyCode>Key}" text="{oCompanyCode>Description}" />
+                        </ComboBox>
+                        <!-- <Input id="plant" editable="true"/> -->
+
+
+                        <Label design="Bold" id="PostingDateLab" text="Posting Date" />
+                        <DatePicker displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" editable="true" id="postdateFrom"/>
+                        <DatePicker displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" editable="true" id="postdateTo"/>
+                        <Label design="Bold" text="Raw Material"></Label>
+                        <MultiInput visible="{oMaterialModel>/rawmaterialvisible}" id="idRawMaterial" showValueHelp="false"></MultiInput>
+                        <Label design="Bold" text="FG Material"></Label>
+                        <MultiInput visible="{oMaterialModel>/visible}" id="idMaterial" showValueHelp="false"></MultiInput>
+                        <Label id="PostDateLab"></Label>
+                        <RadioButtonGroup id="radioButton" select="LabelNameChange" columns="2" class="sapUiMediumMarginBottom">
+                            <RadioButton id="RB3-1" text="Raw Material (Rock Phosphate)" />
+                            <RadioButton id="RB3-2" text="FG Material" select="onSelect"/>
+                        </RadioButtonGroup>
+                        <Label id="ButtonLab"></Label>
+                        <Button id="PrintButton" text="Print" press="PrintForm"/>
+                        <C:Title id="coret"/>
+                    </F:content>
+                </F:SimpleForm>
+            </Panel >
+        </content>
+    </Page>
+</mvc:View>

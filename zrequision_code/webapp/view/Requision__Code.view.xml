@@ -1,0 +1,34 @@
+<mvc:View controllerName="zrequisioncode.controller.Requision__Code"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:table="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <table:Table id="RequisitionTable" rows="{oTableItemModel>/aTableItem}" selectionMode="MultiToggle" visibleRowCountMode="Auto" ariaLabelledBy="title">
+                <table:extension>
+                    <OverflowToolbar id="OverflowToolbar" style="Clear">
+                        <ToolbarSpacer id="ToolBar"/>
+                        <Button id="SaveTableDataButton" icon="sap-icon://save" text="Save" tooltip="Add item" press="SaveTableData" />
+                        <Button id="AddTableDataButton" icon="sap-icon://add" tooltip="Add item" press="AddSingleRowData" />
+                        <Button id="DeleteTableDataButton" icon="sap-icon://delete" tooltip="Add item" press="DeleteTableData" />
+                        <!-- <Button icon="sap-icon://delete" tooltip="Delete Table records" press="onDelete" /> -->
+                    </OverflowToolbar>
+                </table:extension>
+
+                <table:columns>
+                    <table:Column id="tc1">
+                        <Label id="UserCodeLabel" text="User Code" />
+                        <table:template>
+                            <Input id="idMixingNo." value="{oTableItemModel>Usercode}" maxLength="4" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column id="tc2">
+                        <Label id="UserNamelabel" text="User Name" />
+                        <table:template>
+                            <Input id="District" value="{oTableItemModel>Username}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+        </content>
+    </Page>
+</mvc:View>

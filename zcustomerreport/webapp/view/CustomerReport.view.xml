@@ -1,0 +1,67 @@
+<mvc:View controllerName="zcustomerreport.controller.CustomerReport"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:C="sap.ui.core"
+    xmlns:Tab="sap.ui.table"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="Panel1" class="sapUiSmallMarginBottom">
+                <F:SimpleForm id="Form1" layout="ResponsiveGridLayout" editable="true">
+                    <F:content>
+                        <Label id="CompanyCodeLab" design="Bold" text="Company Code" />
+                        <MultiInput showClearIcon="true" id="idCompanyCode" showValueHelp="false" value="{oCompanyCodeModel>/comcode}" valueHelpRequest="handleValueHelp">
+                            <suggestionItems>
+                                <C:ListItem id="CompanyCode_cItem1" text="1000" />
+                                <C:ListItem id="CompanyCode_cItem2" text="2000" />
+                                <C:ListItem id="CompanyCode_cItem3" text="3000" />
+                                <C:ListItem id="CompanyCode_cItem4" text="4000" />
+                            </suggestionItems>
+                        </MultiInput>
+
+                        <!-- <MultiComboBox selectedKey="1" id="idCompanyCode">
+			                <C:Item key="1" id="CompanyCode_Item1" text="1000"/>
+			                <C:Item key="2" id="CompanyCode_Item2" text="2000"/>
+			                <C:Item key="3" id="CompanyCode_Item3" text="3000"/>
+			                <C:Item key="4" id="CompanyCode_Item4" text="4000"/>
+		                </MultiComboBox> -->
+                        <!-- <Input id="CompanyCode" editable="true"/> -->
+                        <Label design="Bold" id="CustomerLab" text="Customer" />
+                        <!-- <ComboBox width="100%" items="{path:'oCustomerModel>/aCustomerData', length:5000}" showSecondaryValues="true" id="Supplier_Customer" filterSecondaryValues="true">
+                            <items>
+                                <C:ListItem id="Component_ListItem" text="{oCustomerModel>Customer}" additionalText="{oCustomerModel>CustomerFullName}"></C:ListItem>
+                            </items>
+                        </ComboBox> -->
+
+                        <Input id="Supplier_Customer" submit="ChangeMaterialDescriptionAccordingMaterial" placeholder="Enter Customer" showSuggestion="true" showValueHelp="true" valueLiveUpdate="true" maxSuggestionWidth="55%" valueHelpRequest=".handleValueHelpforCustomer" suggestionItems="{path:'oCustomerModel>/aCustomerData', length:5000}">
+                            <suggestionItems>
+                                <C:ListItem id="cItem2" text="{oCustomerModel>Customer}" additionalText="{oCustomerModel>CustomerFullName}" />
+
+                            </suggestionItems>
+                        </Input>
+
+                        <Label id="lab" design="Bold" text="CC Mail ID"></Label>
+                        <MultiInput showClearIcon="true" id="idCustomerCode" suggestionItems="{
+				path: '/Zsupplier_f4',
+				sorter: { path: 'Supplier' }
+			}" showValueHelp="true" valueHelpRequest="handleValueHelp">
+                            <C:Item id="core" key="{Supplier}" text="{SupplierFullName}" />
+                        </MultiInput>
+
+                        <!-- <Input id="Supplier_Customer" editable="true"/> -->
+                        <Label design="Bold"  id="FiscalYearLab" text="Fiscal Year" />
+                        <Input id="FiscalYear"  editable="true"/>
+
+                        <Label design="Bold" id="PostingDateLab" text="Posting Date" />
+                        <DatePicker displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" editable="true" id="postdateFrom"/>
+                        <DatePicker displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" editable="true" id="postdateTo"/>
+                        <Label id="ButtonLab"></Label>
+                        <Button id="PrintButton" text="Print" icon="sap-icon://print" type="Emphasized" press="PrintForm"/>
+                        <Button id="MailButton" text="mail" icon="sap-icon://email" type="Emphasized" press="MailShoot"/>
+                        <C:Title id="coret"/>
+                    </F:content>
+                </F:SimpleForm>
+            </Panel >
+        </content>
+    </Page>
+</mvc:View>

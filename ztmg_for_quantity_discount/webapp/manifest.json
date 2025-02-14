@@ -1,0 +1,143 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "ztmgforquantitydiscount",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.10.1",
+            "toolsId": "53c9660f-4564-4fb1-b058-c747b699197c"
+        },
+        "dataSources": {
+            "ZQUANTITY_DISCOUNT_VALID": {
+                "uri": "/sap/opu/odata/sap/ZQUANTITY_DISCOUNT_VALID",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "ztmgforquantitydiscount-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "ZTMG_FOR_QUANT_DISK",
+                    "action": "DISPLAY",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.115.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ztmgforquantitydiscount.i18n.i18n"
+                }
+            },
+            "": {
+                "preload": true,
+                "dataSource": "ZQUANTITY_DISCOUNT_VALID",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "ztmgforquantitydiscount.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteTmg_For_Quantity_Discount",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetTmg_For_Quantity_Discount"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetTmg_For_Quantity_Discount": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Tmg_For_Quantity_Discount",
+                    "viewName": "Tmg_For_Quantity_Discount"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "ztmgforquantitydiscount.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

@@ -1,0 +1,33 @@
+<mvc:View controllerName="zfiusertmg.controller.zfiusername"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <table:Table id="idMyTable" width="auto" rows="{oTableItemModel>/aTableItem}" visibleRowCountMode="Auto" selectionMode="MultiToggle" ariaLabelledBy="title">
+                <table:extension>
+                    <OverflowToolbar style="Clear">
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://save" text="Save" tooltip="Add item" press="saveData" />
+                        <Button icon="sap-icon://add" tooltip="Add item" press="addRow" />
+                        <Button icon="sap-icon://delete" tooltip="Add item" press="deleteRow" />
+                    </OverflowToolbar>
+                </table:extension>
+                <table:columns>
+                    <table:Column>
+                        <Label text="User" />
+                        <table:template>
+                            <Input value="{oTableItemModel>User}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Account Group" />
+                        <table:template>
+                            <Input value="{oTableItemModel>AccountGroup}"/>
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+        </content>
+    </Page>
+</mvc:View>

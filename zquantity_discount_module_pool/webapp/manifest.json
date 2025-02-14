@@ -1,0 +1,276 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "zquantitydiscountmodulepool",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.10.1",
+            "toolsId": "f1d8dc0d-f343-4fa1-b9a4-16dd9eaa8a8b"
+        },
+        "dataSources": {
+            "ZINVOICE_DATA": {
+                "uri": "/sap/opu/odata/sap/ZINVOICE_DATA",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZINVOICE_DATA/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZQUANTITY_DISCOUNT_VALID": {
+                "uri": "/sap/opu/odata/sap/ZQUANTITY_DISCOUNT_VALID",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZQUANTITY_DISCOUNT_VALID/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZQDT_SERVICE_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZQDT_SERVICE_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZQDT_SERVICE_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZCUSTOMERCODE": {
+                "uri": "/sap/opu/odata/sap/ZCUSTOMERCODE",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZCUSTOMERCODE/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZRETURN_QTY_BINDING": {
+                "uri": "/sap/opu/odata/sap/ZRETURN_QTY_BINDING",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZRETURN_QTY_BINDING/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZQTY_DIS_IN_NO": {
+                "uri": "/sap/opu/odata/sap/ZQTY_DIS_IN_NO",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZQTY_DIS_IN_NO/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "zquantitydiscountmodulepool-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "ZQUANTITY_DISK",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.115.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zquantitydiscountmodulepool.i18n.i18n"
+                }
+            },
+            "": {
+                "preload": true,
+                "dataSource": "ZINVOICE_DATA",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZQUANTITY_DISCOUNT_VALID": {
+                "dataSource": "ZQUANTITY_DISCOUNT_VALID",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZQDT_SERVICE_BINDING": {
+                "dataSource": "ZQDT_SERVICE_BINDING",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZCUSTOMERCODE": {
+                "dataSource": "ZCUSTOMERCODE",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZRETURN_QTY_BINDING": {
+                "dataSource": "ZRETURN_QTY_BINDING",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZQTY_DIS_IN_NO": {
+                "dataSource": "ZQTY_DIS_IN_NO",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "zquantitydiscountmodulepool.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "Routerebate",
+                    "pattern": ":?query:",
+                    "target": [
+                        "Targetrebate"
+                    ]
+                },
+                {
+                    "name": "rebatedetails",
+                    "pattern": "rebatedetails",
+                    "target": [
+                        "rebatedetails"
+                    ]
+                },
+                {
+                    "name": "rebatedetailsWithAdvance",
+                    "pattern": "rebatedetailsWithAdvance",
+                    "target": [
+                        "rebatedetailsWithAdvance"
+                    ]
+                }
+            ],
+            "targets": {
+                "Targetrebate": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "rebate",
+                    "viewName": "rebate"
+                },
+                "rebatedetails": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "rebatedetails",
+                    "viewName": "rebatedetails"
+                },
+                "rebatedetailsWithAdvance": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "rebatedetailsWithAdvance",
+                    "viewName": "rebatedetailsWithAdvance"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "zquantitydiscountmodulepool.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

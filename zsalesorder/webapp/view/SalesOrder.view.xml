@@ -1,0 +1,21 @@
+<mvc:View controllerName="zsalesorder.controller.SalesOrder"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" columnsL="3">
+                <Label text="Sales Order No."></Label>
+                <Input id="idSalesOrder" maxLength="10"></Input>
+                <Label ></Label>
+                <HBox >
+                    <VBox >
+                        <Button icon="sap-icon://print" text="Print" class="sapUiSmallMarginTop" press="onPress"></Button>
+                    </VBox>
+                </HBox>
+                <core:Title ></core:Title>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,172 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "zpurregister",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.11.0",
+            "toolsId": "99514127-6169-496d-b9c0-72ab9929f1f6"
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "zpurregister-display": {
+                    "semanticObject": "zpurregister",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    }
+                }
+            }
+        },
+        "dataSources": {
+            "ZMM_PURCHASE_REGISTER_BIN_Annotation": {
+                "uri": "/destinations/MY405122/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZMM_PURCHASE_REGISTER_BIN_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZMM_PURCHASE_REGISTER_BIN/ZMM_PURCHASE_REGISTER_BIN_Annotation.xml"
+                }
+            },
+            "ZMM_PURCHASE_REGISTER_BIN": {
+                "uri": "/sap/opu/odata/sap/ZMM_PURCHASE_REGISTER_BIN",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZMM_PURCHASE_REGISTER_BIN_Annotation"
+                    ],
+                    "localUri": "localService/ZMM_PURCHASE_REGISTER_BIN/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZSEARCHHELP": {
+                "uri": "/sap/opu/odata/sap/ZSEARCHHELP",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZSEARCHHELP/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.118.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zpurregister.i18n.i18n"
+                }
+            },
+            "": {
+                "preload": true,
+                "dataSource": "ZMM_PURCHASE_REGISTER_BIN",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZSEARCHHELP": {
+                "dataSource": "ZSEARCHHELP",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "zpurregister.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "Routemmpurchaseregister",
+                    "pattern": ":?query:",
+                    "target": [
+                        "Targetmmpurchaseregister"
+                    ]
+                }
+            ],
+            "targets": {
+                "Targetmmpurchaseregister": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "mmpurchaseregister",
+                    "viewName": "mmpurchaseregister"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "zpurregister.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

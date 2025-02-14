@@ -1,0 +1,123 @@
+<mvc:View controllerName="zcashdiscountmodulepool.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:table="sap.ui.table"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}" showNavButton="true" navButtonPress="BackButton" class="myCustomBackground">
+        <content>
+            <Panel id="p1" backgroundDesign="Transparent">
+                <form:SimpleForm id="form1" layout="ResponsiveGridLayout" columnsL="2" backgroundDesign="Transparent">
+                    <core:Title id="core" />
+                    <Label id="label1" design="Bold" text="Customer Code"></Label>
+                    <Input id="input1" editable="false"></Input>
+                    <Label id="label2" design="Bold" text="Ship To Code"></Label>
+                    <Input id="input2" editable="false"></Input>
+                    <Label id="label3" design="Bold" text="Customer District"></Label>
+                    <Input id="input3" editable="false"></Input>
+                    <core:Title id="core1" />
+                    <Label id="label4" design="Bold" text="Customer Name"></Label>
+                    <Input id="input4" editable="false"></Input>
+                    <Label id="label5" design="Bold" text="Ship To Name"></Label>
+                    <Input id="input5" editable="false"></Input>
+                    <core:Title id="core2" />
+                </form:SimpleForm>
+                <table:Table id="table1" rows="{}" >
+                    <table:extension>
+                        <OverflowToolbar id="over">
+                            <ToolbarSpacer id="tool"></ToolbarSpacer>
+                            <Button id="delCalculateGdBtnete" text="Calculate QD" icon="sap-icon://simulate"></Button>
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+                    <table:Column id="col1" width="6rem">
+                            <Label id="l1" design="Bold" text="Item"></Label>
+                            <table:template>
+                                <Input id="in1" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col2" width="9rem">
+                            <Label id="l2" design="Bold" text="Invoice Date"></Label>
+                            <table:template>
+                                <Input id="in2" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col3" width="9rem">
+                            <Label id="l3" design="Bold" text="Circular No"></Label>
+                            <table:template>
+                                <Input id="in3" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col4" width="9rem">
+                            <Label id="l4" design="Bold" text="Invoice No"></Label>
+                            <table:template>
+                                <Input id="in4" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col5" width="9rem">
+                            <Label id="l5" design="Bold" text="Material"></Label>
+                            <table:template>
+                                <Input id="in5" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col6" width="9rem">
+                            <Label id="l6" design="Bold" text="Quantity"></Label>
+                            <table:template>
+                                <Input id="in6" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col7" width="9rem">
+                            <Label id="l7" design="Bold" text="Rate"></Label>
+                            <table:template>
+                                <Input id="in7" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col8" width="9rem">
+                            <Label id="l8" design="Bold" text="Billing Amount"></Label>
+                            <table:template>
+                                <Input id="in8" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col9" width="9rem">
+                            <Label id="l9" design="Bold" text="GST"></Label>
+                            <table:template>
+                                <Input id="in9" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col10" width="9rem">
+                            <Label id="l10" design="Bold" text="Quantity Discount"></Label>
+                            <table:template>
+                                <Input id="in10" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col11" width="9rem">
+                            <Label id="l11" design="Bold" text="Total Discount"></Label>
+                            <table:template>
+                                <Input id="in11" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col12" width="9rem">
+                            <Label id="l12" design="Bold" text="Credit Note No"></Label>
+                            <table:template>
+                                <Input id="in12" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col13" width="9rem">
+                            <Label id="l13" design="Bold" text="Credit Note No"></Label>
+                            <table:template>
+                                <Input id="in13" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="col14" width="9rem">
+                            <Label id="l14" design="Bold" text="Credit Note No"></Label>
+                            <table:template>
+                                <Input id="in14" value="{}"></Input>
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

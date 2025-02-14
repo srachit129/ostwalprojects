@@ -1,0 +1,291 @@
+<mvc:View controllerName="zfigeneralledger.controller.generalledger"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:F="sap.ui.layout.form" xmlns:C="sap.ui.core" xmlns:Tab="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Tab:Table id="FirstTable" rows="{oTableDataModel>/aTableData}" visibleRowCountMode="Auto">
+                <Tab:extension>
+                    <OverflowToolbar id="Table_OverflowToolbar"  style="Clear">
+                        <ToolbarSpacer id="Table_ToolbarSpacer" />
+                        <Button id="Table_DownloadButton" icon="sap-icon://excel-attachment" tooltip="Save Table records" text="Download" press="ExcelTemplateDownload"/>
+                        <Button id="Table_UploadButton" icon="sap-icon://excel-attachment" tooltip="Save Table records"  text="Upload" press="ExcelDataUpload"/>
+                        <Button id="Table_AddButton" icon="sap-icon://add" tooltip="Save Table records" press="AddSingleEmptyRow"/>
+                        <Button id="Table_DeleteButton" icon="sap-icon://delete" tooltip="Save Table records" press="DeleteTables_SelectedRow"/>
+                        <Button id="Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="SaveTableData"/>
+                    </OverflowToolbar>
+                </Tab:extension>                    
+                <Tab:columns>
+                    <Tab:Column  width="10rem" id="Table_tc1" >
+                        <Label id="Table_Label1" text="SrNo" />
+                        <Tab:template>
+                            <Input id="Table_Input1" type="Text" editable="true" value="{oTableDataModel>SrNo}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column  width="10rem" id="Table_tc2" >
+                        <Label id="Table_Label2" text="Posting Date" />
+                        <Tab:template>
+                            <DatePicker id="Table_Input2" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" value="{oTableDataModel>PostingDate}" />
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column  width="10rem" id="Table_tc3" >
+                        <Label id="Table_Label3" text="Document Date" />
+                        <Tab:template>
+                            <DatePicker id="Table_Input3" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" value="{oTableDataModel>DocumentDate}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column  width="10rem" id="Table_tc4" >
+                        <Label id="Table_Label4" text="Company Code" />
+                        <Tab:template>
+                            <Input id="Table_Input4" type="Text" editable="true" value="{oTableDataModel>CompanyCode}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column  width="10rem" id="Table_tc5" >
+                        <Label id="Table_Label5" text="Document Reference ID" />
+                        <Tab:template>
+                            <Input id="Table_Input5" type="Text" editable="true" value="{oTableDataModel>DocumentReferenceID}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column  width="10rem" id="Table_tc6" >
+                        <Label id="Table_Label6" text="Acount Document Type" />
+                        <Tab:template>
+                            <Input id="Table_Input6" type="Text" editable="true" value="{oTableDataModel>AcountDocumentType}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column   width="10rem" id="Table_tc7" >
+                        <Label id="Table_Label7" text="Acount Document Header Text" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input7" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input7">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input7" type="Text" editable="true" value="{oTableDataModel>AcountDocumentHeaderText}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column  width="10rem" id="Table_tc8" >
+                        <Label id="Table_Label8" text="G/L Account Line Item" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input8" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input8">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input8" type="Text" editable="true" value="{oTableDataModel>GL_AccountLineItem}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column  width="10rem" id="Table_tc9" >
+                        <Label id="Table_Label9" text="Customer" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input9" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input9">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input9" type="Text" editable="true" value="{oTableDataModel>Customer}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column  width="10rem" id="Table_tc10" >
+                        <Label id="Table_Label10" text="Supplier" />
+                        <Tab:template>
+                            <!-- <Input id="Table_Input10" type="Text" editable="true" value="{oTableDataModel>Supplier}"/> -->
+                            <Input id="SupplierCode" type="Text" value="{oTableDataModel>Supplier}" placeholder="Select Supplier Code" showValueHelp="true" valueHelpOnly="true" valueHelpIconSrc="sap-icon://value-help" valueHelpRequest="onValueHelpRequest">
+                                <customData>
+                                    <C:CustomData key="SupplierCode" id="CompanyCode_CustomData"/>
+                                </customData>
+                            </Input>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column  width="15rem" id="Table_tc11" >
+                        <Label id="Table_Label11" text="Supplier Name" />
+                        <Tab:template>
+                            <Input id="Table_Input11" type="Text" editable="false" value="{oTableDataModel>SupplierName}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc12" >
+                        <Label id="Table_Label12" text="Special Gl" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input12" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input12">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input12" type="Text" editable="true" value="{oTableDataModel>SpecialGl}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc13" >
+                        <Label id="Table_Label13" text="Business Place" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input13" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input13">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input13" type="Text" editable="true" value="{oTableDataModel>BusinessPlace}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc14" >
+                        <Label id="Table_Label14" text="Currency Role" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input14" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input14">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input14" type="Text" editable="true" value="{oTableDataModel>CurrencyRole}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc15" >
+                        <Label id="Table_Label15" text="Journal Entry Item Amount" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input15" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input15">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input15" type="Text" editable="true" value="{oTableDataModel>JournalEntryItemAmount}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc16" >
+                        <Label id="Table_Label16" text="Tax Type" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input16" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input16">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input16" type="Text" editable="true" value="{oTableDataModel>TaxType}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc17" >
+                        <Label id="Table_Label17" text="Tax Code" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input17" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input17">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input17" type="Text" editable="true" value="{oTableDataModel>TaxCode}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc18" >
+                        <Label id="Table_Label18" text="TDS Base" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input18" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input18">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input18" type="Text" editable="true" value="{oTableDataModel>TDSBase}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc19" >
+                        <Label id="Table_Label19" text="TDS Amount" />
+                        <Tab:template>
+                            <!-- <DatePicker id="Table_Input19" displayFormat="dd-MM-YYYY" valueFormat="YYYY-MM-dd" /> -->
+                            <!-- <ComboBox id="Table_Input19">
+                                <items>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                    <C:ListItem id="TableComboBoxListItem" text=""></C:ListItem>
+                                </items>
+                            </ComboBox> -->
+                            <Input id="Table_Input19" type="Text" editable="true" value="{oTableDataModel>TDSAmount}"/>
+                        </Tab:template>
+                    </Tab:Column>                   
+                    <Tab:Column width="10rem" id="Table_tc20" >
+                        <Label id="Table_Label20" text="Currency" />
+                        <Tab:template>
+                            <Input id="Table_Input20" type="Text" editable="true" value="{oTableDataModel>Currency}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc21" >
+                        <Label id="Table_Label21" text="GL Account" />
+                        <Tab:template>
+                            <!-- <Input id="Table_Input21" type="Text" editable="true" value="{oTableDataModel>GL_Account}"/> -->
+                            <Input id="GL_Account" type="Text" value="{oTableDataModel>GL_Account}" placeholder="Select GL Account" showValueHelp="true" valueHelpOnly="true" valueHelpIconSrc="sap-icon://value-help" valueHelpRequest="onValueHelpRequest">
+                                <customData>
+                                    <C:CustomData key="GL_Account" id="GL_Account_CustomData"/>
+                                </customData>
+                            </Input>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="15rem" id="Table_tc22" >
+                        <Label id="Table_Label22" text="GL Description" />
+                        <Tab:template>
+                            <Input id="Table_Input22" type="Text" editable="false" value="{oTableDataModel>GL_Description}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc23" >
+                        <Label id="Table_Label23" text="Cost Center" />
+                        <Tab:template>
+                            <Input id="Table_Input23" type="Text" editable="true" value="{oTableDataModel>CostCenter}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc24" >
+                        <Label id="Table_Label24" text="Profit Center" />
+                        <Tab:template>
+                            <Input id="Table_Input24" type="Text" editable="true" value="{oTableDataModel>ProfitCenter}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc25" >
+                        <Label id="Table_Label25" text="House Bank" />
+                        <Tab:template>
+                            <Input id="Table_Input25" type="Text" editable="true" value="{oTableDataModel>HouseBank}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column width="10rem" id="Table_tc26" >
+                        <Label id="Table_Label26" text="House Bank Account" />
+                        <Tab:template>
+                            <Input id="Table_Input26" type="Text" editable="true" value="{oTableDataModel>HouseBankAccount}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    <Tab:Column width="10rem" id="Table_tc27" >
+                        <Label id="Table_Label27" text="WBS Element" />
+                        <Tab:template>
+                            <Input id="Table_Input27" type="Text" editable="true" value="{oTableDataModel>WBSelement}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+
+                             
+
+
+                     <Tab:Column width="10rem" id="Table_tc28" >
+                        <Label id="Table_Label28" text="Assignment" />
+                        <Tab:template>
+                            <Input id="Table_Input28" type="Text" editable="true" value="{oTableDataModel>AssignmentReference}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                     <Tab:Column width="10rem" id="Table_tc29" >
+                        <Label id="Table_Label29" text="Item Text" />
+                        <Tab:template>
+                            <Input id="Table_Input29" type="Text" editable="true" value="{oTableDataModel>DocumentItemText}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    
+                </Tab:columns>
+            </Tab:Table>
+        </content>
+    </Page>
+</mvc:View>

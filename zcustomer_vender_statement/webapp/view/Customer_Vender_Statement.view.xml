@@ -1,0 +1,31 @@
+<mvc:View controllerName="zcustomervenderstatement.controller.Customer_Vender_Statement"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:F="sap.ui.layout.form" xmlns:C="sap.ui.core" xmlns:Tab="sap.ui.table"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="Panel1" class="sapUiSmallMarginBottom">
+                <F:SimpleForm id="Form1" layout="ResponsiveGridLayout"  editable="true">
+                    <F:content>
+                        <Label id="CompanyCodeLab" design="Bold" text="Company Code" />
+                        <Input id="CompanyCode" editable="true"/>
+                        <Label design="Bold" id="Supplier_CustomerLab" text="{oSupplier_CustomerLabModel>/Supplier_CustomerLabName}" />
+                        <Input id="Supplier_Customer" editable="true"/>
+                        <Label design="Bold" id="FiscalYearLab" text="Fiscal Year" />
+                        <Input id="FiscalYear" editable="true"/>
+                        <Label design="Bold" id="PostingDateLab" text="Posting Date" />
+                        <DatePicker displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" editable="true" id="postdateFrom"/>
+                        <DatePicker displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" editable="true" id="postdateTo"/>
+                        <Label id="PostDateLab"></Label>
+                        <RadioButtonGroup id="radioButton" select="LabelNameChange" columns="2" class="sapUiMediumMarginBottom">
+			                <RadioButton id="RB3-1" text="Vender  Statement" />
+			                <RadioButton id="RB3-2" text="Customer Statement" />
+		                </RadioButtonGroup>
+                        <Label id="ButtonLab"></Label>
+                        <Button id="PrintButton" text="Print" press="PrintForm"/>
+                        <C:Title id="coret"/>
+                    </F:content>
+                </F:SimpleForm>
+            </Panel >
+        </content>
+    </Page>
+</mvc:View>

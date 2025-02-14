@@ -1,0 +1,421 @@
+<mvc:View controllerName="zinvoice.controller.MultipleInvoice"
+    xmlns:table="sap.ui.table"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:core="sap.ui.core">
+    <App id="second">
+        <pages>
+            <Page id="page" title="E-Invoice">
+                <content>
+                    <table:Table id="SDTable" rows="{oSdTableModel>/aSDTableItem}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                        <table:columns>
+                            <table:Column width="11rem">
+                                <Label text="Acknowledgement" />
+                                <table:template>
+                                    <Text text="{oSdTableModel>AckNo}" wrapping="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Acknowledgement Date" />
+                                <table:template>
+                                    <Text text="{oSdTableModel>AckDate}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="IRN Status" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>IrnStatus}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="IRN Number" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>Irn}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Eway Bill Num" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>Ebillno}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Eway Bill Date" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>EgenDat}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Eway Bill Status" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>Status}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Invoice" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>BillingDocument}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Invoice Document Number" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>BillingDocumentItem}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Bill to Party" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>BILLTOPARTY}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Bill to Name" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>CustomerName}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Bill-to GST" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>billinggstin}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Bill-to Region" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>Region}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Bill-to City" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>CityName}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Bill-to Postal Code" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>PostalCode}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Ship to Name" />
+                                <table:template>
+                                    <Text text="{oSdTableModel>SHIPTONAME}" wrapping="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Ship to City" />
+                                <table:template>
+                                    <Text text="{oSdTableModel>SHIPTOCITY}" wrapping="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Ship to Region" />
+                                <table:template>
+                                    <Text text="{oSdTableModel>SHIPTOREGION}" wrapping="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Shipping Type" />
+                                <table:template>
+                                    <Text text="{oSdTableModel>Shippingtype}" wrapping="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Billing Quantity" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>BillingQuantity}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Billing Quantity Unit" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>BillingQuantityUnit}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem" visible="{oSdTableModel>/buttonVisible}">
+                                <Label text="Assessment Value Gst" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>Assesmentvalue_inGst}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Taxable Value" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>Assesmentvalue_inIgst}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Tax Amount" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>TaxAmount}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Buyer Pin" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>PostalCode}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Buyer GSTIN" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>billinggstin}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Material" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>Material}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Material  Description" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>MaterialDescription}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Hsncode" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>Hsncode}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Billing Quantity Unit" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>BillingQuantityUnit}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Vehicle Number" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>vehicle_no}" />
+                                    <!-- <Input value="{oSdTableModel>vehicle_no}" editable="{oGenericModel>/setEditable}" /> -->
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Transport Document Number" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>transportdoc_no}" />
+                                    <!-- <Input value="{oSdTableModel>transportdoc_no}" editable="{oGenericModel>/setEditable}" /> -->
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Transport Name" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>TRANSPORTERNAME}" />
+                                    <!-- <Input value="{oSdTableModel>TRANSPORTERNAME}" editable="{oGenericModel>/setEditable}" /> -->
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Transport ID" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>TRANSID}" />
+                                    <!-- <Input value="{oSdTableModel>TRANSID}" editable="{oGenericModel>/setEditable}" /> -->
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Distance" />
+                                <table:template>
+                                    <Input value="{oSdTableModel>Distance}" />
+                                    <!-- <Input value="{oSdTableModel>Distance}" editable="{oGenericModel>/setEditable}" /> -->
+                                </table:template>
+                            </table:Column>
+                        </table:columns>
+                    </table:Table>
+                    <table:Table id="FiTable" rows="{oFicoTableModel>/aFicoTableItem}" selectionMode="MultiToggle" ariaLabelledBy="title">
+
+                        <table:columns>
+                            <table:Column width="11rem" visible="false">
+                                <Label text="Company Code" />
+                                <table:template>
+                                    <Text text="{oFicoTableModel>Companycode}" wrapping="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem" visible="false">
+                                <Label text="Fiscal Year" />
+                                <table:template>
+                                    <Text text="{oFicoTableModel>Fiscalyear}" wrapping="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Acknowledgement" />
+                                <table:template>
+                                    <Text text="{oFicoTableModel>AckNo}" wrapping="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Acknowledgement Date" />
+                                <table:template>
+                                    <Text text="{oFicoTableModel>AckDate}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="IRN Status" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>IrnStatus}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="IRN Number" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>Irn}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Eway Bill Num" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>Ebillno}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Eway Bill Date" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>EgenDat}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Eway Bill Status" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>Status}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Accounting Number" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>AccountingDocument}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Accounting Document Item" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>AccountingDocumentItem}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Accounting Document Type" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>AccountingDocumentType}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Bill to Party" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>Customer}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Bill to Name" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>CustomerName}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Taxable Value" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>BASEAMT}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Bill-to GST" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>GST}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="CGST" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>CGST}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="SGST" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>SGST}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="IGST" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>IGST}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Gross Amount" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>GrossAmount}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Total Invoice Amount" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>TOTAL_AMT}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Hsncode" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>HSNCODE}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Document Reference ID" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>DocumentReferenceID}" editable="false" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Vehicle Number" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>VEHICLENUMBER}" editable="{oGenericModel>/setEditable}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Transport Document Number" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>TransDocNo}" editable="{oGenericModel>/setEditable}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Transport Name" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>TRANSPORTERNAME}" editable="{oGenericModel>/setEditable}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Transport ID" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>TRANSID}" editable="{oGenericModel>/setEditable}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column width="11rem">
+                                <Label text="Distance" />
+                                <table:template>
+                                    <Input value="{oFicoTableModel>Distance}" editable="{oGenericModel>/setEditable}" />
+                                </table:template>
+                            </table:Column>
+                        </table:columns>
+                    </table:Table>
+                </content>
+                <footer>
+                    <Bar>
+                        <contentLeft>
+                            <Button text="Generate Eway-Bill and IRN" press="generateEwayBillIrn" />
+                            <!-- <Button text="Generate Eway-Bill and IRN" press="generateEwayBillIrn" visible="{oGenericModel>/buttonVisible}"/> -->
+                        </contentLeft>
+                        <contentRight>
+                            <Button id="idButton" text="Generate Eway-Bill" press="generateEwayBill"/>
+                            <!-- <Button text="Generate Eway-Bill" press="generateEwayBill" visible="{oGenericModel>/buttonVisible}"/> -->
+                        </contentRight>
+                    </Bar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

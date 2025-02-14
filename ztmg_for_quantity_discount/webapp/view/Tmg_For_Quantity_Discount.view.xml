@@ -1,0 +1,70 @@
+<mvc:View controllerName="ztmgforquantitydiscount.controller.Tmg_For_Quantity_Discount"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:C="sap.ui.core" 
+    xmlns:Tab="sap.ui.table"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Button text="Excel upload" press="onConfirmDialog" id="ExcelUploadButton"/>
+            <Panel id="Panel2" class="sapUiSmallMarginBottom">
+                <Tab:Table id="TmgTableForQuantityDiscountModulePool" rows="{TableDataModel>/aTableData}">
+                    <Tab:extension>
+                        <OverflowToolbar id="oftb" style="Clear">
+                            <ToolbarSpacer id="tbs" />
+                            <Button id="Table_SaveButton" icon="sap-icon://save" text="Save" tooltip="Save Table records" press="SaveTableData"/>
+                            <Button id="Table_AddRowButton" icon="sap-icon://add" tooltip="Add Table records" press="AddSingleRowInTableData"/>
+                            <Button id="Table_DeleteButton" icon="sap-icon://delete" tooltip="Save Table records" press="removeRow"/>
+                            <Button text="Get Data" press="GetData"></Button>
+                            <MultiInput id="multipleConditions" valueHelpOnly="true" width="60%" valueHelpRequest=".onMultipleConditionsVHRequested"/>
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column id="Table_tc1">
+                            <Label id="Table_Label1" text="Circular Number" />
+                            <Tab:template>
+                                <Input id="Table_Input1" type="Text" editable="true" value="{TableDataModel>Circularnumber}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc2">
+                            <Label id="Table_Label2" text="Document Valid Form" />
+                            <Tab:template>
+                                <!-- <ObjectStatus inverted="true" icon="sap-icon://sys-enter-2" state="Success" /> -->
+                                <!-- <ImageContent src="/images/green.png"></ImageContent> -->
+                                <DatePicker id="DatePicker1" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{TableDataModel>DocumentValidFrom}" />
+                                <!-- <Input id="Table_Input2" type="Text" editable="true" value="{TableDataModel>Document_Valid_Form}"/> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc3">
+                            <Label id="Table_Label3" text="Document Valid To" />
+                            <Tab:template>
+                                <DatePicker id="DatePicker2" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{TableDataModel>DocumentValidTo}" />
+                                <!-- <Input id="Table_Input3" type="Text" editable="true" value="{TableDataModel>DisValidTo}"/> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc4">
+                            <Label id="Table_Label4" text="Material Price Group" />
+                            <Tab:template>
+                                <Input id="Table_Input4" type="Text" editable="true" value="{TableDataModel>Materialpricinggroup}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc5">
+                            <Label id="Table_Label5" text="Status" />
+                            <Tab:template>
+                                <!-- <Input id="Table_Input5" type="Text" editable="true" value="{TableDataModel>ActiveNclose}"/> -->
+                                <ComboBox width="100%" selectedKey="0" id="StatusComboBox" value="{TableDataModel>Status}">
+                                    <items>
+                                        <C:Item key="0" id="com1" text="A" />
+                                        <C:Item key="1" id="com2" text="C" />
+                                    </items>
+                                </ComboBox>
+                            </Tab:template>
+                        </Tab:Column>
+
+
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel >
+        </content>
+    </Page>
+</mvc:View>

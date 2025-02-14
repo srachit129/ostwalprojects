@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_ztesting_report_1" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="zgl_descriptionType" sap:label="GL Description" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="GLAccount"/>
+                </Key>
+                <Property Name="GLAccount" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="G/L Account" sap:quickinfo="G/L Account Number"/>
+                <Property Name="GLAccountName" Type="Edm.String" MaxLength="20" sap:label="G/L Account Name"/>
+                <Property Name="GLAccountLongName" Type="Edm.String" MaxLength="50" sap:label="G/L Account Long Name"/>
+            </EntityType>
+            <EntityType Name="zSupp_descriptionType" sap:label="Supplier Description" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Supplier"/>
+                </Key>
+                <Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="SupplierName" sap:label="Supplier" sap:quickinfo="Account Number of Supplier"/>
+                <Property Name="SupplierName" Type="Edm.String" MaxLength="80" sap:label="Name of Supplier"/>
+                <Property Name="SupplierFullName" Type="Edm.String" MaxLength="220" sap:display-format="UpperCase" sap:label="Supplier Name" sap:quickinfo="Supplier Full Name"/>
+            </EntityType>
+            <EntityType Name="ZTESTING_REPORTType" sap:label="RESPONCE CDS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DOCUMENT"/>
+                    <PropertyRef Name="FiscalYear"/>
+                    <PropertyRef Name="CompanyCode"/>
+                    <PropertyRef Name="zunit"/>
+                    <PropertyRef Name="FiDocumentItem"/>
+                    <PropertyRef Name="DocumentDate"/>
+                    <PropertyRef Name="TransactionCurrency"/>
+                    <PropertyRef Name="Mironumber"/>
+                    <PropertyRef Name="MiroYear"/>
+                    <PropertyRef Name="Refrence_No"/>
+                    <PropertyRef Name="AccountingDocumentType"/>
+                    <PropertyRef Name="PostingDate"/>
+                    <PropertyRef Name="HsnCode"/>
+                    <PropertyRef Name="AssignmentReference"/>
+                    <PropertyRef Name="InvoceValue"/>
+                    <PropertyRef Name="TaxableValue"/>
+                    <PropertyRef Name="InvoceValue_actual"/>
+                    <PropertyRef Name="Gross_amount"/>
+                    <PropertyRef Name="TaxCode"/>
+                </Key>
+                <Property Name="DOCUMENT" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Plant"/>
+                <Property Name="FiscalYear" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Material"/>
+                <Property Name="zunit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="FiDocumentItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Std Prod/HR"/>
+                <Property Name="DocumentDate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Work Center"/>
+                <Property Name="TransactionCurrency" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Start Time"/>
+                <Property Name="Mironumber" Type="Edm.Time" Nullable="false" Precision="0" sap:label="End Time"/>
+                <Property Name="MiroYear" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Unit"/>
+                <Property Name="Refrence_No" Type="Edm.Decimal" Nullable="false" Precision="8" Scale="3" sap:unit="zunit" sap:label="Actual Production"/>
+                <Property Name="AccountingDocumentType" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Running Hrs"/>
+                <Property Name="PostingDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Unit Hrs"/>
+                <Property Name="HsnCode" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:unit="zunit" sap:label="Running Hrs"/>
+                <Property Name="AssignmentReference" Type="Edm.Decimal" Nullable="false" Precision="8" Scale="0" sap:unit="zunit" sap:label="Targrt Production"/>
+                <Property Name="InvoceValue" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Work Center"/>
+                <Property Name="TaxableValue" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="BraekDown Reason"/>
+                <Property Name="InvoceValue_actual" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:unit="zunit" sap:label="BraekDown Hrs"/>
+                <Property Name="Gross_amount" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="NonNegative" sap:label="Plant Available Hrs"/>
+                <Property Name="TaxCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="NonNegative" sap:label="Plant Run Time Effi%"/>
+            </EntityType>
+            <EntityContainer Name="cds_ztesting_report_1_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zgl_description" EntityType="cds_ztesting_report_1.zgl_descriptionType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zSupp_description" EntityType="cds_ztesting_report_1.zSupp_descriptionType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZTESTING_REPORT" EntityType="cds_ztesting_report_1.ZTESTING_REPORTType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="cds_ztesting_report_1.cds_ztesting_report_1_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_ztesting_report_1.cds_ztesting_report_1_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/sap/ZTESTING_REPORT_BINDING/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/sap/ZTESTING_REPORT_BINDING/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,78 @@
+<mvc:View controllerName="zsdmodulepooltmg.controller.Cash_Discount_Tmg"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:C="sap.ui.core"
+    xmlns:Tab="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="panel1" class="sapUiSmallMarginBottom" >
+                <F:SimpleForm id="Form1" layout="ResponsiveGridLayout" editable="true">
+                    <F:content>
+                        <RadioButtonGroup id="radioButton" select="TableChange" class="sapUiMediumMarginBottom">
+                            <RadioButton id="cash_discount" text="Cash Discount Tmg" />
+
+                        </RadioButtonGroup>
+                    </F:content>
+                </F:SimpleForm>
+            </Panel>
+
+            <Panel id="Panel2" class="sapUiSmallMarginBottom">
+                <Tab:Table id="table1" rows="{oFirstTableItemModel>/aFirstTableItem}">
+                    <Tab:extension>
+                        <OverflowToolbar id="oft1" style="Clear">
+                            <Button id="FirstTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Add item" text="Download" press="onFirstTableExport" />
+                            <ToolbarSpacer id="tbs"/>
+                            <Button id="FirstTableExcelDataUploadButton" icon="sap-icon://excel-attachment" tooltip="Add item" text="Upload" press="FirstTableExcelUpload" />
+                            <Button id="FirstTableSave" icon="sap-icon://save" text="Save" tooltip="Add item" press="FirstTableDataSave" />
+                            <Button id="FirstTableadd" icon="sap-icon://add" tooltip="Add item" press="FirstTableaddSingleRow" />
+                            <Button id="FirstTableDelete" icon="sap-icon://delete" tooltip="Remove item" press="FirstTableDeleteSingleRow" />
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column id="col1">
+                            <Label id="circular" text="Circular Number"></Label>
+                            <Tab:template>
+                                <!-- <Input id="circularno" value="{oFirstTableItemModel>CircularNo}"></Input> -->
+                                <ComboBox id="combobox" width="100%" items="{path:'CircularNumber>/aData', length:5000}" change="Cash_Discount_Validity_CircularNumber_valueState" valueState="{oFirstTableItemModel>CircularNumber_valueState}" value="{oFirstTableItemModel>CircularNo}">
+                                <items>
+                                  <C:ListItem id="circularno" text="{CircularNumber>circular_no}" ></C:ListItem>
+                                </items>
+                                </ComboBox>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="col2">
+                            <Label id="material" text="Material Group"></Label>
+                            <Tab:template>
+                                <!-- <Input id="material1" value="{oFirstTableItemModel>Matprgroup}"></Input> -->
+                                <ComboBox id="combobox1" width="100%" items="{path:'oMaterialPricingGroupModel>/aMaterialPricingGroup', length:5000}" change="Cash_Discount_Validity_MaterialPricingGroup_valueState"  valueState="{oFirstTableItemModel>MaterialPricingGroup_valueState}" value="{oFirstTableItemModel>Matprgroup}">
+                                <items>
+                                 <C:ListItem id="material1" text="{oMaterialPricingGroupModel>MaterialPricingGroup}"></C:ListItem>
+                                </items>
+                                </ComboBox>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="col3">
+                            <Label id="fromdate" text="From Date"></Label>
+                            <Tab:template>
+                            <DatePicker id="fromdate1" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oFirstTableItemModel>Fromdate}" ></DatePicker>
+                            </Tab:template>
+                        </Tab:Column>
+                         <Tab:Column id="col4">
+                            <Label id="todate" text="To Date"></Label>
+                            <Tab:template>
+                            <DatePicker id="todate1" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oFirstTableItemModel>Todate}"></DatePicker>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="col5">
+                            <Label id="amount" text="Amount"></Label>
+                            <Tab:template>
+                            <Input id="amount1" value="{oFirstTableItemModel>Amount}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

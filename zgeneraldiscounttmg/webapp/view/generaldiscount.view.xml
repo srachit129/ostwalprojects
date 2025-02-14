@@ -1,0 +1,77 @@
+<mvc:View controllerName="zgeneraldiscounttmg.controller.generaldiscount"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Button text="Excel upload" press="onConfirmDialog" />
+            <table:Table id="table1" rows="{oTableItemModel>/aTableItem}" selectionMode="MultiToggle" ariaLabelledBy="title" visibleRowCountMode="Auto">
+                <table:extension>
+                    <OverflowToolbar style="Clear">
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://save" text="Save" tooltip="Add item" press="saveData" />
+                        <Button icon="sap-icon://add" tooltip="Add item" press="addRow" />
+                        <Button icon="sap-icon://delete" tooltip="Remove item" press="removeRow" />
+                        <!-- <Button icon="sap-icon://delete" tooltip="Delete Table records" press="onDelete" /> -->
+                    </OverflowToolbar>
+                </table:extension>
+                <table:columns>
+                    <table:Column>
+                        <Label text="Sales Group" />
+                        <table:template>
+                            <Input id="idMixingNo." value="{oTableItemModel>SalesGroup}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Label text="Customer District" />
+                        <table:template>
+                            <Input id="batch" value="{oTableItemModel>CustomerDistrict}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Label text="Circular Number" />
+                        <table:template>
+                            <Input value="{oTableItemModel>CircularNumber}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Label text="Material Code" />
+                        <table:template>
+                            <Input value="{oTableItemModel>MaterialCode}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column >
+                        <Label text="Amount" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Amount}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <!-- <table:Column width="7rem">
+                        <Label text="Created By" />
+                        <table:template>
+                            <Input value="{oTableItemModel>CreatedBy}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="7rem">
+                        <Label text="Created on" />
+                        <table:template>
+                            <Input value="{oTableItemModel>CreatedOn}" id="stockinval" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="9rem">
+                        <Label text="Changed By" />
+                        <table:template>
+                            <Input value="{oTableItemModel>ChangedBy}" id="reqqtyinkg" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="11rem">
+                        <Label text="Changed on" />
+                        <table:template>
+                            <Input value="{oTableItemModel>ChangedOn}" id="Reqqtyinbale" editable="true" submit="onSubmit" />
+                        </table:template>
+                    </table:Column> -->
+                </table:columns>
+            </table:Table>
+        </content>
+    </Page>
+</mvc:View>

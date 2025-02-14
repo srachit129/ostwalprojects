@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: zquantitydiscountmodulepool
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - path: /sap/opu/odata/sap/ZINVOICE_DATA
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZQUANTITY_DISCOUNT_VALID
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZQDT_SERVICE_BINDING
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZCUSTOMERCODE
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZRETURN_QTY_BINDING
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+          - path: /sap/opu/odata/sap/ZQTY_DIS_IN_NO
+            url: https://my405122-api.s4hana.cloud.sap
+            destination: MY405122
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: zquantitydiscountmodulepool
+        ui5Theme: sap_horizon

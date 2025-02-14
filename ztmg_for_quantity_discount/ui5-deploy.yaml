@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: ztmgforquantitydiscount
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: MY405122
+          url: https://my405122-api.s4hana.cloud.sap
+        app:
+          name: ZTMG_FOR_QDISK
+          description: Tmg for Quantity Discount Module Pool
+          package: ZCREDIT_NOTE
+          transport: XNDK900109
+        exclude:
+          - /test/

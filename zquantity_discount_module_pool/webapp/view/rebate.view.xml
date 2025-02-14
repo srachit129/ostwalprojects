@@ -1,0 +1,44 @@
+<mvc:View controllerName="zquantitydiscountmodulepool.controller.rebate"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}" class="myCustomBackground">
+        <content>
+            <Panel id="panel1" backgroundDesign="Transparent">
+                <f:SimpleForm backgroundDesign="Transparent" editable="true" id="SimpleForm1" layout="ResponsiveGridLayout" columnsL="3">
+                    <!-- <Label class="MyCustomFontColor" design="Bold" id="CompanyCodeLabel" text="Company Code"></Label>
+                    <Input id="idCompanyCode" maxLength="10"></Input> -->
+                    
+                    <Label class="MyCustomFontColor" design="Bold" id="CustomerCodeLabel" text="Customer Code"></Label>
+                    <!-- <ComboBox items="{path:'oCustomerCodeModel>/aCustomerCodeData', length:'50000'}" showSecondaryValues="true" id="idCustomerCode" >
+                        <items>
+                            <core:ListItem id="idCustomerCode_Combo" text="{oCustomerCodeModel>Customer}" additionalText="{oCustomerCodeModel>CustomerName}"></core:ListItem>
+                        </items>
+                    </ComboBox> -->
+					<Input id="idCustomerCode" type="Text" placeholder="Select Customer Code" showValueHelp="true" valueHelpOnly="true" valueHelpIconSrc="sap-icon://value-help" valueHelpRequest="handleValueHelp" /> 
+                    
+                    <!-- <Input id="idCustomerCode" maxLength="10"></Input> -->
+					<Label class="MyCustomFontColor" design="Bold" id="CircularNumberLabel" text="Circular Number"></Label>
+                    <ComboBox items="{path:'oCircularNumModel>/aCircularNumData', length:'5000'}" showSecondaryValues="true" id="idCircularNumber" change="OCircularNumberfUN">
+                        <items>
+                            <core:ListItem id="idCircularNo" text="{oCircularNumModel>Circular}" additionalText="{oCircularNumModel>SAP_Description}"></core:ListItem>
+                        </items>
+                    </ComboBox>
+                    <Label class="MyCustomFontColor" id="RadioButton_Label" text="Advance Type" design="Bold"></Label>
+                    <RadioButtonGroup id="radioButton"  select="TableChange" columns="2" class="sapUiMediumMarginBottom">
+                        <RadioButton class="MyCustomFontColor" id="RB3-1" text="With Advance" />
+                        <!-- <RadioButton class="MyCustomFontColor" id="RB3-2" text="Without Advance" /> -->
+                    </RadioButtonGroup>
+                    <Label class="MyCustomFontColor" design="Bold" id="ButtonLabel"></Label>
+                    <HBox id="Hbox1">
+                        <VBox id="Vbox1">
+                            <Button id="ExecuteButton" text="Execute" press="onPress" class="sapUiSmallMarginTop"></Button>
+                        </VBox>
+                    </HBox>
+                    <core:Title id="Ctitle1"/>
+                </f:SimpleForm>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

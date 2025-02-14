@@ -1,0 +1,212 @@
+<mvc:View controllerName="zpaymentrequest.controller.supplierdetails"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:Tab="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel >
+                <Tab:Table id="FirstTable" rows="{oSecondScreenModel>/aSecondScreenData}" cellClick="onSelect" rowSelectionChange="onSelect">
+                    <Tab:extension>
+                        <OverflowToolbar id="oftb" style="Clear">
+                            <ToolbarSpacer id="tbs" />
+                            <!-- <Button id="Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="saveTableData"/> -->
+                            <!-- <Button id="Table_AddButton" icon="sap-icon://add" tooltip="Add One Empty Table Row" press="AddTableData"/> -->
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <!-- <Tab:Column id="Table_tc1" width="10rem">
+                            <Label id="Table_Label1" text="Account Group" />
+                            <Tab:template>
+                                <Input id="Table_Input1" type="Text" editable="false" value="{oSupplierModel>SupplierAccountGroup}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="12rem" visible="false">
+                            <Label text="Account Group Text" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oSecondScreenModel>AccountGroupText}"/>
+                            </Tab:template>
+                        </Tab:Column> -->
+                        <Tab:Column id="Table_tc223" width="10rem" visible="true">
+                            <Label id="Table_Label223" text="Supplier" />
+                            <Tab:template>
+                                <Input id="Table_Input223" type="Text" editable="false" value="{oSecondScreenModel>Supplier}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="12rem" visible="true">
+                            <Label text="Supplier Name" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oSecondScreenModel>SupplierName}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        
+                        
+                        <Tab:Column id="Table_tc3" width="9rem" visible="true">
+                            <Label id="Table_Label3" text="0-30" />
+                            <Tab:template>
+                                <Input id="Table_Input3" type="Text" editable="false" value="{oSecondScreenModel>Labeltype}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc4" width="9rem">
+                            <Label id="Table_Label4" text="30-60" />
+                            <Tab:template>
+                                <Input id="Table_Input4" type="Text" editable="false" value="{oSecondScreenModel>Labeltype1}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc5" width="9rem">
+                            <Label id="Table_Label5" text="60-90" />
+                            <Tab:template>
+                                <Input id="Table_Input5" type="Text" editable="false" value="{oSecondScreenModel>Labeltype2}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc6" width="10rem">
+                            <Label id="Table_Label6" text="Above 90" />
+                            <Tab:template>
+                                <Input id="Table_Input6" type="Text" editable="false" value="{oSecondScreenModel>Labeltype3}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="10rem">
+                            <Label text="GL Balance" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oSecondScreenModel>GLBalance}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="8rem" visible="false">
+                            <Label text="Fiscal Year" />
+                            <Tab:template>
+                                <Input editable="false" value="{oSecondScreenModel>FinYear}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="8rem" visible="false">
+                            <Label text="Accounting Document" />
+                            <Tab:template>
+                                <Input editable="false" value="{oSecondScreenModel>AccountingDocument}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="10rem">
+                            <Label text="Partial Payment" />
+                            <Tab:template>
+                                <Input type="Text" editable="{oSecondScreenModel>paymentblockingreason}" value="{oSecondScreenModel>Partialpayment}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="8rem">
+                            <Label text="Remark" />
+                            <Tab:template>
+                                <Input value="{oSecondScreenModel>Remark}" editable="{oSecondScreenModel>paymentblockingreason}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="8rem">
+                            <Label text="Requested / Rejected" />
+                            <Tab:template>
+                                <Text id="Requested_ColumneText"  text="{oSecondScreenModel>Requested}"/>
+                                <!-- <Input value="{oSecondScreenModel>Remark}"></Input> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="13rem">
+                            <Label text="Request" />
+                            <Tab:template>
+                                <Button text="Request" enabled="{oSecondScreenModel>paymentblockingreason}" visible="{oSecondScreenModel>Request_Button}" press="onRequest"></Button>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="10rem">
+                            <Label text="Get Invoice Details" />
+                            <Tab:template>
+                                <Button text="Get Invoice Details" enabled="{oSecondScreenModel>paymentblockingreason}" press="CallThirdScreen"></Button>
+                            </Tab:template>
+                        </Tab:Column>
+
+
+                        <!-- <Tab:Column id="Table_tc12" width="8rem" visible="false">
+                            <Label id="Table_Label12" text="Due on" />
+                            <Tab:template>
+                                <Input id="Table_Input12" type="Text" editable="false" value="{oSecondScreenModel>NetDueDate}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column filterProperty="OverDueDays" id="Table_tc13" width="8rem" visible="false">
+                            <Label id="Table_Label13" text="Overdue by days" />
+                            <Tab:template>
+                                <Input id="Remark" editable="false" value="{oSecondScreenModel>OverDueDays}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+
+                        <Tab:Column width="8rem">
+                            <Label text="Advice Amount" />
+                            <Tab:template>
+                                <Input value="{oSecondScreenModel>AdviceAmount}" editable="false"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="8rem">
+                            <Label text="Advance Advice" />
+                            <Tab:template>
+                                <Input value="{oSecondScreenModel>AdvanceAdvice}" editable="false"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="14rem">
+                            <Label text="GL balance after advice process" />
+                            <Tab:template>
+                                <Input value="{oSecondScreenModel>GLBalanceAfterAdvice}" editable="false"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        
+
+                        <Tab:Column width="10rem" visible="false">
+                            <Label text="Account Document" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oSecondScreenModel>AccountingDocument}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="10rem" visible="false">
+                            <Label text="Company Code" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oSecondScreenModel>CompanyCode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+
+                        
+                        <Tab:Column id="Table_tc2" width="7rem">
+                            <Label id="Table_Label2" text="Ref Date" />
+                            <Tab:template>
+                                <Input id="Table_Input2" type="Text" editable="false" value="{oSecondScreenModel>RefDate}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="7rem">
+                            <Label text="Ref No" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value="{oSecondScreenModel>DocumentReference}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column width="7rem">
+                            <Label text="Item" />
+                            <Tab:template>
+                                <Input type="Text" editable="false" value=""/>
+                            </Tab:template>
+                        </Tab:Column>
+
+                        <Tab:Column id="Table_tc9" width="10rem">
+                            <Label id="Table_Label9" text="Not Due Amount" />
+                            <Tab:template>
+                                <Input id="Table_Input9" type="Text" editable="false" value="{oSecondScreenModel>NotDueAmt}"/>
+                            </Tab:template>
+                        </Tab:Column>
+
+                        <Tab:Column id="Table_tc10" width="10rem">
+                            <Label id="Table_Label10" text="Pending Amount" />
+                            <Tab:template>
+                                <Input id="Table_Input10" type="Text" editable="false" value="{oSecondScreenModel>PendingAmount}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc11" width="9rem">
+                            <Label id="Table_Label11" text="GST Input" />
+                            <Tab:template>
+                                <Input id="Table_Input11" type="Text" editable="false" value=""/>
+                            </Tab:template>
+                        </Tab:Column> -->
+
+                        
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

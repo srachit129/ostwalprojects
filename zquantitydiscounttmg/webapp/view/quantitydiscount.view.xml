@@ -1,0 +1,95 @@
+<mvc:View controllerName="zquantitydiscounttmg.controller.quantitydiscount"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Button text="Excel upload" press="onConfirmDialog" />
+            <table:Table id="table1" rows="{oTableItemModel>/aTableItem}" selectionMode="MultiToggle" ariaLabelledBy="title" visibleRowCountMode="Auto">
+                <table:extension>
+                    <OverflowToolbar style="Clear">
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://save" text="Save" tooltip="Add item" press="saveData" />
+                        <Button icon="sap-icon://add" tooltip="Add item" press="addRow" />
+                        <Button icon="sap-icon://delete" tooltip="Remove item" press="removeRow" />
+                        <!-- <Button icon="sap-icon://delete" tooltip="Delete Table records" press="onDelete" /> -->
+                    </OverflowToolbar>
+                </table:extension>
+                <table:columns>
+                    <!-- <table:Column>
+                        <Label text="Sales Group" />
+                        <table:template>
+                            <Input value="{oTableItemModel>SalesGroup}" editable="true" />
+                        </table:template>
+                    </table:Column> -->
+                    <!-- <table:Column>
+                        <Label text="Calculation Date From" />
+                        <table:template>
+                            <DatePicker value="{oTableItemModel>CalculationDateFrom}" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Calculation Date To" />
+                        <table:template>
+                            <DatePicker value="{oTableItemModel>CalculationDateTo}" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" editable="true" />
+                        </table:template>
+                    </table:Column> -->
+                    <table:Column>
+                        <Label text="Circular Number" />
+                        <table:template>
+                            <Input value="{oTableItemModel>CircularNumber}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Quantity Slab From" />
+                        <table:template>
+                            <Input value="{oTableItemModel>QuantitySlabFrom}" type="Number" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Quantity Slab To" />
+                        <table:template>
+                            <Input value="{oTableItemModel>QuantitySlabTo}" type="Number" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Material Price Code" />
+                        <table:template>
+                            <Input value="{oTableItemModel>MaterialCode}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="Amount" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Amount}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <!-- <table:Column width="7rem">
+                        <Label text="Created By" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Created By}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="7rem">
+                        <Label text="Created on" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Created On}" id="stockinval" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="9rem">
+                        <Label text="Changed By" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Changed By}" id="reqqtyinkg" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="11rem">
+                        <Label text="Changed on" />
+                        <table:template>
+                            <Input value="{oTableItemModel>Changed On}" id="Reqqtyinbale" editable="true" submit="onSubmit" />
+                        </table:template>
+                    </table:Column> -->
+                </table:columns>
+            </table:Table>
+        </content>
+    </Page>
+</mvc:View>

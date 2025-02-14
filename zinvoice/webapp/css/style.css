@@ -1,0 +1,7 @@
+/* Enter your custom styles here */
+.myBackgroundStyle {
+    background-image: url('image.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center; 
+}

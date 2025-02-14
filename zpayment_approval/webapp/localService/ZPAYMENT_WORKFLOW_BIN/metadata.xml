@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zpayment_workflow_ser" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="pay_resType" sap:label="RESPONCE CDS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="companycode"/>
+                    <PropertyRef Name="fiscalyear"/>
+                    <PropertyRef Name="postingdate"/>
+                    <PropertyRef Name="overdue_by_days"/>
+                    <PropertyRef Name="supplier"/>
+                    <PropertyRef Name="accountingdocument"/>
+                    <PropertyRef Name="accountingdocumenttype"/>
+                    <PropertyRef Name="clearingjournalentry"/>
+                    <PropertyRef Name="transactioncurrency"/>
+                    <PropertyRef Name="amountinbalancetransaccrcy"/>
+                    <PropertyRef Name="paymentterms"/>
+                    <PropertyRef Name="netduedate"/>
+                    <PropertyRef Name="additionalcurrency1"/>
+                    <PropertyRef Name="assignmentreference"/>
+                    <PropertyRef Name="documentdate"/>
+                    <PropertyRef Name="suppliername"/>
+                    <PropertyRef Name="supplieraccountgroup"/>
+                    <PropertyRef Name="documentreferenceid"/>
+                    <PropertyRef Name="accountgroupname"/>
+                    <PropertyRef Name="request"/>
+                    <PropertyRef Name="amt_0_30"/>
+                    <PropertyRef Name="amt_30_60"/>
+                    <PropertyRef Name="amt_60_90"/>
+                    <PropertyRef Name="amt_above_90"/>
+                    <PropertyRef Name="FLAG"/>
+                    <PropertyRef Name="SpecialGLCode"/>
+                    <PropertyRef Name="InvoiceReference"/>
+                    <PropertyRef Name="profitcenter"/>
+                    <PropertyRef Name="TDS"/>
+                </Key>
+                <Property Name="companycode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code"/>
+                <Property Name="fiscalyear" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Year"/>
+                <Property Name="postingdate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Posting Date"/>
+                <Property Name="overdue_by_days" Type="Edm.Int32" Nullable="false" sap:label="Over Due by Days"/>
+                <Property Name="supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Supplier"/>
+                <Property Name="accountingdocument" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Accounting Document"/>
+                <Property Name="accountingdocumenttype" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Accounting Document Type"/>
+                <Property Name="clearingjournalentry" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Clearing Journalentry"/>
+                <Property Name="transactioncurrency" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Transaction Currency"/>
+                <Property Name="amountinbalancetransaccrcy" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2" sap:label="Cost Center"/>
+                <Property Name="paymentterms" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Payment Terms"/>
+                <Property Name="netduedate" Type="Edm.Int32" Nullable="false" sap:label="Net Due Date"/>
+                <Property Name="additionalcurrency1" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Additional Currency1"/>
+                <Property Name="assignmentreference" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Assignment Reference"/>
+                <Property Name="documentdate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Document Date"/>
+                <Property Name="suppliername" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Supplier Name"/>
+                <Property Name="supplieraccountgroup" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Supplier Accountgroup"/>
+                <Property Name="documentreferenceid" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Document Referenceid"/>
+                <Property Name="accountgroupname" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Account Groupname"/>
+                <Property Name="request" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Request"/>
+                <Property Name="amt_0_30" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2" sap:label="Amt 0-30"/>
+                <Property Name="amt_30_60" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2" sap:label="Amt 30-60"/>
+                <Property Name="amt_60_90" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2" sap:label="Amt 60-90"/>
+                <Property Name="amt_above_90" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2" sap:label="Amt"/>
+                <Property Name="FLAG" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Flag"/>
+                <Property Name="SpecialGLCode" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Special Gl Code"/>
+                <Property Name="InvoiceReference" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Reference Text"/>
+                <Property Name="profitcenter" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="profit center"/>
+                <Property Name="TDS" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2" sap:label="TDS"/>
+            </EntityType>
+            <EntityContainer Name="cds_zpayment_workflow_ser_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="pay_res" EntityType="cds_zpayment_workflow_ser.pay_resType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="cds_zpayment_workflow_ser.cds_zpayment_workflow_ser_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_zpayment_workflow_ser.cds_zpayment_workflow_ser_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/sap/ZPAYMENT_WORKFLOW_BIN/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://my405122-api.s4hana.cloud.sap/sap/opu/odata/sap/ZPAYMENT_WORKFLOW_BIN/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

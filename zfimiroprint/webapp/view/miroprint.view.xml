@@ -1,0 +1,25 @@
+<mvc:View controllerName="zfimiroprint.controller.miroprint"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <f:SimpleForm editable="true" layout="ResponsiveGridLayout" columnsL="3">
+                <Label text="Company Code" required="true"></Label>
+                <Input id="idCompanyCode"></Input>
+                <Label text="Original Reference Document" required="true"></Label>
+                <Input id="idDocno" maxLength="10"></Input>
+                <Label text="Fiscal Year" required="true"></Label>
+                <DatePicker id="idFiscal" valueFormat="yyyy" displayFormat="yyyy"></DatePicker>
+                <Label ></Label>
+                <HBox class="sapUiSmallMarginTop">
+                    <VBox >
+                        <Button icon="sap-icon://print" text="Print" press="onPrint"></Button>
+                    </VBox>
+                </HBox>
+                <core:Title ></core:Title>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

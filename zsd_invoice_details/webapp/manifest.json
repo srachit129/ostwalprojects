@@ -1,0 +1,227 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "zsdinvoicedetails",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.10.0",
+            "toolsId": "55de8f30-e0ff-43fe-9ccb-4ed8303f44ce"
+        },
+        "dataSources": {
+            "ZSD_INVC_DISPACH1_PRJ_SRVC": {
+                "uri": "/sap/opu/odata/sap/ZSD_INVC_DISPACH1_PRJ_SRVC",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZSD_INVC_DISPACH1_PRJ_SRVC/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZSD_COMPANY_DET_DET": {
+                "uri": "/sap/opu/odata/sap/ZSD_COMPANY_DET_DET",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZSD_COMPANY_DET_DET/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZSD_TERMS": {
+                "uri": "/sap/opu/odata/sap/ZSD_TERMS",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZSD_TERMS/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZLICENSE_SERVICE": {
+                "uri": "/sap/opu/odata/sap/ZLICENSE_SERVICE",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZLICENSE_SERVICE/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZSD_INVOICE_BANK_SERVICE": {
+                "uri": "/sap/opu/odata/sap/ZSD_INVOICE_BANK_SERVICE",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZSD_INVOICE_BANK_SERVICE/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "zsdinvoicedetails-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "ZSD_Invoice_Dtl",
+                    "action": "DISPLAY",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.115.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zsdinvoicedetails.i18n.i18n"
+                }
+            },
+            "ZSD_INVC_DISPACH1_PRJ_SRVC": {
+                "dataSource": "ZSD_INVC_DISPACH1_PRJ_SRVC",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZSD_COMPANY_DET_DET": {
+                "dataSource": "ZSD_COMPANY_DET_DET",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZSD_TERMS": {
+                "dataSource": "ZSD_TERMS",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZLICENSE_SERVICE": {
+                "dataSource": "ZLICENSE_SERVICE",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZSD_INVOICE_BANK_SERVICE": {
+                "dataSource": "ZSD_INVOICE_BANK_SERVICE",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "zsdinvoicedetails.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteZSD_INVOICE_DETAILS",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetZSD_INVOICE_DETAILS"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetZSD_INVOICE_DETAILS": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "ZSD_INVOICE_DETAILS",
+                    "viewName": "ZSD_INVOICE_DETAILS"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "zsdinvoicedetails.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

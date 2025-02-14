@@ -1,0 +1,13 @@
+/* Enter your custom styles here */
+.myCustomBackground {
+    background-image: url("Krishi2.png");
+    background-repeat: no-repeat;
+    /* opacity: 0.5; */
+    background-size: cover ; /* Optional: Adjust the background size to cover the entire control */
+}
+.MyCustomFontColor{
+    color: black;
+}
+.tableBack{
+    background: transparent;
+}

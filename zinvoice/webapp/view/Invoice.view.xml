@@ -1,0 +1,104 @@
+<mvc:View controllerName="zinvoice.controller.Invoice"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}" class="myBackgroundStyle">
+        <content>
+            <Panel backgroundDesign="Transparent">
+                <content>
+                    <f:SimpleForm backgroundDesign="Transparent" columnsL="3" title="E-Invoice Generate" editable="true" layout="ResponsiveGridLayout" class="sapUiTinyMarginBottom">
+                        <f:content>
+                            <core:Title />
+                            <Label text="Company Code" required="true" />
+                            <ComboBox id="idCode" selectedKey="1">
+                                <core:Item key="1" id="Citem1" text="1000"></core:Item>
+                                <core:Item key="2" id="Citem2" text="2000"></core:Item>
+                                <core:Item key="2" id="Citem3" text="3000"></core:Item>
+                                <core:Item key="2" id="Citem4" text="4000"></core:Item>
+                                <!-- <core:Item key="2" id="Citem5" text="5000"></core:Item> -->
+                            </ComboBox>
+                            <!-- <Input id="idCode" value="{oCommonModel>/comcode}" editable="true" /> -->
+                            <!-- <ComboBox items="{/YEINVOICE_CDS}" showSecondaryValues="true" id="companycode">
+                                <items>
+                                    <core:ListItem text="{ProductionPlant}" />
+                                </items>
+                            </ComboBox> -->
+                            <!-- <Label text=" Plant" required="true" />
+                            <ComboBox items="{/plant}" showSecondaryValues="true" id="Plant">
+                                <items>
+                                    <core:ListItem text="{Plant}" additionalText="{PlantName}" />
+                                </items>
+                            </ComboBox> -->
+                            <Label text="Document No." />
+                            <Input visible="{oVisibleObject>/docnumvisible}" id="Orderfr" maxLength="12" width="100%" placeholder="Enter Invoice" showSuggestion="true" value="{dataModel>/value}" showValueHelp="true" valueHelpRequest="handlef4" />
+                            <Label text="Multiple Document No." />
+                            <MultiInput id="MultipleDocumentNumber" visible="{oVisibleObject>/MultiInvoiceVisible}" showValueHelp="false"></MultiInput>
+                            
+                            <!-- <MultiInput visible="{oVisibleObject>/docnumvisible}" id="idDocno" showValueHelp="true" valueHelpRequest="handleValueHelp" suggestionItems="{
+				path: '/YEINVOICE_CDSS',
+				sorter: { path: 'BillingDocument' }
+			}">
+                                <core:Item key="{BillingDocument}" text="{BillingDocument}" />
+                            </MultiInput> -->
+                            <!-- <Input id="Orderto" type="Number" width="100%" placeholder="Enter Invoice To." showSuggestion="true">
+                            </Input> -->
+                            <!-- <Label text=" Billing Date" />
+                            <DateRangeSelection width="100%" valueState="{valueState}" valueStateText="{valueStateText}" editable="{oGenericModel>/editable}" value="{  path: 'view>/dDefaultDate',type: 'sap.ui.model.type.Date'}" /> -->
+                            <Label text="Invoice No."></Label>
+                            <MultiInput visible="{oVisibleObject>/invoicenumvisible}" id="idInvoiceNo" showValueHelp="false" suggestionItems="{
+				path: '/YEINVOICE_CDSS',
+				sorter: { path: 'BillingDocument' }
+			}">
+                                <core:Item key="{BillingDocument}" text="{BillingDocument}" />
+                            </MultiInput>
+                            <core:Title />
+                            <Label text="Document Type" />
+                            <ComboBox id="idComboBox" change="onSelect" selectedKey="1">
+                                <core:Item key="1" text="Sales"></core:Item>
+                                <core:Item key="2" text="Finance"></core:Item>
+                            </ComboBox>
+                            <!-- <ComboBox id="idComboBox" items="{oInvoiceModel>/invoiceType}" change="onSelect">
+                                <core:ListItem key="{oInvoiceModel>Key}" text="{oInvoiceModel>Description}"></core:ListItem>
+                            </ComboBox> -->
+                            <Label text="Fiscal Year"></Label>
+                            <DatePicker id="idDate" visible="{oVisibleObject>/visible}" displayFormat="yyyy" valueFormat="yyyy"></DatePicker>
+                        </f:content>
+                    </f:SimpleForm>
+                    <f:SimpleForm backgroundDesign="Transparent" title="Select Action" editable="true" layout="ResponsiveGridLayout">
+                        <f:content>
+                            <VBox>
+                                <items>
+                                    <RadioButtonGroup select="onChangeAction" id="idActionRadioBtnGroup">
+                                        <buttons>
+                                            <RadioButton text="Generate" />
+                                            <RadioButton text="Display" />
+                                            <RadioButton text="Cancel" />
+                                            <RadioButton text="Print" />
+                                            <RadioButton text="Json" />
+                                            <RadioButton text="Multiple Print"></RadioButton>
+                                            <RadioButton text="Multiple Invoice"></RadioButton>
+                                            <RadioButton text="EwayBill Print" />
+                                            <RadioButton text="Update E-way Bill" />
+                                        </buttons>
+                                    </RadioButtonGroup>
+                                </items>
+                            </VBox>
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+            </Panel>
+            <VBox id="container" width="1000px" height="800px" />
+        </content>
+        <footer>
+            <Bar>
+                <!-- <contentRight>
+                    <Button icon="sap-icon://open-command-field" press="onRefresh" text="Refresh" />
+                </contentRight> -->
+                <contentRight>
+                    <Button icon="sap-icon://open-command-field" press="next" text="Next" />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

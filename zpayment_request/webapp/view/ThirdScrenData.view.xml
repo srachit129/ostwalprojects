@@ -1,0 +1,157 @@
+<mvc:View controllerName="zpaymentrequest.controller.ThirdScrenData"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:Tab="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="page" title="Third Screen Data">
+        <content>
+            <Panel id="Panel23">
+                <Tab:Table id="FirstTable" rows="{oThirdScreenModel>/aThirdScreenData}" cellClick="onSelect" rowSelectionChange="onSelect">
+                    <Tab:extension>
+                        <OverflowToolbar id="oftb" style="Clear">
+                            <ToolbarSpacer id="tbs" />
+                            <!-- <Button id="Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="saveTableData"/> -->
+                            <!-- <Button id="Table_AddButton" icon="sap-icon://add" tooltip="Add One Empty Table Row" press="AddTableData"/> -->
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+
+                        <Tab:Column id="Table_Column1" width="10rem" >
+                            <Label id="Table_Label1" text="Company Code" />
+                            <Tab:template>
+                                <Input id="Table_Input1" type="Text" editable="false" value="{oThirdScreenModel>CompanyCode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column2" width="10rem" >
+                            <Label id="Table_Label2" text="Journal Entry Number" />
+                            <Tab:template>
+                                <Input id="Table_Input2" type="Text" editable="false" value="{oThirdScreenModel>JournalEntryNumber}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column3" width="10rem">
+                            <Label id="Table_Label3"  text="Journal Entry Date" />
+                            <Tab:template>
+                                <Input id="Table_Input3" type="Text" editable="false" value="{oThirdScreenModel>JournalEntryDate}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column4" width="12rem" >
+                            <Label id="Table_Label4" text="Journal Entry Type" />
+                            <Tab:template>
+                                <Input id="Table_Input4" type="Text" editable="false" value="{oThirdScreenModel>JournalEntryType}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column5" width="10rem">
+                            <Label id="Table_Label5" text="Due Days" />
+                            <Tab:template>
+                                <Input id="Table_Input5" type="Text" editable="false" value="{oThirdScreenModel>Over_Due_Days}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column6" width="10rem">
+                            <Label id="Table_Label6" text="Special Journal Indicator" />
+                            <Tab:template>
+                                <Input  id="Table_Input6" type="Text" editable="false" value="{oThirdScreenModel>SpecialJournalIndicator}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column7" width="8rem" >
+                            <Label id="Table_Label7" text="Amount" />
+                            <Tab:template>
+                                <Input id="Table_Input7" type="Text" editable="false" value="{oThirdScreenModel>Amount}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column8" filterProperty="OverDueDays" width="8rem" >
+                            <Label id="Table_Label8"  text="RefText" />
+                            <Tab:template>
+                                <Input id="Table_Input8" editable="false" value="{oThirdScreenModel>RefText}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column9" width="8rem" visible="false">
+                            <Label id="Table_Label9" text="Fiscal Year" />
+                            <Tab:template>
+                                <Input id="Table_Input9" editable="false" value="{oThirdScreenModel>FinYear}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column110" width="8rem" visible="false">
+                            <Label id="Table_Label110" text="Accounting Document" />
+                            <Tab:template>
+                                <Input id="Table_Input110" editable="false" value="{oThirdScreenModel>AccountingDocument}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column120" width="8rem" >
+                            <Label id="Table_Label120" text="TDS Amount" />
+                            <Tab:template>
+                                <Input id="Table_Input120" editable="false" value="{oThirdScreenModel>TDS}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column130" width="8rem" >
+                            <Label id="Table_Label130" text="Profit Center" />
+                            <Tab:template>
+                                <Input id="Table_Input130" editable="false" value="{oThirdScreenModel>profitcenter}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column10" width="8rem" >
+                            <Label id="Table_Label10" text="Partial Payment" />
+                            <Tab:template>
+                                <Input id="Table_Input10" editable="true" value="{oThirdScreenModel>PartialPayment}"></Input>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc11" width="12rem" >
+                            <Label id="Table_Label11" text="MSME" />
+                            <Tab:template>
+                                <Input id="Table_Input11" type="Text" maxLength="40" editable="false" value="{oThirdScreenModel>MSME}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc12" width="12rem">
+                            <Label id="Table_Label12"  text="House BANK" />
+                            <Tab:template>
+                                <Input id="Table_Input12" type="Text" maxLength="40" editable="true" value="{oThirdScreenModel>HBANK}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc13" width="12rem" >
+                            <Label id="Table_Label13" text="Business Place" />
+                            <Tab:template>
+                                <Input id="Table_Input13" type="Text" maxLength="40" editable="false" value="{oThirdScreenModel>BusinessPlace}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc14" width="12rem" >
+                            <Label id="Table_Label14" text="IFSC Code" />
+                            <Tab:template>
+                                <Input id="Table_Input14" type="Text" maxLength="40" editable="false" value="{oThirdScreenModel>IFSCCode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc15"  width="12rem">
+                            <Label id="Table_Label15" text="BANK Account" />
+                            <Tab:template>
+                                <Input id="Table_Input15" type="Text" maxLength="40" editable="false" value="{oThirdScreenModel>BANKAccount}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc16" width="12rem" >
+                            <Label id="Table_Label16" text="Priroty" />
+                            <Tab:template>
+                                <ComboBox id="Table_Input16" value="{oThirdScreenModel>Priroty}">
+                                    <items>
+                                        <core:ListItem id="Priroty_ComboBoxListItem1" text="High"></core:ListItem>
+                                        <core:ListItem id="Priroty_ComboBoxListItem2" text="Medium"></core:ListItem>
+                                        <core:ListItem id="Priroty_ComboBoxListItem3" text="Low"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Requested_Button" width="13rem">
+                            <Label id="Table_Label171" text="Requested / Rejected" />
+                            <Tab:template>
+                                <Text id="Requested_ColumneText" text="{oThirdScreenModel>Requested}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_Column17" width="8rem">
+                            <Label id="Table_Label17" text="Request" />
+                            <Tab:template>
+                                <Button id="Table_Input17" visible="{oThirdScreenModel>Request_Button}" text="Request" press="onRequest"></Button>
+                            </Tab:template>
+                        </Tab:Column>
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

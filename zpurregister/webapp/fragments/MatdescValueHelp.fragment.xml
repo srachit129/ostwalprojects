@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <SelectDialog id="MatDescSelectDialog" search=".onSearchMatDesc" noDataText="No Data Found" confirm="._handleValueHelpMatDescClose" cancel="._handleValueHelpMatDescClose" showClearButton="true">
+
+    </SelectDialog>
+</core:FragmentDefinition>

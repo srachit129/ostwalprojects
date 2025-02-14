@@ -1,0 +1,66 @@
+<mvc:View
+    controllerName="zmm60.controller.First_View"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:C="sap.ui.core"
+    xmlns:Tab="sap.ui.table"
+    xmlns:Smartab="sap.ui.comp.smarttable"
+    xmlns:SmartFilterBar="sap.ui.comp.smartfilterbar"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <SmartFilterBar:SmartFilterBar
+                id="smartFilterBar"
+                entitySet="YMM_60_CDS"
+                basicSearchFieldName="Plant"
+            >
+                <SmartFilterBar:controlConfiguration>
+                    <SmartFilterBar:ControlConfiguration
+                        index="1"
+                        id="first"
+                        visibleInAdvancedArea="true"
+                        label="Product"
+                        key="Product"
+                    />
+                    <SmartFilterBar:ControlConfiguration
+                        index="2"
+                        id="second"
+                        visibleInAdvancedArea="true"
+                        label="Plant"
+                        key="Plant"
+                    />
+                    <SmartFilterBar:ControlConfiguration
+                        index="3"
+                        id="third"
+                        visibleInAdvancedArea="true"
+                        label="Product Type"
+                        key="ProductType"
+                    />
+                </SmartFilterBar:controlConfiguration>
+            </SmartFilterBar:SmartFilterBar>
+            <Smartab:SmartTable
+                id="LineItemsSmartTable"
+                entitySet="YMM_60_CDS"
+                smartFilterId="smartFilterBar"
+                enableAutoColumnWidth="true"
+                tableType="Table"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                header="Material Report"
+                showRowCount="true"
+                persistencyKey="SmartTableAnalytical_Explored"
+                enableAutoBinding="true"
+                class="sapUiResponsiveContentPadding"
+                enableExport="true"
+                initiallyVisibleFields="Product,Plant,ProductType,UNIT,Controlcode,ProfitCenter,ProductDescription,ValuationClass,InventoryValuationProcedure,PriceDeterminationControl,ValuationClassDescription"
+            >
+            </Smartab:SmartTable>
+            <!-- </VBox> -->
+        </content>
+    </Page>
+</mvc:View>

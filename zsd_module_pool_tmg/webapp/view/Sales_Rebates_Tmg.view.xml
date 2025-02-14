@@ -1,0 +1,579 @@
+<mvc:View controllerName="zsdmodulepooltmg.controller.Sales_Rebates_Tmg"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="Panel1" class="sapUiSmallMarginBottom">
+                <F:SimpleForm id="Form1" layout="ResponsiveGridLayout" editable="true">
+                    <F:content>
+                        <RadioButtonGroup id="radioButton" select="TableChange" columns="6" class="sapUiMediumMarginBottom">
+                            <RadioButton id="RB3-2" text="General Discount(District Wise)" />
+                            <RadioButton id="RB3-3" text="General Discount(State Wise)" />
+                            <!-- <RadioButton id="RB3-6" text="General Discount(Sales Group Wise)" /> -->
+                            <RadioButton id="RB3-1" text="Cash Discount" />
+                            <RadioButton id="RB3-4" text="Lifting Discount" />
+                            <RadioButton id="RB3-8" text="Lifting Discount(Invoice Wise)" />
+                            <RadioButton id="RB3-7" text="Price Difference" />
+                            <RadioButton id="RB3-9" text="Price Difference (District Wise)" />
+                            <RadioButton id="RB3-5" text="District Name" />
+                            <RadioButton id="RB3-10" text="Credit Note GL" />
+                        </RadioButtonGroup>
+                    </F:content>
+                </F:SimpleForm>
+            </Panel >
+
+
+            <!-- Cash Discount Tmg  -->
+            <Panel id="Panel2" class="sapUiSmallMarginBottom">
+                <table:Table id="Cash_Discount_Tmg" rows="{oFirstTableDataModel>/aFirstTableItem}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="oft1" style="Clear">
+                            <Button id="FirstTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="FirstTableExcelDownload" />
+                            <ToolbarSpacer id="tbs1"/>
+                            <Button id="FirstTableExcelDataUploadButton" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="FirstTableExcelUpload" />
+                            <Button id="SaveFirstTableData" icon="sap-icon://save" text="Save" tooltip="Add item" press="FirstTableDataSave" />
+                            <Button id="AddFirstTableData" icon="sap-icon://add" tooltip="Add item" press="FirstTableSingleRowAdd" />
+                            <Button id="DeleteFirstTableData" icon="sap-icon://delete" tooltip="Add item" press="FirstTableSingleRowDelete" />
+                        </OverflowToolbar>
+                    </table:extension>
+
+                    <table:columns>
+                        <table:Column sortProperty="CircularNumber" filterProperty="CircularNumber" id="First_Table_Column3">
+                            <Label id="First_Table_Label3" text="Circular No" />
+                            <table:template>
+                                <!-- <Input id="circular_no" value="{oFirstTableDataModel>CircularNumber}" editable="true" /> -->
+                                <ComboBox width="100%" items="{path:'CircularNumber>/aData', length:5000}" showSecondaryValues="true" change="Cash_Discount_CircularNumber_valueState" valueState="{oFirstTableDataModel>CircularNumber_valueState}" id="FirstTableCircularNumber" value="{oFirstTableDataModel>CircularNumber}">
+                                    <items>
+                                        <core:ListItem id="idCircularNo" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column id="First_Table_Column4" sortProperty="PaymentTerms" filterProperty="PaymentTerms">
+                            <Label id="First_Table_Label4" text="Payment Term" />
+                            <table:template>
+                                <Input id="payment_term" value="{oFirstTableDataModel>PaymentTerms}" editable="false" />
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column id="First_Table_Column5" sortProperty="materialpricegroup" filterProperty="materialpricegroup">
+                            <Label id="First_Table_Label5" text="Material Pricing Group" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'oMaterialPricingGroupModel>/aMaterialPricingGroup', length:5000}" showSecondaryValues="true" change="Cash_Discount_MaterialPricingGroup_valueState" valueState="{oFirstTableDataModel>MaterialPricingGroup_valueState}" id="MaterialPricingGroupValue21" value="{oFirstTableDataModel>materialpricegroup}">
+                                    <items>
+                                        <core:ListItem id="MaterialPricingGroup21" text="{oMaterialPricingGroupModel>MaterialPricingGroup}" additionalText="{oMaterialPricingGroupModel>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="material" value="{oFirstTableDataModel>materialpricegroup}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column id="First_Table_Column6">
+                            <Label id="First_Table_Label6" text="Amount" />
+                            <table:template>
+                                <Input id="amount" value="{oFirstTableDataModel>Amount}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </Panel >
+
+
+            <!-- General Discount (Sales Group Wise) Tmg  -->
+            <Panel id="Panel3" class="sapUiSmallMarginBottom">
+                <table:Table id="General_discount_tmg_salesgroup" rows="{oSeventhTableDataModel>/aSeventhTable}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="Seventh_Table_OverflowToolbar" style="Clear">
+                            <Button id="SeventhTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="SeventhTableExcelDownload" />
+                            <ToolbarSpacer id="Seventh_Table_ToolbarSpacer"/>
+                            <Button id="Seventh_Table_ExcelUpload_Button" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="SeventhTableExcelUpload" />
+                            <Button id="Seventh_Table_Save_Button" icon="sap-icon://save" text="Save" tooltip="Add item" press="SeventhTableDataSave" />
+                            <Button id="Seventh_Table_Add_Button" icon="sap-icon://add" tooltip="Add item" press="SeventhTableSingleRowAdd" />
+                            <Button id="Seventh_Table_Delete_Button" icon="sap-icon://delete" tooltip="Add item" press="SeventhTableSingleRowDelete" />
+                        </OverflowToolbar>
+                    </table:extension>
+
+                    <table:columns>
+                        <table:Column sortProperty="circular_no" filterProperty="circular_no" id="Seventh_Table_Column1">
+                            <Label id="Seventh_Table_Label1" text="Circular No" />
+                            <table:template>
+                                <!-- <Input id="circular_no" value="{oFirstTableDataModel>CircularNumber}" editable="true" /> -->
+                                <ComboBox width="100%" items="{path:'CircularNumber>/aData', length:5000}" showSecondaryValues="true" id="ThirdTableCircularNumber" change="General_Discount_SalesGroup_Wise_CircularNo_ValueState" valueState="{oSeventhTableDataModel>CircularNumber_valueState}" value="{oSeventhTableDataModel>circular_no}">
+                                    <items>
+                                        <core:ListItem id="idCircularNo1" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column id="Seventh_Table_Column2" sortProperty="SalesGroup" filterProperty="SalesGroup">
+                            <Label id="Seventh_Table_Label2" text="Sales Group" />
+                            <table:template>
+                                <ComboBox id="Seventh_Table_ComboBox2" width="100%" items="{path:'oSalesGroupModel>/aSalesGroupData', length:5000}" showSecondaryValues="true" change="General_Discount_SalesGroup_Wise_SalesGroup_ValueState" valueState="{oSeventhTableDataModel>SalesGroup_valueState}" value="{oSeventhTableDataModel>SalesGroup}">
+                                    <items>
+                                        <core:ListItem id="Seventh_Table_Combobox2" text="{oSalesGroupModel>SalesGroup}" additionalText="{oSalesGroupModel>SalesGroupName}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="Seventh_Table_Input2" value="{oSeventhTableDataModel>SalesGroup}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column id="Seventh_Table_Column3" sortProperty="materialpricegroup" filterProperty="materialpricegroup">
+                            <Label id="Seventh_Table_Label3" text="Material Pricing Group" />
+                            <table:template>
+                                <ComboBox id="Seventh_Table_ComboBox3" width="100%" items="{path:'oMaterialPricingGroupModel>/aMaterialPricingGroup', length:5000}" showSecondaryValues="true" change="General_Discount_SalesGroup_Wise_Materialpricegrp_ValueState" valueState="{oSeventhTableDataModel>MaterialPricingGroup_valueState}" value="{oSeventhTableDataModel>materialpricegroup}">
+                                    <items>
+                                        <core:ListItem id="Seventh_Table_Combobox3" text="{oMaterialPricingGroupModel>MaterialPricingGroup}" additionalText="{oMaterialPricingGroupModel>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="material" value="{oFirstTableDataModel>materialpricegroup}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+
+                        <table:Column id="Seventh_Table_Column4">
+                            <Label id="Seventh_Table_Label4" text="Amount" />
+                            <table:template>
+                                <Input id="Seventh_Table_Input4" value="{oSeventhTableDataModel>Amount}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </Panel >
+
+            <!-- General Discount (District Wise) Tmg  -->
+            <Panel id="Panel4" class="sapUiSmallMarginBottom">
+                <table:Table id="General_Discount_Tmg_District" rows="{oSecondTableDataModel>/aSecondTableData}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="oft2" style="Clear">
+                            <Button id="SecondTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="Second_Table_Excel_Download" />
+                            <ToolbarSpacer id="tbs2" />
+                            <Button id="SecondTableExcelDataUploadButton" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="Second_Table_Excel_Upload" />
+                            <Button id="SaveSecondTableData" icon="sap-icon://save" text="Save" tooltip="Add item" press="Second_Table_SaveData" />
+                            <Button id="AddSecondTableData" icon="sap-icon://add" tooltip="Add item" press="Second_Table_AddData" />
+                            <Button id="DeleteSecondTableData" icon="sap-icon://delete" tooltip="Remove item" press="Second_Table_DeleteData" />
+                            <!-- <Button icon="sap-icon://delete" tooltip="Delete Table records" press="onDelete" /> -->
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+                        <!-- <table:Column id="Second_Table_Column1">
+                            <Label id="Second_Table_Label1" text="Sales Group" />
+                            <table:template>
+                                <Input id="idMixingNo." value="{oSecondTableDataModel>SalesGroup}" editable="true" />
+                            </table:template>
+                        </table:Column> -->
+                        <table:Column id="Second_Table_Column2" sortProperty="CustomerDistrict" filterProperty="CustomerDistrict">
+                            <Label id="Second_Table_Label2" text="Customer District" />
+                            <table:template>
+                                <ComboBox width="100%" change="General_Discount_District_Wise_CustomerDistrict_Change" items="{path:'oDistrictNameModel>/aDistrictName', length:5000}" valueState="{oSecondTableDataModel>CustomerDistrict_valueState}" showSecondaryValues="true" id="CustomerDistrict65" value="{oSecondTableDataModel>CustomerDistrict}">
+                                    <items>
+                                        <core:ListItem id="CustomerDistrict" text="{oDistrictNameModel>DistrictName}" additionalText="{oDistrictNameModel>StateCode}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="batch" value="{oSecondTableDataModel>CustomerDistrict}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Second_Table_Column3" sortProperty="CircularNumber" filterProperty="CircularNumber">
+                            <Label id="Second_Table_Label3" text="Circular Number" />
+                            <table:template>
+                                <ComboBox width="100%" change="General_Discount_District_Wise_CircularNumber_Change"  valueState="{oSecondTableDataModel>CircularNumber_valueState}" items="{path:'CircularNumber>/aData', length:5000}" showSecondaryValues="true" id="SecondTableCircularNumber2" value="{oSecondTableDataModel>CircularNumber}">
+                                    <items>
+                                        <core:ListItem id="CircularNumber" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="CircularNumber" value="{oSecondTableDataModel>CircularNumber}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Second_Table_Column4" sortProperty="materialpricegroup" filterProperty="materialpricegroup">
+                            <Label id="Second_Table_Label4" text="Material Pricing Group" />
+                            <table:template>
+                                <ComboBox width="100%" change="General_Discount_District_Wise_MaterialPriseGroup_Change" valueState="{oSecondTableDataModel>materialpricegroup_valueState}" items="{path:'oMaterialPricingGroupModel>/aMaterialPricingGroup', length:5000}" showSecondaryValues="true" id="MaterialPricingGroupValue" value="{oSecondTableDataModel>materialpricegroup}">
+                                    <items>
+                                        <core:ListItem id="MaterialPricingGroup" text="{oMaterialPricingGroupModel>MaterialPricingGroup}" additionalText="{oMaterialPricingGroupModel>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="MaterialCode" value="{oSecondTableDataModel>materialpricegroup}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Second_Table_Column5">
+                            <Label id="Second_Table_Label5" text="Amount" />
+                            <table:template>
+                                <Input id="Amount" value="{oSecondTableDataModel>Amount}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </Panel >
+
+            <!-- General Discount (State Wise) Tmg  -->
+            <Panel id="Panel5" class="sapUiSmallMarginBottom">
+                <table:Table id="General_Discount_Tmg_State" rows="{oThirdTableDataModel>/aThirdTableData}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="oft21" style="Clear">
+                            <Button id="ThirdTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="Third_Table_Excel_Download" />
+                            <ToolbarSpacer id="tbs21" />
+                            <Button id="ThirdTableExcelDataUploadButton" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="Third_Table_Excel_Upload" />
+                            <Button id="SaveThirdTableData" icon="sap-icon://save" text="Save" tooltip="Add item" press="Third_Table_SaveData" />
+                            <Button id="AddThirdTableData" icon="sap-icon://add" tooltip="Add item" press="Third_Table_AddData" />
+                            <Button id="DeleteThirdTableData" icon="sap-icon://delete" tooltip="Remove item" press="Third_Table_DeleteData" />
+                            <!-- <Button icon="sap-icon://delete" tooltip="Delete Table records" press="onDelete" /> -->
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+                        <table:Column id="Third_Table_Column2" sortProperty="Custstcode" filterProperty="Custstcode">
+                            <Label id="Third_Table_Label2" text="Customer State Code" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'oStateCodeModel>/aStateCode', length:5000}" change="General_Discount_State_Wise_Custstcode_ValueState" valueState="{oThirdTableDataModel>Custstcode_ValueState}" showSecondaryValues="true" id="CustomerState_Code" value="{oThirdTableDataModel>Custstcode}">
+                                    <items>
+                                        <core:ListItem id="CustomerStateCode" text="{oStateCodeModel>Region}" additionalText="{oStateCodeModel>Country}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="batch1" value="{oThirdTableDataModel>Custstcode}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Third_Table_Column3" sortProperty="CircularNo"  filterProperty="CircularNo">
+                            <Label id="Third_Table_Label3" text="Circular Number" />
+                            <table:template>
+                                <!-- <Input id="CircularNumber1" value="{oThirdTableDataModel>CircularNo}" editable="true" /> -->
+                                <ComboBox width="100%" items="{path:'CircularNumber>/aData', length:5000}" change="General_Discount_State_Wise_CircularNo_ValueState" valueState="{oThirdTableDataModel>CircularNo_ValueState}" showSecondaryValues="true" id="ThirdTableCircularNumber3" value="{oThirdTableDataModel>CircularNo}">
+                                    <items>
+                                        <core:ListItem id="CircularNumber2" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Third_Table_Column4" sortProperty="Materialpricegrp" filterProperty="Materialpricegrp">
+                            <Label id="Third_Table_Label4" text="Material Pricing Group" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'oMaterialPricingGroupModel>/aMaterialPricingGroup', length:5000}" change="General_Discount_State_Wise_Materialpricegrp_ValueState" valueState="{oThirdTableDataModel>Materialpricegrp_ValueState}" showSecondaryValues="true" id="MaterialPricingGroupValue1" value="{oThirdTableDataModel>Materialpricegrp}">
+                                    <items>
+                                        <core:ListItem id="MaterialPricingGroup1" text="{oMaterialPricingGroupModel>MaterialPricingGroup}" additionalText="{oMaterialPricingGroupModel>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="MaterialCode1" value="{oThirdTableDataModel>Materialpricegrp}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Third_Table_Column5">
+                            <Label id="Third_Table_Label5" text="Amount" />
+                            <table:template>
+                                <Input id="Amount1" value="{oThirdTableDataModel>Amount}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </Panel >
+
+            <!-- Lifting Discount Tmg  -->
+            <Panel id="Panel6" class="sapUiSmallMarginBottom">
+                <table:Table id="Lifting_Discount_Tmg" rows="{oForthTableDataModel>/aForthTable}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="oftb3" style="Clear">
+                            <Button id="ForthTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="Forth_Table_Excel_Data_Download" />
+                            <ToolbarSpacer id="tbs3"/>
+                            <Button id="ForthTableExcelDataUploadButton" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="Forth_Table_Excel_Data_Upload" />
+                            <Button id="SaveForthTableData" icon="sap-icon://save" text="Save" tooltip="Add item" press="Forth_Table_Data_Save" />
+                            <Button id="AddForthTableData" icon="sap-icon://add" tooltip="Add item" press="Forth_Table_Data_Add_SingleRow" />
+                            <Button id="DeleteForthTableData" icon="sap-icon://delete" tooltip="Remove item" press="Forth_Table_Data_Delete_SingleRow" />
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+                        <!-- <table:Column id="Forth_Table_Column1">
+                            <Label id="Forth_Table_Label1" text="Sales Group" />
+                            <table:template>
+                                <Input id="Forth_Table_Input1" maxLength="3" value="{oForthTableDataModel>SalesGroup}" editable="true" />
+                            </table:template>
+                        </table:Column> -->
+                        <table:Column id="Forth_Table_Column2">
+                            <Label id="Forth_Table_Label2" text="Order Date From" />
+                            <table:template>
+                                <DatePicker id="Forth_Table_Input2" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oForthTableDataModel>OrderDateFrom}" />
+                                <!-- <Input id="Forth_Table_Input2" value="{oForthTableDataModel>OrderDateFrom}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Forth_Table_Column3">
+                            <Label id="Forth_Table_Label3" text="Order Date To" />
+                            <table:template>
+                                <DatePicker id="Forth_Table_Input3" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oForthTableDataModel>OrderDateTo}" />
+                                <!-- <Input id="Forth_Table_Input3" value="{oForthTableDataModel>OrderDateTo}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Forth_Table_Column4" sortProperty="CircularNumber" filterProperty="CircularNumber">
+                            <Label id="Forth_Table_Label4" text="Circular Number" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'CircularNumber>/aData', length:5000}" showSecondaryValues="true" change="Lifting_Discount_CircularNumber_valueState" valueState="{oForthTableDataModel>CircularNumber_valueState}" id="ForthTableCircularNumber21" value="{oForthTableDataModel>CircularNumber}">
+                                    <items>
+                                        <core:ListItem id="idCircularNo221" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Forth_Table_Column5" sortProperty="Materialprgrp" filterProperty="Materialprgrp">
+                            <Label id="Forth_Table_Label5" text="Material Pricing Group" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'oMaterialPricingGroupModel>/aMaterialPricingGroup', length:5000}" change="Lifting_Discount_MaterialPricingGroup_valueState" valueState="{oForthTableDataModel>MaterialPricingGroup_valueState}" showSecondaryValues="true" id="MaterialPricingGroupValue123" value="{oForthTableDataModel>Materialprgrp}">
+                                    <items>
+                                        <core:ListItem id="MaterialPricingGroup123" text="{oMaterialPricingGroupModel>MaterialPricingGroup}" additionalText="{oMaterialPricingGroupModel>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="Forth_Table_Input5" maxLength="40" value="{oForthTableDataModel>Materialprgrp}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Forth_Table_Column6">
+                            <Label id="Forth_Table_Label6" text="Amount" />
+                            <table:template>
+                                <Input id="Forth_Table_Input6" value="{oForthTableDataModel>Amount}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </Panel >
+
+            <!-- Price Difference Tmg -->
+            <Panel id="Panel7" class="sapUiSmallMarginBottom">
+                <table:Table id="Price_Difference_Tmg" rows="{oEighthTableDataModel>/aEighthTable}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="EighthTable_OverflowToolbar" style="Clear">
+                            <Button id="EighthTable_ExcelDownload" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="EighthTableExcelDownload" />
+                            <ToolbarSpacer id="EighthTable_ToolbarSpacer" />
+                            <Button id="EighthTable_ExcelUpload" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="EighthTableExcelUpload" />
+                            <Button id="EighthTable_DataSave" icon="sap-icon://save" text="Save" tooltip="Add item" press="EighthTableDataSave" />
+                            <Button id="EighthTable_SingleRowAdd" icon="sap-icon://add" tooltip="Add item" press="EighthTableSingleRowAdd" />
+                            <Button id="EighthTable_SingleRowDelete" icon="sap-icon://delete" tooltip="Remove item" press="EighthTableSingleRowDelete" />
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+
+                        <table:Column id="EighthTable_CircularNumber" sortProperty="CircularNumber" filterProperty="CircularNumber">
+                            <Label id="EighthTable_Label1" text="Circular Number" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'CircularNumber>/aData', length:5000}"  change="Price_Difference_CircularNumber_valueState" valueState="{oEighthTableDataModel>CircularNumber_valueState}" showSecondaryValues="true" id="EighthTableCircularNumber21" value="{oEighthTableDataModel>CircularNumber}">
+                                    <items>
+                                        <core:ListItem id="EighthTable_Input" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="EighthTable_Column2" sortProperty="MaterialCode" filterProperty="MaterialCode">
+                            <Label id="EighthTable_Label2" text="Material Code" />
+                            <table:template>
+                                <Input id="Eighth_Table_Input2" maxLength="12" value="{oEighthTableDataModel>MaterialCode}" />
+                                <!-- <Input id="Forth_Table_Input2" value="{oForthTableDataModel>OrderDateFrom}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="EighthTable_Column3" sortProperty="AgreedAmount" filterProperty="AgreedAmount">
+                            <Label id="EighthTable_Label3" text="Agreed Amount" />
+                            <table:template>
+                                <Input id="EighthTable_Input3" value="{oEighthTableDataModel>AgreedAmount}" />
+                                <!-- <Input id="Forth_Table_Input3" value="{oForthTableDataModel>OrderDateTo}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+
+
+                    </table:columns>
+                </table:Table>
+            </Panel >
+
+            <!-- District Name Maintain Tmg  -->
+            <Panel id="Panel8" class="sapUiSmallMarginBottom">
+                <table:Table id="District_Name_Maintain_Tmg" rows="{oFifthTableDataModel>/aFifthTable}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="District_Name_Maintain_Tmg_oft" style="Clear">
+                            <MenuButton id="MenuButton_forTotal" text="| Excel Download" icon="sap-icon://excel-attachment" defaultAction="onDefaultAction" beforeMenuOpen="onBeforeMenuOpen" useDefaultActionOnly="true" menuPosition="LeftCenter">
+			                    <menu>
+				                    <Menu id="Menu_forTotal" itemSelected="onMenuAction">
+					                    <MenuItem id="FifthTableExcelTemplateDownloadButton"  icon="sap-icon://excel-attachment" tooltip="Template" text="Template" press="FifthTableExcelTemplateDownload"/>
+					                    <MenuItem id="FifthTableExcelDataDownload"  icon="sap-icon://excel-attachment" tooltip="Table Data" text="Table Data" press="FifthTableExcelDataDownload"/>
+                                    </Menu>
+			                    </menu>
+		                    </MenuButton>
+                            <!-- <Button id="FifthTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="FifthTableExcelTemplateDownload" /> -->
+                            <ToolbarSpacer id="District_Name_Maintain_Tmg_tbs"/>
+                            <Button id="FifthTableExcelDataUploadButton" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="FifthTableExcelUpload" />
+                            <Button id="SaveFifthTableData" icon="sap-icon://save" text="Save" tooltip="Add item" press="FifthTableDataSave" />
+                            <Button id="AddFifthTableData" icon="sap-icon://add" tooltip="Add item" press="FifthTableSingleRowAdd" />
+                            <Button id="DeleteFifthTableData" icon="sap-icon://delete" tooltip="Add item" press="FifthTableSingleRowDelete" />
+                        </OverflowToolbar>
+                    </table:extension>
+
+                    <table:columns>
+                        <table:Column id="Fifth_Table_Column1" sortProperty="DistrictName" filterProperty="DistrictName">
+                            <Label id="Fifth_Table_Label1" text="District Name" />
+                            <table:template>
+                                <Input id="Fifth_Table_District" value="{oFifthTableDataModel>DistrictName}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Fifth_Table_Column2" sortProperty="StateCode" filterProperty="StateCode">
+                            <Label id="Fifth_Table_Label2" text="State Code" />
+                            <table:template>
+                                <Input id="Fifth_Table_StateCode" maxLength="2" value="{oFifthTableDataModel>StateCode}" editable="true" />
+                            </table:template>
+                        </table:Column>
+
+                    </table:columns>
+                </table:Table>
+            </Panel >
+
+            <!-- Lifting Discount Tmg (Invoice Wise)  -->
+            <Panel id="Panel9" class="sapUiSmallMarginBottom">
+                <table:Table id="Lifting_Discount_Tmg_Invoice_Wise" rows="{oNinthTableDataModel>/aNinthTable}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="NinthtTable_OverflowToolbar" style="Clear">
+                            <Button id="NinththTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="Ninth_Table_Excel_Data_Download" />
+                            <ToolbarSpacer id="NinthtTable_"/>
+                            <Button id="NinthtTableExcelDataUploadButton" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="Ninth_Table_Excel_Data_Upload" />
+                            <Button id="SaveNinthtTableData" icon="sap-icon://save" text="Save" tooltip="Add item" press="Ninth_Table_Data_Save" />
+                            <Button id="AddNinthtTableData" icon="sap-icon://add" tooltip="Add item" press="Ninth_Table_Data_Add_SingleRow" />
+                            <Button id="DeleteNinthtTableData" icon="sap-icon://delete" tooltip="Remove item" press="Ninth_Table_Data_Delete_SingleRow" />
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+                        <table:Column id="Ninth_Table_Column2">
+                            <Label id="Ninth_Table_Label2" text="Invoice Date From" />
+                            <table:template>
+                                <DatePicker id="Ninth_Table_Input2" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oNinthTableDataModel>InvoiceDateFrom}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Ninth_Table_Column3">
+                            <Label id="Ninth_Table_Label3" text="Invoice Date To" />
+                            <table:template>
+                                <DatePicker id="Ninth_Table_Input3" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oNinthTableDataModel>InvoiceDateTo}" />
+                                <!-- <Input id="Forth_Table_Input3" value="{oForthTableDataModel>OrderDateTo}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Ninth_Table_Column4" sortProperty="CircularNumber" filterProperty="CircularNumber">
+                            <Label id="Ninth_Table_Label4" text="Circular Number" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'CircularNumber>/aData', length:5000}" change="Lifting_Discount_Invoiced_Wise_CircularNumber_valueState" valueState="{oNinthTableDataModel>CircularNumber_valueState}"  showSecondaryValues="true" id="NinthTableCircularNumber21" value="{oNinthTableDataModel>CircularNumber}">
+                                    <items>
+                                        <core:ListItem id="idCircularNo22134" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Ninth_Table_Column5" sortProperty="Materialprgrp" filterProperty="Materialprgrp">
+                            <Label id="Ninth_Table_Label5" text="Material Pricing Group" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'oMaterialPricingGroupModel>/aMaterialPricingGroup', length:5000}" change="Lifting_Discount_Invoiced_Wise_MaterialPricingGroup_valueState" valueState="{oNinthTableDataModel>MaterialPricingGroup_valueState}" showSecondaryValues="true" id="MaterialPricingGroupValue12345" value="{oNinthTableDataModel>Materialprgrp}">
+                                    <items>
+                                        <core:ListItem id="MaterialPricingGroup12345" text="{oMaterialPricingGroupModel>MaterialPricingGroup}" additionalText="{oMaterialPricingGroupModel>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="Forth_Table_Input5" maxLength="40" value="{oForthTableDataModel>Materialprgrp}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="Ninth_Table_Column6">
+                            <Label id="Ninth_Table_Label6" text="Amount" />
+                            <table:template>
+                                <Input id="Ninth_Table_Input6" value="{oNinthTableDataModel>Amount}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </Panel >
+
+            <!-- Price Difference Tmg (District Wise) -->
+            <Panel id="Panel10" class="sapUiSmallMarginBottom">
+                <table:Table id="Price_Difference_District_Wise_Tmg" rows="{oTenthTableDataModel>/aTenthTable}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="TenthTable_OverflowToolbar" style="Clear">
+                            <Button id="TenthTable_ExcelDownload" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="TenthTableExcelDownload" />
+                            <ToolbarSpacer id="TenthTable_ToolbarSpacer" />
+                            <Button id="TenthTable_ExcelUpload" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="TenthTableExcelUpload" />
+                            <Button id="TenthTable_DataSave" icon="sap-icon://save" text="Save" tooltip="Add item" press="TenthTableDataSave" />
+                            <Button id="TenthTable_SingleRowAdd" icon="sap-icon://add" tooltip="Add item" press="TenthTableSingleRowAdd" />
+                            <Button id="TenthTable_SingleRowDelete" icon="sap-icon://delete" tooltip="Remove item" press="TenthTableSingleRowDelete" />
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+
+                        <table:Column id="TenthTable_CircularNumber" sortProperty="CircularNumber" filterProperty="CircularNumber">
+                            <Label id="TenthTable_Label1" text="Circular Number" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'CircularNumber>/aData', length:5000}" change="Price_Difference_District_Wise_CircularNumber_valueState" valueState="{oTenthTableDataModel>CircularNumber_valueState}" showSecondaryValues="true" id="TenthTableCircularNumber21" value="{oTenthTableDataModel>CircularNumber}">
+                                    <items>
+                                        <core:ListItem id="TenthTable_Input" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TenthTable_Column2" sortProperty="District" filterProperty="District">
+                            <Label id="TenthTable_Label2" text="District" />
+                            <table:template>
+                                <ComboBox width="100%" items="{path:'oDistrictNameModel>/aDistrictName', length:5000}" change="Price_Difference_District_Wise_DistrictName_valueState" valueState="{oTenthTableDataModel>DistrictName_valueState}" showSecondaryValues="true" id="CustomerDistrict1" value="{oTenthTableDataModel>District}">
+                                    <items>
+                                        <core:ListItem id="District" text="{oDistrictNameModel>DistrictName}" additionalText="{oDistrictNameModel>StateCode}"></core:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="Tenth_Table_Input2" maxLength="12" value="{oTenthTableDataModel>District}" /> -->
+                                <!-- <Input id="Forth_Table_Input2" value="{oForthTableDataModel>OrderDateFrom}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TenthTable_Column3" sortProperty="MaterialCode" filterProperty="MaterialCode">
+                            <Label id="TenthTable_Label3" text="Material Code" />
+                            <table:template>
+                                <Input id="Tenth_Table_Input3" maxLength="12" value="{oTenthTableDataModel>MaterialCode}" />
+                                <!-- <Input id="Forth_Table_Input2" value="{oForthTableDataModel>OrderDateFrom}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="TenthTable_Column4" sortProperty="AgreedAmount" filterProperty="AgreedAmount">
+                            <Label id="TenthTable_Label4" text="Agreed Amount" />
+                            <table:template>
+                                <Input id="TenthTable_Input4" value="{oTenthTableDataModel>AgreedAmount}" />
+                                <!-- <Input id="Forth_Table_Input3" value="{oForthTableDataModel>OrderDateTo}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+
+
+                    </table:columns>
+                </table:Table>
+            </Panel >
+
+            <!-- Credit Note GL -->
+            <Panel id="Panel11" class="sapUiSmallMarginBottom">
+                <table:Table id="CreditNoteGL_Tmg" rows="{oEleventhTableDataModel>/aEleventhTable}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar id="EleventhTable_OverflowToolbar" style="Clear">
+                            <Button id="EleventhTable_ExcelDownload" icon="sap-icon://excel-attachment" tooltip="Excel Download" text="Download" press="EleventhTableExcelDownload" />
+                            <ToolbarSpacer id="EleventhTable_ToolbarSpacer" />
+                            <Button id="EleventhTable_ExcelUpload" icon="sap-icon://excel-attachment" tooltip="Excel Upload" text="Upload" press="EleventhTableExcelUpload" />
+                            <Button id="EleventhTable_DataSave" icon="sap-icon://save" text="Save" tooltip="Add item" press="EleventhTableDataSave" />
+                            <Button id="EleventhTable_SingleRowAdd" icon="sap-icon://add" tooltip="Add item" press="EleventhTableSingleRowAdd" />
+                            <Button id="EleventhTable_SingleRowDelete" icon="sap-icon://delete" tooltip="Remove item" press="EleventhTableSingleRowDelete" />
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+
+                        <table:Column id="EleventhTable_CircularNumber" sortProperty="CircularNumber" filterProperty="CircularNumber">
+                            <Label id="EleventhTable_Label1" text="Material" />
+                            <table:template>
+                                <Input maxLength="2" value="{oEleventhTableDataModel>Material}"></Input>
+                                <!-- <ComboBox width="100%" items="{path:'CircularNumber>/aData', length:5000}" showSecondaryValues="true" id="TenthTableCircularNumber21" value="{oTenthTableDataModel>CircularNumber}">
+                                    <items>
+                                        <core:ListItem id="EleventhTable_Input" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}"></core:ListItem>
+                                    </items>
+                                </ComboBox> -->
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="EleventhTable_Column2" sortProperty="District" filterProperty="District">
+                            <Label id="EleventhTable_Label2" text="GL Account" />
+                            <table:template>
+                                <Input maxLength="10" value="{oEleventhTableDataModel>GlAccount}"></Input>
+                                <!-- <ComboBox width="100%" items="{path:'oDistrictNameModel>/aDistrictName', length:5000}" showSecondaryValues="true" id="CustomerDistrict1" value="{oTenthTableDataModel>District}">
+                                    <items>
+                                        <core:ListItem id="District" text="{oDistrictNameModel>DistrictName}" additionalText="{oDistrictNameModel>StateCode}"></core:ListItem>
+                                    </items>
+                                </ComboBox> -->
+                                <!-- <Input id="Tenth_Table_Input2" maxLength="12" value="{oTenthTableDataModel>District}" /> -->
+                                <!-- <Input id="Forth_Table_Input2" value="{oForthTableDataModel>OrderDateFrom}" editable="true" /> -->
+                            </table:template>
+                        </table:Column>
+
+                    </table:columns>
+                </table:Table>
+            </Panel >
+        </content>
+    </Page>
+</mvc:View>

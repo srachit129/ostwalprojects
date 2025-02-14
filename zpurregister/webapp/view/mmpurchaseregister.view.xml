@@ -1,0 +1,620 @@
+<mvc:View controllerName="zpurregister.controller.mmpurchaseregister"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:C="sap.ui.core"
+    xmlns:Tab="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="Panel1" class="sapUiSmallMarginBottom">
+                <!-- <OverflowToolbar id="otb1">
+                    <ToolbarSpacer id="tbs1" />
+                    <Button id="GotoNextViewButton" text="Go" type="Emphasized" press="Get_TableData"/>
+                    <Button id="Hide_Filter_Bar_Button" text="{oFilterBarVisible>/Filter_Name}" press="Filter_Bar_Visible_Function" type="Transparent"/>
+                    <Button id="Filters_Button" text="Filters" press="Filters_button" type="Transparent"/>
+                </OverflowToolbar> -->
+                <F:SimpleForm id="Form1" layout="ResponsiveGridLayout" columnsL="3" editable="true">
+                    <F:content>
+                        <C:Title id="CTitle1"></C:Title>
+                        <Label id="Label1" text="Company Code"></Label>
+                        <MultiInput showValueHelp="true" id="CompanyCode"  maxSuggestionWidth="45%" showSuggestion="true" suggestionRows="{path : 'oCompanyCodeModel>/aCompanyCodeData', length:5000}" valueHelpRequest="handleValueHelpCompanyCode">
+			                <suggestionColumns>
+                                <Column id="CompanyCode_Column1">
+                                    <Label id="CompanyCode_Column_Label1" text="Company Code"/>
+                                </Column>
+                                <Column id="CompanyCode_Column2">
+                                    <Label id="CompanyCode_Column_Label2" text="Company Code Name"/>
+                                </Column>
+                            </suggestionColumns>
+                            <suggestionRows>
+                                <ColumnListItem id="CompanyCode_ColumnListItem1">
+                                    <Label id="CompanyCode_ColumnListItem_Label1" text="{oCompanyCodeModel>CompanyCode}" />
+                                    <Label id="CompanyCode_ColumnListItem_Label2" text="{oCompanyCodeModel>CompanyCodeName}" />
+                                </ColumnListItem>
+                            </suggestionRows>
+		                </MultiInput>
+                        <Label id="Label2" text="Material Description"></Label>
+                        <MultiInput showValueHelp="true" showSuggestion="true"  maxSuggestionWidth="45%" suggestionRows="{path : 'oMaterialModel>/aMaterialData', length:5000000}" id="Matdesc" valueHelpRequest="handleValueHelpMatDesc">
+                            <suggestionColumns>
+                                <Column id="MaterialDescription_Column1">
+                                    <Label id="MaterialDescription_Column_Label1" text="ProductDescription"/>
+                                </Column>
+                                <Column id="MaterialDescription_Column2">
+                                    <Label id="MaterialDescription_Column_Label2" text="Product"/>
+                                </Column>
+                            </suggestionColumns>
+                            <suggestionRows>
+                                <ColumnListItem id="MaterialDescription_ColumnListItem1">
+                                    <Label id="MaterialDescription_ColumnListItem_Label1" text="{oMaterialModel>ProductDescription}" />
+                                    <Label id="MaterialDescription_ColumnListItem_Label2" text="{oMaterialModel>Product}" />
+                                </ColumnListItem>
+                            </suggestionRows>
+                        </MultiInput>
+                        <Label id="MiroDate_Label" text="MIRO Date"></Label>
+                        <DateRangeSelection valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" id="MiroDate" width="100%" />
+
+                        <Label id="Supplier_Label" text="Supplier"/>
+                        <MultiInput id="Supplier"  width="100%" placeholder="Enter Supplier Name" showSuggestion="true" showValueHelp="true" valueLiveUpdate="true"  maxSuggestionWidth="45%" valueHelpRequest=".handleValueHelpSupplier" suggestionRows="{path : 'oSupplierModel>/aSupplierData', length:5000000}">
+                            <suggestionColumns>
+                                <Column id="Column1">
+                                    <Label id="Column_Label1" text="Supplier"/>
+                                </Column>
+                                <Column id="Column2">
+                                    <Label id="Column_Label2" text="Supplier Name"/>
+                                </Column>
+                            </suggestionColumns>
+                            <suggestionRows>
+                                <ColumnListItem id="ColumnListItem1">
+                                    <Label id="ColumnListItem_Label1" text="{oSupplierModel>Supplier}" />
+                                    <Label id="ColumnListItem_Label2" text="{oSupplierModel>SupplierFullName}" />
+                                </ColumnListItem>
+                            </suggestionRows>
+                        </MultiInput>
+                        <C:Title id="CTitle2"></C:Title>
+                        <Label  id="Label3"  text="Plant"></Label>
+                        <MultiInput id="Plant" showSuggestion="true" showValueHelp="true"  maxSuggestionWidth="45%" valueHelpRequest="handleValueHelpPlant" suggestionRows="{path : 'oPlantModel>/aPlantData', length:5000000}">
+                            <suggestionColumns>
+                                <Column id="PlantColumn1">
+                                    <Label id="PlantColumn_Label1" text="Plant"/>
+                                </Column>
+                                <Column id="PlantColumn2">
+                                    <Label id="PlantColumn_Label2" text="Plant Name"/>
+                                </Column>
+                            </suggestionColumns>
+                            <suggestionRows>
+                                <ColumnListItem id="PlantColumnListItem1">
+                                    <Label id="PlantColumnListItem_Label1" text="{oPlantModel>Plant}" />
+                                    <Label id="PlantColumnListItem_Label2" text="{oPlantModel>PlantName}" />
+                                </ColumnListItem>
+                            </suggestionRows>
+                        </MultiInput>
+                        <Label id="Label4" text="Purchase Order Date"></Label>
+                        <DatePicker id="PODate"></DatePicker>
+                        <Label id="Label8" text="Account Assignment Category"></Label>
+                        <MultiInput id="AccountAssignmentCategory" showValueHelp="false"></MultiInput>
+                        <C:Title id="CTitle3"></C:Title>
+                        <Label id="Label5" text="Material"></Label>
+                        <MultiInput showValueHelp="true" showSuggestion="true" maxSuggestionWidth="45%" suggestionRows="{path : 'oMaterialModel>/aMaterialData', length:5000000}" id="Material" valueHelpRequest="handleValueHelpMaterial">
+                            <suggestionColumns>
+                                <Column id="Material_Column1">
+                                    <Label id="Material_Column_Label1" text="Product"/>
+                                </Column>
+                                <Column id="Material_Column2">
+                                    <Label id="Material_Column_Label2" text="Product Description"/>
+                                </Column>
+                            </suggestionColumns>
+                            <suggestionRows>
+                                <ColumnListItem id="Material_ColumnListItem1">
+                                    <Label id="Material_ColumnListItem_Label1" text="{oMaterialModel>Product}" />
+                                    <Label id="Material_ColumnListItem_Label2" text="{oMaterialModel>ProductDescription}" />
+                                </ColumnListItem>
+                            </suggestionRows>
+                        </MultiInput>
+                        <Label id="Label7" text="Purchase Order"></Label>
+                        <MultiInput showValueHelp="true" showSuggestion="true" maxSuggestionWidth="10%" suggestionRows="{path : 'oPurchaseOrderModel>/aPurchaseOrderData', length:5000000}" id="PurchaseOrder" valueHelpRequest="handleValueHelpPurchaseOrder">
+                            <suggestionColumns>
+                                <Column id="PurchaseOrder_Column1">
+                                    <Label id="PurchaseOrder_Column_Label1" text="Purchase Order"/>
+                                </Column>
+                            </suggestionColumns>
+                            <suggestionRows>
+                                <ColumnListItem id="PurchaseOrder_ColumnListItem1">
+                                    <Label id="PurchaseOrder_ColumnListItem_Label1" text="{oPurchaseOrderModel>PurchaseOrder}" />
+                                </ColumnListItem>
+                            </suggestionRows>
+                        </MultiInput>
+                        <Label id="Label6" text="GRN Posting Date"></Label>
+                        <DateRangeSelection valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" id="GrnDate" width="100%" />
+                        <!-- <DatePicker id="GrnDate"></DatePicker> -->
+                    </F:content>
+                </F:SimpleForm>
+            </Panel>
+            <Tab:Table visibleRowCountMode="Auto" id="onScreenTable" rows="{oTableItemModel>/aTableItem}">
+                <Tab:extension>
+                    <OverflowToolbar id="oftb" style="Clear">
+                        <Text id="Text1" class="CustomCss" text="Visible Row Count |"></Text>
+                        <Text id="Text2" class="CustomCss2" text="{oRowCountModel>/aRowCountData}"></Text>
+                        <ToolbarSpacer id="tbs" />
+                        <Button id="GetTable_LengthButton" text="Length" type="Emphasized" press="GetTableLength"/>
+                        <MenuButton id="MenuButton" text="|" icon="sap-icon://excel-attachment" defaultAction="onDefaultAction" beforeMenuOpen="onBeforeMenuOpen" useDefaultActionOnly="true" menuPosition="RightBottom">
+                            <menu>
+                                <Menu id="Menu" itemSelected="onMenuAction">
+                                    <MenuItem id="Export_as_Excel" press="ExportExcelDownloadFunction" text="Export" icon="sap-icon://excel-attachment" />
+                                    <MenuItem id="Export_as_PDF" press="ExportExcelas_DownloadFunction" text="Export As" icon="sap-icon://excel-attachment" />
+                                </Menu>
+                            </menu>
+                        </MenuButton>
+                        <Button id="Table_SaveButton" text="Go" press="GetTableData"/>
+                    </OverflowToolbar>
+                </Tab:extension>
+                <Tab:columns>
+                    <Tab:Column sortProperty="purchasecontract" filterProperty="purchasecontract" id="Table_tc221" width="10rem">
+                        <Label id="Table_Label221" text="Contract" />
+                        <Tab:template>
+                            <Input id="Table_Input221" type="Text" editable="false" value="{oTableItemModel>purchasecontract}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    <Tab:Column sortProperty="purchasecontractitem" filterProperty="purchasecontractitem" id="Table_tc2221" width="9rem">
+                        <Label id="Table_Label2221" text="Contract Item" />
+                        <Tab:template>
+                            <Input id="Table_Input2221" type="Text" editable="false" value="{oTableItemModel>purchasecontractitem}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    <Tab:Column sortProperty="purchaserequisition" filterProperty="purchaserequisition" id="Table_tc21" width="10rem">
+                        <Label id="Table_Label21" text="PR No." />
+                        <Tab:template>
+                            <Input id="Table_Input21" type="Text" editable="false" value="{oTableItemModel>purchaserequisition}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="AccountAssignmentCategory" filterProperty="AccountAssignmentCategory" id="Table_tc28611" width="9rem">
+                        <Label id="Table_Label28611" text="Account Assignment Category" />
+                        <Tab:template>
+                            <Input id="Table_Input28611" type="Text" editable="false" value="{oTableItemModel>AccountAssignmentCategory}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="purchaseorder" filterProperty="purchaseorder" id="Table_tc1" width="10rem">
+                        <Label id="Table_Label1" text="PO No." />
+                        <Tab:template>
+                            <Input id="Table_Input1" type="Text" editable="false" value="{oTableItemModel>purchaseorder}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="purchaseorderitem" filterProperty="purchaseorderitem" id="Table_tc10" width="10rem">
+                        <Label id="Table_Label10" text="PO Item" />
+                        <Tab:template>
+                            <Input id="Table_Input10" type="Text" editable="false" value="{oTableItemModel>purchaseorderitem}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="orderquantity" filterProperty="orderquantity" id="Table_tc20" width="10rem">
+                        <Label id="Table_Label20" text="PO Qty" />
+                        <Tab:template>
+                            <Input id="Table_Input20" type="Text" editable="false" value="{oTableItemModel>orderquantity}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="purchaseordertype" filterProperty="purchaseordertype" id="Table_tc2" width="10rem">
+                        <Label id="Table_Label2" text="PO Type" />
+                        <Tab:template>
+                            <Input id="Table_Input2" type="Text" editable="false" value="{oTableItemModel>purchaseordertype}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="purchaseorderdate" filterProperty="purchaseorderdate" id="Table_tc5" width="10rem">
+                        <Label id="Table_Label5" text="PO Date" />
+                        <Tab:template>
+                            <DatePicker id="Table_Input5" class="inputfieldclass" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" editable="false" value="{oTableItemModel>purchaseorderdate}" />
+                            <!-- <Input id="Table_Input5" type="Text" editable="false" value="{oTableItemModel>purchaseorderdate}"/> -->
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="companycode" filterProperty="companycode" id="Table_tc6" width="10rem">
+                        <Label id="Table_Label6" text="Company Code" />
+                        <Tab:template>
+                            <Input id="Table_Input6" type="Text" editable="false" value="{oTableItemModel>companycode}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="purchasinggroup" filterProperty="purchasinggroup" id="Table_tc7" width="10rem">
+                        <Label id="Table_Label7" text="Purg Group" />
+                        <Tab:template>
+                            <Input id="Table_Input7" type="Text" editable="false" value="{oTableItemModel>purchasinggroup}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="supplier" filterProperty="supplier" id="Table_tc9" width="10rem">
+                        <Label id="Table_Label9" text="Supplier" />
+                        <Tab:template>
+                            <Input id="Table_Input9" type="Text" editable="false" value="{oTableItemModel>supplier}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="" filterProperty="" id="Table_tc911" width="17rem">
+                        <Label id="Table_Label911" text="Supplier Name" />
+                        <Tab:template>
+                            <Input id="Table_Input911" type="Text" editable="false" value="{oTableItemModel>supplier_name}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="" filterProperty="" id="Table_tc91" width="13rem">
+                        <Label id="Table_Label91" text="Supplier GSTIN" />
+                        <Tab:template>
+                            <Input id="Table_Input91" type="Text" editable="false" value="{oTableItemModel>supplier_gstin}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="material" filterProperty="material" id="Table_tc12" width="13rem">
+                        <Label id="Table_Label12" text="Material" />
+                        <Tab:template>
+                            <Input id="Table_Input12" type="Text" editable="false" value="{oTableItemModel>material}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="purchaseorderitemtext" filterProperty="purchaseorderitemtext" id="Table_tc22" width="15rem">
+                        <Label id="Table_Label22" text="Material Description" />
+                        <Tab:template>
+                            <Input id="Table_Input22" type="Text" editable="false" value="{oTableItemModel>purchaseorderitemtext}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+
+
+                    <Tab:Column sortProperty="WBSElementInternalID_2" filterProperty="WBSElementInternalID_2" id="Table_tc42" width="15rem">
+                        <Label id="Table_Label42" text="WBS Element" />
+                        <Tab:template>
+                            <Input id="Table_Input42" type="Text" editable="false" value="{oTableItemModel>WBSElementInternalID_2}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+
+                    <Tab:Column sortProperty="ProjectElementDescription" filterProperty="ProjectElementDescription" id="Table_tc43" width="15rem">
+                        <Label id="Table_Label43" text="WBS Name" />
+                        <Tab:template>
+                            <Input id="Table_Input43" type="Text" editable="false" value="{oTableItemModel>ProjectElementDescription}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    
+
+
+
+
+
+
+
+
+                    <Tab:Column sortProperty="netamount" filterProperty="netamount" id="Table_tc17" width="11rem">
+                        <Label id="Table_Label17" text="Net Amount" />
+                        <Tab:template>
+                            <Input id="Table_Input17" type="Text" editable="false" value="{oTableItemModel>netamount}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="netpriceamount" filterProperty="netpriceamount" id="Table_tc18" width="11rem">
+                        <Label id="Table_Label18" text="Net Price Amount" />
+                        <Tab:template>
+                            <Input id="Table_Input18" type="Text" editable="false" value="{oTableItemModel>netpriceamount}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="plant" filterProperty="plant" id="Table_tc19" width="10rem">
+                        <Label id="Table_Label19" text="Plant" />
+                        <Tab:template>
+                            <Input id="Table_Input19" type="Text" editable="false" value="{oTableItemModel>plant}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="grn_document" filterProperty="grn_document" id="Table_tc23" width="10rem">
+                        <Label id="Table_Label23" text="GRN Document" />
+                        <Tab:template>
+                            <Input id="Table_Input23" type="Text" editable="false" value="{oTableItemModel>grn_document}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    
+                    <Tab:Column sortProperty="MaterialDocumentHeaderText" filterProperty="MaterialDocumentHeaderText" id="Table_tc50" width="10rem">
+                        <Label id="Table_Label50" text="Gate Entry No." />
+                        <Tab:template>
+                            <Input id="Table_Input50" type="Text" editable="false" value="{oTableItemModel>MaterialDocumentHeaderText}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+
+
+
+
+                    <Tab:Column sortProperty="grn_qty" filterProperty="grn_qty" id="Table_tc25" width="11rem">
+                        <Label id="Table_Label25" text="GRN QTY" />
+                        <Tab:template>
+                            <Input id="Table_Input25" type="Text" editable="false" value="{oTableItemModel>grn_qty}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="Other_charge" filterProperty="Other_charge" id="Table_tc261" width="11rem">
+                        <Label id="Table_Label261" text="Other Charges" />
+                        <Tab:template>
+                            <Input id="Table_Input261" type="Text" editable="false" value="{oTableItemModel>Other_charge}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="grn_amountnew" filterProperty="grn_amountnew" id="Table_tc262" width="11rem">
+                        <Label id="Table_Label262" text="GRN Amount" />
+                        <Tab:template>
+                            <Input id="Table_Input262" type="Text" editable="false" value="{oTableItemModel>grn_amountnew}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="grn_amount" filterProperty="grn_amount" id="Table_tc26" width="11rem">
+                        <Label id="Table_Label26" text="Total GRN Amount" />
+                        <Tab:template>
+                            <Input id="Table_Input26" type="Text" editable="false" value="{oTableItemModel>grn_amount}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="grn_documentdate" filterProperty="grn_documentdate" id="Table_tc27" width="11rem">
+                        <Label id="Table_Label27" text="GRN Doc Date" />
+                        <Tab:template>
+                            <DatePicker class="inputfieldclass" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" editable="false" id="Table_Input27" value="{oTableItemModel>grn_documentdate}" />
+                            <!-- <Input type="Text" editable="false" value="{oTableItemModel>grn_documentdate}"/> -->
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="grn_postingdate" filterProperty="grn_postingdate" id="Table_tc30" width="10rem">
+                        <Label id="Table_Label30" text="GRN Posting Date" />
+                        <Tab:template>
+                            <DatePicker class="inputfieldclass" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" editable="false" id="Table_Input30" value="{oTableItemModel>grn_postingdate}" />
+                            <!-- <Input type="Text" editable="false" value="{oTableItemModel>grn_postingdate}"/> -->
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="storagelocation" filterProperty="storagelocation" id="Table_tc29" width="10rem">
+                        <Label id="Table_Label29" text="Storage Location" />
+                        <Tab:template>
+                            <Input id="Table_Input29" type="Text" editable="false" value="{oTableItemModel>storagelocation}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="grn_billoflading" filterProperty="grn_billoflading" id="Table_tc32" width="10rem">
+                        <Label id="Table_Label32" text="Bill of Lading" />
+                        <Tab:template>
+                            <Input id="Table_Input32" type="Text" editable="false" value="{oTableItemModel>grn_billoflading}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="invoice_postingdate" filterProperty="invoice_postingdate" id="Table_tc35" width="10rem">
+                        <Label id="Table_Label35" text="Invoice Posting Date" />
+                        <Tab:template>
+                            <DatePicker class="inputfieldclass" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" editable="false" id="Table_Input35" value="{oTableItemModel>invoice_postingdate}" />
+                            <!-- <Input type="Text" editable="false" value="{oTableItemModel>invoice_postingdate}"/> -->
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="invoice_documentdate" filterProperty="invoice_documentdate" id="Table_tc36" width="10rem">
+                        <Label id="Table_Label36" text="Invoice Doc Date" />
+                        <Tab:template>
+                            <DatePicker class="inputfieldclass" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" editable="false" id="Table_Input36" value="{oTableItemModel>invoice_documentdate}" />
+                            <!-- <Input type="Text" editable="false" value="{oTableItemModel>invoice_documentdate}"/> -->
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="invoice_documentreferenceid" filterProperty="invoice_documentreferenceid" id="Table_tc38" width="10rem">
+                        <Label id="Table_Label38" text="Invoice Doc Ref ID" />
+                        <Tab:template>
+                            <Input id="Table_Input38" type="Text" editable="false" value="{oTableItemModel>invoice_documentreferenceid}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="invoice_no" filterProperty="invoice_no" id="Table_tc34" width="10rem">
+                        <Label id="Table_Label34" text="MIRO No." />
+                        <Tab:template>
+                            <Input id="Table_Input34" type="Text" editable="false" value="{oTableItemModel>invoice_no}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+
+
+                    <Tab:Column sortProperty="accountingdocument" filterProperty="accountingdocument" id="Table_tc40" width="10rem">
+                        <Label id="Table_Label40" text="Journal Entry No." />
+                        <Tab:template>
+                            <Input id="Table_Input40" type="Text" editable="false" value="{oTableItemModel>accountingdocument}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+
+
+
+
+
+                    <Tab:Column id="Table_Column353" sortProperty="park_post" filterProperty="park_post" width="10rem">
+                        <Label id="Table_Label353" text="Park/Post" />
+                        <Tab:template>
+                            <Input id="Table_Input4343" type="Text" editable="false" value="{oTableItemModel>park_post}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="invoice_quantity" filterProperty="invoice_quantity" id="Table_tc37" width="10rem">
+                        <Label id="Table_Label37" text="Invoice Qty" />
+                        <Tab:template>
+                            <Input id="Table_Input37" type="Text" editable="false" value="{oTableItemModel>invoice_quantity}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="invoice_amount" filterProperty="invoice_amount" id="Table_tc282" width="10rem">
+                        <Label id="Table_Label282" text="Invoice Amount" />
+                        <Tab:template>
+                            <Input id="Table_Input282" type="Text" editable="false" value="{oTableItemModel>invoice_amount}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="taxcode" filterProperty="taxcode" id="Table_tc2861" width="10rem">
+                        <Label id="Table_Label2861" text="Tax Code" />
+                        <Tab:template>
+                            <Input id="Table_Input2861" type="Text" editable="false" value="{oTableItemModel>taxcode}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="igst" filterProperty="igst" id="Table_tc283" width="10rem">
+                        <Label id="Table_Label283" text="IGST" />
+                        <Tab:template>
+                            <Input id="Table_Input283" type="Text" editable="false" value="{oTableItemModel>igst}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="sgst" filterProperty="sgst" id="Table_tc285" width="10rem">
+                        <Label id="Table_Label285" text="SGST" />
+                        <Tab:template>
+                            <Input id="Table_Input285" type="Text" editable="false" value="{oTableItemModel>sgst}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="cgst" filterProperty="cgst" id="Table_tc284" width="10rem">
+                        <Label id="Table_Label2844" text="CGST" />
+                        <Tab:template>
+                            <Input id="Table_Input284" type="Text" editable="false" value="{oTableItemModel>cgst}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+
+                    <Tab:Column sortProperty="TotalInvoiceAMT" filterProperty="TotalInvoiceAMT" id="Table_tc222" width="10rem">
+                        <Label id="Table_Label222" text="Total Invoice AMT." />
+                        <Tab:template>
+                            <Input id="Table_Input222" type="Text" editable="false" value="{oTableItemModel>TotalInvoiceAMT}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+
+
+
+
+
+
+                    <Tab:Column sortProperty="br_ncm" filterProperty="br_ncm" id="Table_tc15" width="10rem">
+                        <Label id="Table_Label15" text="HSN" />
+                        <Tab:template>
+                            <Input id="Table_Input15" type="Text" editable="false" value="{oTableItemModel>br_ncm}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="tdsamount" filterProperty="tdsamount" id="Table_tc16" width="10rem">
+                        <Label id="Table_Label16" text="TDS Amount" />
+                        <Tab:template>
+                            <Input id="Table_Input16" type="Text" editable="false" value="{oTableItemModel>tdsamount}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                     <Tab:Column sortProperty="businessplace" filterProperty="businessplace" id="Table_tc39" width="10rem">
+                        <Label id="Table_Label39" text="Business Place" />
+                        <Tab:template>
+                            <Input id="Table_Input39" type="Text" editable="false" value="{oTableItemModel>businessplace}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="tdsamount" filterProperty="tdsamount" id="Table_tc88" width="10rem">
+                        <Label id="Table_Label391" text="Un Planned" />
+                        <Tab:template>
+                            <Input id="Table_Input391" type="Text" editable="false" value="{oTableItemModel>un_planned}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="gl_account" filterProperty="gl_account" id="Table_tc88gl_account" width="10rem">
+                        <Label id="Table_Labelgl_account" text="Gl Account" />
+                        <Tab:template>
+                            <Input id="Table_Input391gl_account" type="Text" editable="false" value="{oTableItemModel>gl_account}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                     
+
+                    <Tab:Column sortProperty="GLAccountName" filterProperty="GLAccountName" id="accountname41" width="10rem">
+                        <Label id="Table_account_name41" text="Gl Account Name" />
+                        <Tab:template>
+                            <Input id="account41" type="Text" editable="false" value="{oTableItemModel>GLAccountName}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    
+
+
+
+
+
+
+                    <Tab:Column sortProperty="freight_amt" filterProperty="freight_amt" id="Table_tc88freight_amt" width="10rem">
+                        <Label id="Table_Labelfreight_amt" text="Freight Amount" />
+                        <Tab:template>
+                            <Input id="Table_Input391freight_amt" type="Text" editable="false" value="{oTableItemModel>freight_amt}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+
+                    <!-- <Tab:Column sortProperty="creationdate" filterProperty="creationdate" id="Table_tc4" width="15rem">
+                        <Label id="Table_Label4" text="Creation Date" />
+                        <Tab:template>
+                            <DatePicker class="inputfieldclass" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd" editable="false" id="postdate" value="{oTableItemModel>creationdate}" />
+                            <Input id="Table_Input4" type="Text" editable="false" value="{oTableItemModel>creationdate}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    <Tab:Column sortProperty="" filterProperty="" id="Table_tc221" width="15rem">
+                        <Label id="Table_Label221" text="Hsn Code" />
+                        <Tab:template>
+                            <Input id="Table_Input221" type="Text" editable="false" value="{oTableItemModel>}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    <Tab:Column sortProperty="" filterProperty="" id="Table_tc201" width="15rem">
+                        <Label id="Table_Label201" text="Order Price Unit" />
+                        <Tab:template>
+                            <Input id="Table_Input201" type="Text" editable="false" value="{oTableItemModel>}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    <Tab:Column sortProperty="grossamount" filterProperty="" id="Table_tc16" width="15rem">
+                        <Label id="Table_Label16" text="Gross Amount" />
+                        <Tab:template>
+                            <Input id="Table_Input16" type="Text" editable="false" value="{oTableItemModel>grossamount}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column id="Table_tc325" sortProperty="grn_referencedocument" filterProperty="grn_referencedocument" width="15rem">
+                        <Label id="Table_Label325" text="GRN Reference Document" />
+                        <Tab:template>
+                            <Input id="Table_Input325" type="Text" editable="false" value="{oTableItemModel>grn_referencedocument}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="" filterProperty="" id="Table_tc371" width="15rem">
+                        <Label id="Table_Label371" text="Amount Per Unit" />
+                        <Tab:template>
+                            <Input id="Table_Input371" type="Text" editable="false" value="{oTableItemModel>}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="createdbyuser" filterProperty="createdbyuser" id="Table_tc3" width="15rem">
+                        <Label id="Table_Label3" text="Created By User" />
+                        <Tab:template>
+                            <Input id="Table_Input3" type="Text" editable="false" value="{oTableItemModel>createdbyuser}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="purchasingorganization" filterProperty="purchasingorganization" id="Table_tc8" width="15rem">
+                        <Label id="Table_Label8" text="Purchasing Organization" />
+                        <Tab:template>
+                            <Input id="Table_Input8" type="Text" editable="false" value="{oTableItemModel>purchasingorganization}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    <Tab:Column sortProperty="grn_documentyear" filterProperty="grn_documentyear" id="Table_tc24" width="15rem">
+                        <Label id="Table_Label24" text="GRN Document Year" />
+                        <Tab:template>
+                            <Input id="Table_Input24" type="Text" editable="false" value="{oTableItemModel>grn_documentyear}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    <Tab:Column sortProperty="grn_createdby" filterProperty="grn_createdby" id="Table_tc31" width="15rem">
+                        <Label id="Table_Label31" text="GRN CreatedBy" />
+                        <Tab:template>
+                            <Input id="Table_Input31" type="Text" editable="false" value="{oTableItemModel>grn_createdby}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="batch" filterProperty="batch" id="Table_tc281" width="15rem">
+                        <Label id="Table_Label281" text="Batch" />
+                        <Tab:template>
+                            <Input id="Table_Input281" type="Text" editable="false" value="{oTableItemModel>batch}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="materialgroup" filterProperty="materialgroup" id="Table_tc11" width="15rem">
+                        <Label id="Table_Label11" text="Material Group" />
+                        <Tab:template>
+                            <Input id="Table_Input11" type="Text" editable="false" value="{oTableItemModel>materialgroup}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column id="tc234" width="15rem">
+                        <Label id="tc234L" text="Material Group Description" />
+                        <Tab:template>
+                            <Input id="tc234I" type="Text" editable="false" value="{oTableItemModel>productgrouptext}"/>
+                        </Tab:template>
+                    </Tab:Column>
+
+                    <Tab:Column id="tc00001" width="15rem">
+                        <Label id="tcl2" text="Unit of Measurement" />
+                        <Tab:template>
+                            <Input id="tci2222" type="Text" editable="false" value="{oTableItemModel>baseunit}"/>
+                        </Tab:template>
+                    </Tab:Column>
+                    <Tab:Column sortProperty="ProductGroupName" filterProperty="ProductGroupName" id="Table_tc286" width="15rem">
+                        <Label id="Table_Label286" text="Product Group Name" />
+                        <Tab:template>
+                            <Input id="Table_Input286" type="Text" editable="false" value="{oTableItemModel>ProductGroupName}"/>
+                        </Tab:template>
+                    </Tab:Column> -->
+
+
+                </Tab:columns>
+            </Tab:Table>
+        </content>
+    </Page>
+</mvc:View>

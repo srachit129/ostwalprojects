@@ -1,0 +1,211 @@
+<mvc:View
+    controllerName="zmaintenanceplan.controller.First_Screen"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:C="sap.ui.core"
+    xmlns:Tab="sap.ui.table"
+    xmlns:Smartab="sap.ui.comp.smarttable"
+    xmlns:SmartFilterBar="sap.ui.comp.smartfilterbar"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <!-- <Tab:Table id="FirstTable" visibleRowCountMode="Auto" rows="{oTableDataModel>/aTableData}" >
+		            <Tab:extension>
+                        <OverflowToolbar id="oftb" style="Clear">
+                            <ToolbarSpacer id="tbs" />
+                            <Button id="Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="SaveTableData"/>
+                        </OverflowToolbar>
+                    </Tab:extension>                    
+		            <Tab:columns>
+                        <Tab:Column sortProperty="maintenanceplan" filterProperty="maintenanceplan" id="Table_tc1" width="10rem">
+                            <Label id="Table_Label1" text="Maintenance Plan" />
+                            <Tab:template>
+                                <Input id="Table_Input1" type="Text" editable="false" value="{oTableDataModel>maintenanceplan}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="maintenancecall" filterProperty="maintenancecall" id="Table_tc2" width="10rem">
+                            <Label id="Table_Label2" text="Maintenance Call" />
+                            <Tab:template>
+                                <Input id="Table_Input2" type="Text" editable="false" value="{oTableDataModel>maintenancecall}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="maintenanceorder" filterProperty="maintenanceorder" id="Table_tc3" width="10rem">
+                            <Label id="Table_Label3" text="Maintenance Order" />
+                            <Tab:template>
+                                <Input id="Table_Input3" type="Text" editable="false" value="{oTableDataModel>maintenanceorder}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="completiondate" filterProperty="completiondate" id="Table_tc4" width="10rem">
+                            <Label id="Table_Label4" text="Completion Date" />
+                            <Tab:template>
+                                <Input id="Table_Input4" type="Text" editable="false" value="{oTableDataModel>completiondate}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="completiontime" filterProperty="completiontime" id="Table_tc5" width="10rem">
+                            <Label id="Table_Label5" text="Completion Time" />
+                            <Tab:template>
+                                <Input id="Table_Input5" type="Text" editable="false" value="{oTableDataModel>completiontime}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="Zlastcompletationdate" filterProperty="Zlastcompletationdate" id="Table_tc6" width="10rem">
+                            <Label id="Table_Label6" text="Last Completation Date" />
+                            <Tab:template>
+                                <Input id="Table_Input6" type="Text" editable="false" value="{oTableDataModel>Zlastcompletationdate}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="maintenancestrategy" filterProperty="maintenancestrategy" id="Table_tc7" width="10rem">
+                            <Label id="Table_Label7" text="Maintenance Strategy" />
+                            <Tab:template>
+                                <Input id="Table_Input7" type="Text" editable="false" value="{oTableDataModel>maintenancestrategy}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="maintenancecallnextplanneddate" filterProperty="maintenancecallnextplanneddate" id="Table_tc8" width="10rem">
+                            <Label id="Table_Label8" text="Maintenance Call Next Planned Date" />
+                            <Tab:template>
+                                <Input id="Table_Input8" type="Text" editable="false" value="{oTableDataModel>maintenancecallnextplanneddate}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="maintenancecalldate" filterProperty="maintenancecalldate" id="Table_tc9" width="10rem">
+                            <Label id="Table_Label9" text="Maintenance Call Date" />
+                            <Tab:template>
+                                <Input id="Table_Input9" type="Text" editable="false" value="{oTableDataModel>maintenancecalldate}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="maintenanceplanningplant" filterProperty="maintenanceplanningplant" id="Table_tc10" width="10rem">
+                            <Label id="Table_Label10" text="Maintenance Planning Plant" />
+                            <Tab:template>
+                                <Input id="Table_Input10" type="Text" editable="false" value="{oTableDataModel>maintenanceplanningplant}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="tasklisttype" filterProperty="tasklisttype" id="Table_tc11" width="10rem">
+                            <Label id="Table_Label11" text="Task List Type" />
+                            <Tab:template>
+                                <Input id="Table_Input11" type="Text" editable="false" value="{oTableDataModel>tasklisttype}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="tasklistgroup" filterProperty="tasklistgroup" id="Table_tc12" width="10rem">
+                            <Label id="Table_Label12" text="Task List Group" />
+                            <Tab:template>
+                                <Input id="Table_Input12" type="Text" editable="false" value="{oTableDataModel>tasklistgroup}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="tasklistgroupcounter" filterProperty="tasklistgroupcounter" id="Table_tc13" width="10rem">
+                            <Label id="Table_Label13" text="Task List Group Counter" />
+                            <Tab:template>
+                                <Input id="Table_Input13" type="Text" editable="false" value="{oTableDataModel>tasklistgroupcounter}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="equipment" filterProperty="equipment" id="Table_tc14" width="10rem">
+                            <Label id="Table_Label14" text="Equipment" />
+                            <Tab:template>
+                                <Input id="Table_Input14" type="Text" editable="false" value="{oTableDataModel>equipment}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="functionallocation" filterProperty="functionallocation" id="Table_tc15" width="10rem">
+                            <Label id="Table_Label15" text="Functional Location" />
+                            <Tab:template>
+                                <Input id="Table_Input15" type="Text" editable="false" value="{oTableDataModel>functionallocation}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="maintprioritytype" filterProperty="maintprioritytype" id="Table_tc16" width="10rem">
+                            <Label id="Table_Label16" text="Main Priority Type" />
+                            <Tab:template>
+                                <Input id="Table_Input16" type="Text" editable="false" value="{oTableDataModel>maintprioritytype}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="maintenanceactivitytype" filterProperty="maintenanceactivitytype" id="Table_tc17" width="10rem">
+                            <Label id="Table_Label17" text="Maintenance Activity Type" />
+                            <Tab:template>
+                                <Input id="Table_Input17" type="Text" editable="false" value="{oTableDataModel>maintenanceactivitytype}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                                                
+                    </Tab:columns>
+                </Tab:Table> -->
+            <SmartFilterBar:SmartFilterBar
+                id="smartFilterBar"
+                entitySet="ZMAIN_PLAN"
+                basicSearchFieldName="maintenanceplan" >
+                <SmartFilterBar:controlConfiguration>
+                    <SmartFilterBar:ControlConfiguration
+                        index="1"
+                        id="first"
+                        visibleInAdvancedArea="true"
+                        label="Maintenance Plan"
+                        key="maintenanceplan"
+                    />
+                    <SmartFilterBar:ControlConfiguration
+                        index="2"
+                        id="second"
+                        visibleInAdvancedArea="true"
+                        label="Equipment"
+                        key="equipment"
+                    />
+                    <SmartFilterBar:ControlConfiguration
+                        index="3"
+                        id="third"
+                        visibleInAdvancedArea="true"
+                        label="Maintenance Activity Type"
+                        key="maintenanceactivitytype"
+                    />
+                    <SmartFilterBar:ControlConfiguration
+                        index="4"
+                        id="forth"
+                        visibleInAdvancedArea="true"
+                        label="Maintenance Plan Date"
+                        key="maintenancecallnextplanneddate"
+                    />
+                    <SmartFilterBar:ControlConfiguration
+                        index="5"
+                        id="fifth"
+                        visibleInAdvancedArea="true"
+                        label="Maintenance Order"
+                        key="maintenanceorder"
+                    />
+                    <SmartFilterBar:ControlConfiguration
+                        index="6"
+                        id="sixth"
+                        visibleInAdvancedArea="true"
+                        label="Maintenance Planning Plant"
+                        key="maintenanceplanningplant"
+                    />
+                    <SmartFilterBar:ControlConfiguration
+                        index="7"
+                        id="Seventh"
+                        visibleInAdvancedArea="true"
+                        label="Maintenance Strategy"
+                        key="maintenancestrategy"
+                    />
+                    <SmartFilterBar:ControlConfiguration
+                        index="8"
+                        id="Eight"
+                        visibleInAdvancedArea="true"
+                        label="Maintenance Order type"
+                        key="maintenanceordertype"
+                    />
+                </SmartFilterBar:controlConfiguration>
+            </SmartFilterBar:SmartFilterBar>
+            <Smartab:SmartTable
+                id="LineItemsSmartTable"
+                entitySet="ZMAIN_PLAN"
+                smartFilterId="smartFilterBar"
+                enableAutoColumnWidth="true"
+                tableType="Table"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                header="Material Report"
+                showRowCount="true"
+                persistencyKey="SmartTableAnalytical_Explored"
+                enableAutoBinding="true"
+                class="sapUiResponsiveContentPadding"
+                enableExport="true"
+                initiallyVisibleFields="maintenanceplan,maintenancecall,maintenanceorder,completiondate,completiontime,Zlastcompletationdate,maintenancestrategy,maintenancecallnextplanneddate,maintenancecalldate,maintenanceplanningplant,tasklisttype,tasklistgroup,tasklistgroupcounter,equipment,functionallocation,maintenanceactivitytype,maintenanceordertype,maintenanceitemdescription,maintpriority,equipmentname,tasklistdesc,actualvarrience"
+            />
+        </content>
+    </Page>
+</mvc:View>

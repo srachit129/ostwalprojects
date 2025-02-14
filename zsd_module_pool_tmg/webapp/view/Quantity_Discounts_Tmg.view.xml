@@ -1,0 +1,152 @@
+<mvc:View controllerName="zsdmodulepooltmg.controller.Quantity_Discounts_Tmg"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:F="sap.ui.layout.form" xmlns:C="sap.ui.core" xmlns:Tab="sap.ui.table" >
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="Panel1" class="sapUiSmallMarginBottom">
+                <F:SimpleForm id="Form1" layout="ResponsiveGridLayout" editable="true">
+                    <F:content>
+                        <RadioButtonGroup id="radioButton" select="TableChange" columns="5" class="sapUiMediumMarginBottom">
+                            <RadioButton id="RB3-1" text="Quantity Discount Tmg" />
+                            <RadioButton id="RB3-2" text="Quantity Discount Validity" />
+                        </RadioButtonGroup>
+                    </F:content>
+                </F:SimpleForm>
+            </Panel >
+
+            <Panel id="Panel2" class="sapUiSmallMarginBottom">
+                <Tab:Table id="table1" rows="{oFirstTableItemModel>/aFirstTableItem}" selectionMode="MultiToggle" ariaLabelledBy="title" >
+                    <Tab:extension>
+                        <OverflowToolbar id="oft1" style="Clear">
+                            <Button id="FirstTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Add item" text="Download" press="onFirstTableDataExport" />
+                            <ToolbarSpacer id="tbs"/>
+                            <Button id="FirstTableExcelDataUploadButton" icon="sap-icon://excel-attachment" 
+                                tooltip="Add item" text="Upload" press="FirstTableExcelUpload" />
+                            <Button id="FirstTableSave" icon="sap-icon://save" text="Save" tooltip="Add item" press="FirstTableDataSave" />
+                            <Button id="FirstTableadd" icon="sap-icon://add" tooltip="Add item" press="FirstTableaddSingleRow" />
+                            <Button id="FirstTableDelete" icon="sap-icon://delete" tooltip="Remove item" press="FirstTableDeleteSingleRow" />
+                            <!-- <Button icon="sap-icon://delete" tooltip="Delete Table records" press="onDelete" /> -->
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column sortProperty="CircularNumber" filterProperty="CircularNumber" id="First_Table_Column1">
+                            <Label id="First_Table_Label1" text="Circular Number" />
+                            <Tab:template>
+                                <ComboBox width="100%" change="Quantity_Discount_CircularNumber_valueState" valueState="{oFirstTableItemModel>CircularNumber_valueState}" items="{path:'CircularNumber>/aData', length:5000}" showSecondaryValues="true" id="idCircularNumber" value="{oFirstTableItemModel>CircularNumber}">
+                                    <items>
+                                        <C:ListItem id="idCircularNo" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}" ></C:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="First_Table_Input1" value="{oFirstTableItemModel>CircularNumber}" editable="true" /> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="First_Table_Column2">
+                            <Label id="First_Table_Label2" text="Quantity Slab From" />
+                            <Tab:template>
+                                <Input id="First_Table_Input2" value="{oFirstTableItemModel>QuantitySlabFrom}" type="Number" editable="true" />
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="First_Table_Column3">
+                            <Label id="First_Table_Label3" text="Quantity Slab To" />
+                            <Tab:template>
+                                <Input id="First_Table_Input3" value="{oFirstTableItemModel>QuantitySlabTo}" type="Number" editable="true" />
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column sortProperty="MaterialCode" filterProperty="MaterialCode" id="First_Table_Column4">
+                            <Label id="First_Table_Label4" text="Material Price Code" />
+                            <Tab:template>
+                            <ComboBox width="100%"  change="Quantity_Discount_MaterialPricingGroup_valueState"  valueState="{oFirstTableItemModel>MaterialPricingGroup_valueState}" items="{path:'oMaterialPricingGroupModel>/aMaterialPricingGroup', length:5000}" showSecondaryValues="true" id="MaterialPricingGroupValue" value="{oFirstTableItemModel>MaterialCode}">
+                                    <items>
+                                        <C:ListItem id="MaterialPricingGroup" text="{oMaterialPricingGroupModel>MaterialPricingGroup}" additionalText="{oMaterialPricingGroupModel>SAP_Description}" ></C:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="First_Table_Input4" value="{oFirstTableItemModel>MaterialCode}" editable="true" /> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="First_Table_Column5">
+                            <Label id="First_Table_Label5" text="Amount" />
+                            <Tab:template>
+                                <Input id="First_Table_Input5" value="{oFirstTableItemModel>Amount}" editable="true" />
+                            </Tab:template>
+                        </Tab:Column>
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel>
+
+            <Panel id="Panel3" class="sapUiSmallMarginBottom">
+                <Tab:Table id="TmgTableForQuantityDiscountModulePool"  rows="{oSecondTableDataModel>/aSecondTableData}">
+                    <Tab:extension>
+                        <OverflowToolbar id="oftb" style="Clear">
+                            <Button id="SecondTableExcelDataDownloadButton" icon="sap-icon://excel-attachment" tooltip="Add item" text="Download" press="onSecondTableDataExport" />
+                            <ToolbarSpacer id="tbs1" />
+                            <Button id="Table_ExcelUploadButton" icon="sap-icon://excel-attachment" tooltip="Excel Upload" 
+                                text="Upload" press="SecondTableExcelUpload"/>
+                            <Button id="Table_SaveButton" icon="sap-icon://save" text="Save" tooltip="Save Table records" 
+                                press="SaveSecondTableData"/>
+                            <Button id="Table_AddRowButton" icon="sap-icon://add" tooltip="Add Table records" 
+                                press="AddSingleRowInSecondTableData"/>
+                            <Button id="Table_DeleteButton" icon="sap-icon://delete" tooltip="Save Table records" 
+                                press="DeleteSecondTableData"/>
+                            <!-- <Button id="Table_SaveButto333n" text="Call" press="CallTableData"/> -->
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column filterProperty="Circularnumber" sortProperty="Circularnumber" id="Second_Table_tc1">
+                            <Label id="Table_Label1" text="Circular Number" />
+                            <Tab:template>
+                                <ComboBox width="100%" items="{path:'CircularNumber>/aData', length:5000}"  change="Quantity_Discount_Validity_CircularNumber_valueState" valueState="{oSecondTableDataModel>CircularNumber_valueState}" showSecondaryValues="true" id="idCircularNumber76" value="{oSecondTableDataModel>Circularnumber}">
+                                    <items>
+                                        <C:ListItem id="idCircularNo76" text="{CircularNumber>circular_no}" additionalText="{CircularNumber>SAP_Description}" ></C:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="Table_Input1" type="Text" editable="true" value="{oSecondTableDataModel>Circularnumber}"/> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc2">
+                            <Label id="Table_Label2" text="Document Valid Form" />
+                            <Tab:template>
+                                <!-- <ObjectStatus inverted="true" icon="sap-icon://sys-enter-2" state="Success" /> -->
+                                <!-- <ImageContent src="/images/green.png"></ImageContent> -->
+                                <DatePicker id="DatePicker1" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oSecondTableDataModel>DocumentValidFrom}" />
+                                <!-- <Input id="Table_Input2" type="Text" editable="true" value="{oSecondTableDataModel>Document_Valid_Form}"/> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc3">
+                            <Label id="Table_Label3" text="Document Valid To" />
+                            <Tab:template>
+                                <DatePicker id="DatePicker2" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" value="{oSecondTableDataModel>DocumentValidTo}" />
+                                <!-- <Input id="Table_Input3" type="Text" editable="true" value="{oSecondTableDataModel>DisValidTo}"/> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc4" sortProperty="Materialpricinggroup" filterProperty="Materialpricinggroup">
+                            <Label id="Table_Label4" text="Material Price Group" />
+                            <Tab:template>
+                                <ComboBox width="100%" items="{path:'oMaterialPricingGroupModel>/aMaterialPricingGroup', length:5000}" change="Quantity_Discount_Validity_MaterialPricingGroup_valueState"  valueState="{oSecondTableDataModel>MaterialPricingGroup_valueState}" showSecondaryValues="true" id="Table_Input433" value="{oSecondTableDataModel>Materialpricinggroup}">
+                                    <items>
+                                        <C:ListItem id="Table_Input4" text="{oMaterialPricingGroupModel>MaterialPricingGroup}" additionalText="{oMaterialPricingGroupModel>SAP_Description}" ></C:ListItem>
+                                    </items>
+                                </ComboBox>
+                                <!-- <Input id="Table_Input4" type="Text" editable="true" value="{oSecondTableDataModel>Materialpricinggroup}"/> -->
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc5" sortProperty="Status" filterProperty="Status">
+                            <Label id="Table_Label5" text="Status"  />
+                            <Tab:template>
+                                <!-- <Input id="Table_Input5" type="Text" editable="true" value="{oSecondTableDataModel>ActiveNclose}"/> -->
+                                <ComboBox width="100%" selectedKey="0" id="StatusComboBox" value="{oSecondTableDataModel>Status}">
+                                    <items>
+                                        <C:Item key="0" id="com1" text="A" />
+                                        <C:Item key="1" id="com2" text="C" />
+                                    </items>
+                                </ComboBox>
+                            </Tab:template>
+                        </Tab:Column>
+
+
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel >
+
+        </content>
+    </Page>
+</mvc:View>

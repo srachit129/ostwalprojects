@@ -1,0 +1,59 @@
+<mvc:View controllerName="zsalesrebate.controller.rebate"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}" class="myCustomBackground">
+        <content>
+            <Panel backgroundDesign="Transparent">
+                <f:SimpleForm backgroundDesign="Transparent" editable="true" layout="ResponsiveGridLayout" columnsL="3">
+                    <Label design="Bold" class="MyCustomFontColor" labelFor="idCustomerCode" text="Customer Code"></Label>
+                    <!-- <MultiInput id="idCustomerCode" maxLength="10" showValueHelp="false"></MultiInput> -->
+                    <MultiInput showClearIcon="true" id="idCustomerCode" suggestionItems="{
+				path: '/Lifting_Discount',
+				sorter: { path: 'CircularNo' }
+			}" showValueHelp="true" valueHelpRequest="handleValueHelp">
+                        <core:Item key="{CircularNo}" text="{CircularNo}" />
+                    </MultiInput>
+                    <!-- <Label design="Bold" class="MyCustomFontColor" text="Invoice No."></Label>
+                    <Input id="idInvoice"></Input> -->
+
+
+                    <Label design="Bold" id="idCicularNumber_Label" class="MyCustomFontColor" labelFor="idCicularNumber" text="Cicular Number"></Label>
+                    <!-- <MultiInput id="idCustomerCode" maxLength="10" showValueHelp="false"></MultiInput> -->
+                    <MultiInput showClearIcon="true" id="idCicularNumber" suggestionItems="{path: '/YY1_SD_CIRCULARNUMBER',sorter: { path: 'circular_no' }}" showValueHelp="true" valueHelpRequest="handleValueHelp_Circular">
+                        <core:Item key="{circular_no}" text="{circular_no}" />
+                    </MultiInput>
+                    <Label text="Billing Date" design="Bold" class="MyCustomFontColor"></Label>
+                    <DatePicker id="idInvDateFrom" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd"></DatePicker>
+                    <DatePicker id="idInvDateTo" displayFormat="dd-MM-yyyy" valueFormat="yyyy-MM-dd"></DatePicker>
+                    <Label text="Sales Org" class="MyCustomFontColor" design="Bold"></Label>
+                    <MultiInput id="idSalesOrg" showValueHelp="false" valueHelpRequest="SalesOrgValueHelp">
+                    </MultiInput>
+                    <Label text="Sales Office" class="MyCustomFontColor" design="Bold"></Label>
+                    <MultiInput id="idSalesOffice" showValueHelp="false"></MultiInput>
+                    <Label text="Sales Group" class="MyCustomFontColor" design="Bold"></Label>
+                    <MultiInput id="idSalesGroup" showValueHelp="false"></MultiInput>
+                    <Label text="State Code" class="MyCustomFontColor" design="Bold"></Label>
+                    <MultiInput id="idStateCode" showValueHelp="false"></MultiInput>
+                    <!-- <Label text="Order Date" class="MyCustomFontColor" design="Bold"></Label>
+                    <DatePicker id="idDateFrom"></DatePicker>
+                    <DatePicker id="idDateTo"></DatePicker> -->
+                    <Label ></Label>
+                    <RadioButtonGroup id="idRadioButton" class="sapUiSmallMarginTop">
+                        <RadioButton text="Subsidize Fertilizer"></RadioButton>
+                        <!-- <RadioButton text="Non Bulk / NS Fertilizer"></RadioButton>
+                        <RadioButton text="Chemical"></RadioButton> -->
+                    </RadioButtonGroup>
+                    <Label design="Bold" class="MyCustomFontColor"></Label>
+                    <HBox >
+                        <VBox >
+                            <Button text="Execute" press="onPress" class="sapUiSmallMarginTop"></Button>
+                        </VBox>
+                    </HBox>
+                    <core:Title />
+                </f:SimpleForm>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:core="sap.ui.core">
+    <App>
+        <pages>
+            <Page>
+                <content>
+                    <VBox id="container" width="1000px" height="800px"></VBox>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</core:FragmentDefinition>

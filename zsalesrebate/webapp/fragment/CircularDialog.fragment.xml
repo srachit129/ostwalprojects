@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:F="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <SelectDialog id="SelectCircularDialog" search="onSearch_CircularValue" contentWidth="900px" noDataText="No Data Found" confirm="handleCircularValueHelpClose" cancel="handleCircularValueHelpClose" rememberSelections="true" showClearButton="true" >
+            
+    </SelectDialog>
+</core:FragmentDefinition>

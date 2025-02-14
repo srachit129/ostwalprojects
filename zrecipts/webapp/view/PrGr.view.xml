@@ -1,0 +1,20 @@
+<mvc:View controllerName="recipts.zrecipts.controller.PrGr"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <form:SimpleForm id="Form" editable="true" columnsL="3" layout="ResponsiveGridLayout">
+                <Label id="GoodsReceiptNo_Label" text="Goods Receipt No."></Label>
+                <MultiInput id="GoodsReceiptNo" showValueHelp="false"></MultiInput>
+                <Label id="Year_Lab" text="Year"></Label>
+                <DatePicker displayFormat="yyyy" valueFormat="yyyy" id="ye"></DatePicker>
+                <Label id="Button_Lab"></Label>
+                <Button id="SinglePrintButton" icon="sap-icon://print" text="Print" class="sapUiSmallMarginTop" press="onPrint"></Button>
+
+                <core:Title  id="Title1"/>
+            </form:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

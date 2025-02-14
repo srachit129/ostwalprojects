@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:F="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <SelectDialog id="CompanyCodeSelectDialog" search=".onSearchCompanyCode" noDataText="No Data Found" confirm="._handleValueHelpCompanyCodeClose" cancel="._handleValueHelpCompanyCodeClose" showClearButton="true" >
+            
+    </SelectDialog>
+</core:FragmentDefinition>

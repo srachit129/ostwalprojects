@@ -1,0 +1,25 @@
+<mvc:View controllerName="zmmrequisitioncode.controller.RequisitionCode"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:table="sap.ui.table">
+    
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <table:Table id="table1" rows="{oTableItemModel>/aTableItem}" visibleRowCountMode="Auto" ariaLabelledBy="title">
+                <table:columns>
+                    <table:Column id="tc1">
+                        <Label id="UserCodeLabel" text="User Code" />
+                        <table:template>
+                            <Input id="idMixingNo." value="{oTableItemModel>Usercode}" editable="false" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column id="tc2">
+                        <Label id="UserNamelabel" text="User Name" />
+                        <table:template>
+                            <Input id="District" value="{oTableItemModel>Username}" editable="false" />
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+        </content>
+    </Page>
+</mvc:View>

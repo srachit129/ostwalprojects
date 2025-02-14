@@ -1,0 +1,298 @@
+<mvc:View controllerName="zsdinvoicedetails.controller.ZSD_INVOICE_DETAILS"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:F="sap.ui.layout.form"
+    xmlns:C="sap.ui.core"
+    xmlns:Tab="sap.ui.table"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="Panel1" class="sapUiSmallMarginBottom">
+                <F:SimpleForm id="Form1" layout="ResponsiveGridLayout" editable="true">
+                    <F:content>
+                        <RadioButtonGroup id="radioButton" select="TableChange" columns="5" class="sapUiMediumMarginBottom">
+                            <RadioButton id="RB3-1" text="Invoice Term" />
+                            <RadioButton id="RB3-2" text="Invoice Header" />
+                            <RadioButton id="RB3-3" text="Dispatched Details" />
+                            <RadioButton id="RB3-4" text="Bank Details" />
+                            <RadioButton id="RB3-5" text="Frc License Number" />
+                        </RadioButtonGroup>
+                        <!-- <C:Title id="coret"/> -->
+                    </F:content>
+                </F:SimpleForm>
+            </Panel >
+            <Panel id="Panel2" class="sapUiSmallMarginBottom">
+                <Tab:Table id="FirstTable" rows="{oFirstTableDataModel>/aFirstTableData}">
+                    <Tab:extension>
+                        <OverflowToolbar id="oftb" style="Clear">
+                            <Button id="ExcelTemplateDownload1" icon="sap-icon://excel-attachment" text="Download" tooltip="Excel Download" press="ExcelTemplateDownload1"/>
+                            <ToolbarSpacer id="tbs" />
+                            <Button id="Table_AddRowButton" icon="sap-icon://add" tooltip="Add Table records" press="AddSingleRowInFirstTableData"/>
+                            <Button id="Table_DeleteButton" icon="sap-icon://delete" tooltip="Save Table records" press="DeleteFirstTableData"/>
+                            <Button id="Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="SaveFirstTableData"/>
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column id="Table_tc1">
+                            <Label id="Table_Label1" text="Company Code" />
+                            <Tab:template>
+                                <Input id="Table_Input1" type="Text" editable="true" value="{oFirstTableDataModel>Company_code}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc2">
+                            <Label id="Table_Label2" text="Number" />
+                            <Tab:template>
+                                <Input id="Table_Input2" type="Text" editable="true" value="{oFirstTableDataModel>No1}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Table_tc3">
+                            <Label id="Table_Label3" text="Terms" />
+                            <Tab:template>
+                                <Input id="Table_Input3" type="Text" editable="true" value="{oFirstTableDataModel>Terms}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel >
+            <Panel id="Panel3" class="sapUiSmallMarginBottom">
+                <Tab:Table id="SecondTable" rows="{oSecondTableDataModel>/aSecondTableData}" width="100%">
+                    <Tab:extension>
+                        <OverflowToolbar id="Second_oftb" style="Clear">
+                            <Button id="ExcelTemplateDownload2" icon="sap-icon://excel-attachment" text="Download" tooltip="Excel Download" press="ExcelTemplateDownload2"/>
+                            <ToolbarSpacer id="Second_tbs" />
+                            <Button id="Second_Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="SaveSecondTableData"/>
+                            <Button id="Second_Table_DeleteButton" icon="sap-icon://delete" tooltip="Save Table records" press="DeleteSecondTableData"/>
+                            <Button id="Second_Table_AddButton" icon="sap-icon://add" tooltip="Add Table records" press="AddSingleRowInSecondTableData"/>
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column id="Second_Table_tc1_" width="100%">
+                            <Label id="Second_Table_Label1_" text="Company_Det" />
+                            <Tab:template>
+                                <Input id="Second_Table_Input1_" type="Text" editable="true" value="{oSecondTableDataModel>Company_Det}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_9Table_tc1" width="100%">
+                            <Label id="Second_9Table_Label1" text="Company Code" />
+                            <Tab:template>
+                                <Input id="Second_9Table_Input1" type="Text" editable="true" value="{oSecondTableDataModel>Company_code}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc1" width="100%">
+                            <Label id="Second_Table_Label1" text="Corporate Off" />
+                            <Tab:template>
+                                <Input id="Second_Table_Input1" type="Text" editable="true" value="{oSecondTableDataModel>CorporateOff}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc2" width="100%">
+                            <Label id="Second_Table_Label2" text="Registered Off" />
+                            <Tab:template>
+                                <Input id="Second_Table_Input2" type="Text" editable="true" value="{oSecondTableDataModel>RegisteredOff}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc3" width="100%">
+                            <Label id="Second_Table_Label3" text="Cin" />
+                            <Tab:template>
+                                <Input id="Second_Table_Input3" type="Text" editable="true" value="{oSecondTableDataModel>Cin}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc4" width="100%">
+                            <Label id="Second_Table_Label4" text="Pan" />
+                            <Tab:template>
+                                <Input id="Second_Table_Input4" type="Text" editable="true" value="{oSecondTableDataModel>Pan}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc5" width="100%">
+                            <Label id="Second_Table_Label5" text="Tel No" />
+                            <Tab:template>
+                                <Input id="Second_Table_Input5" type="Text" editable="true" value="{oSecondTableDataModel>TelNo}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc6" width="100%">
+                            <Label id="Second_Table_Label6" text="Email" />
+                            <Tab:template>
+                                <Input id="Second_Table_Input6" type="Text" editable="true" value="{oSecondTableDataModel>Email}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Second_Table_tc7" width="100%">
+                            <Label id="Second_Table_Label7" text="Website" />
+                            <Tab:template>
+                                <Input id="Second_Table_Input7" type="Text" editable="true" value="{oSecondTableDataModel>Website}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel >
+            <Panel id="Panel4" class="sapUiSmallMarginBottom">
+                <Tab:Table id="Third_Table" rows="{oThirdTableDataModel>/aThirdTableData}" width="100%">
+                    <Tab:extension>
+                        <OverflowToolbar id="Third_oftb" style="Clear">
+                            <Button id="ExcelTemplateDownload3" icon="sap-icon://excel-attachment" text="Download" tooltip="Excel Download" press="ExcelTemplateDownload3"/>
+                            <ToolbarSpacer id="Third_tbs" />
+                            <Button id="Third_Table_AddButton" icon="sap-icon://add" tooltip="Add Table records" press="AddThirdTableData"/>
+                            <Button id="Third_Table_DeleteButton" icon="sap-icon://delete" tooltip="Delete Table records" press="DeleteThirdTableData"/>
+                            <Button id="Third_Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="SaveThirdTableData"/>
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column id="Third_Table_tc1" width="100%">
+                            <Label id="Third_Table_Label1" text="Location Name" />
+                            <Tab:template>
+                                <Input id="Third_Table_Input1" type="Text" editable="true" value="{oThirdTableDataModel>Location_name}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Third_Table_tc2" width="100%">
+                            <Label id="Third_Table_Label2" text="Gstin" />
+                            <Tab:template>
+                                <Input id="Third_Table_Input2" type="Text" editable="true" value="{oThirdTableDataModel>Gstin}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Third_Table_tc3" width="100%">
+                            <Label id="Third_Table_Label3" text="Address" />
+                            <Tab:template>
+                                <Input id="Third_Table_Input3" type="Text" editable="true" value="{oThirdTableDataModel>Address}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Third_Table_tc4" width="100%">
+                            <Label id="Third_Table_Label4" text="Company Code" />
+                            <Tab:template>
+                                <Input id="Third_Table_Input4" type="Text" editable="true" value="{oThirdTableDataModel>Companycode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Third_Table_tc5" width="100%">
+                            <Label id="Third_Table_Label5" text="Region" />
+                            <Tab:template>
+                                <Input id="Third_Table_Input5" type="Text" editable="true" value="{oThirdTableDataModel>Region}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel >
+            <Panel id="Panel5" class="sapUiSmallMarginBottom">
+                <!-- Bank Details Table -->
+                <Tab:Table id="Forth_Table" rows="{oForthTableDataModel>/aForthTableData}" width="100%">
+                    <Tab:extension>
+                        <OverflowToolbar id="Forth_oftb" style="Clear">
+                            <Button id="ExcelTemplateDownload4" icon="sap-icon://excel-attachment" text="Download" tooltip="Excel Download" press="ExcelTemplateDownload4"/>
+                            <ToolbarSpacer id="Forth_tbs" />
+                            <Button id="Forth_Table_ExcelUploadButton" text="Excel Upload" press="onConfirmDialog"/>
+                            <Button id="Forth_Table_AddButton" icon="sap-icon://add" tooltip="Add Table records" press="AddForthTableData"/>
+                            <Button id="Forth_Table_DeleteButton" icon="sap-icon://delete" tooltip="Delete Table records" press="DeleteForthTableData"/>
+                            <Button id="Forth_Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="SaveForthTableData"/>
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column id="Forth_Table_tc1" width="100%">
+                            <Label id="Forth_Table_Label1" text="Company Code" />
+                            <Tab:template>
+                                <Input id="Forth_Table_Input1" type="Text" editable="true" value="{oForthTableDataModel>CompanyCode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Forth_Table_tc2" width="100%">
+                            <Label id="Forth_Table_Label2" text="Customer Account Group" />
+                            <Tab:template>
+                                <Input id="Forth_Table_Input2" type="Text" editable="true" value="{oForthTableDataModel>CustomerAccountGroup}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Forth_Table_tc7" width="100%">
+                            <Label id="Forth_Table_Label7" text="Division" />
+                            <Tab:template>
+                                <Input id="Forth_Table_Input7" type="Text" editable="true" value="{oForthTableDataModel>Division}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Forth_Table_tc8" width="100%">
+                            <Label id="Forth_Table_Label8" text="State Code" />
+                            <Tab:template>
+                                <Input id="Forth_Table_Input8" type="Text" editable="true" value="{oForthTableDataModel>Statecode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Forth_Table_tc3" width="100%">
+                            <Label id="Forth_Table_Label3" text="Branch Name" />
+                            <Tab:template>
+                                <Input id="Forth_Table_Input3" type="Text" editable="true" value="{oForthTableDataModel>BranchName}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Forth_Table_tc4" width="100%">
+                            <Label id="Forth_Table_Label4" text="Account Number" />
+                            <Tab:template>
+                                <Input id="Forth_Table_Input4" type="Text" editable="true" value="{oForthTableDataModel>AccountNumber}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Forth_Table_tc5" width="100%">
+                            <Label id="Forth_Table_Label5" text="Ifsc Code" />
+                            <Tab:template>
+                                <Input id="Forth_Table_Input5" type="Text" editable="true" value="{oForthTableDataModel>IfscCode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Forth_Table_tc6" width="100%">
+                            <Label id="Forth_Table_Label6" text="Other" />
+                            <Tab:template>
+                                <Input id="Forth_Table_Input6" type="Text" editable="true" value="{oForthTableDataModel>Other}"/>
+                            </Tab:template>
+                        </Tab:Column>
+
+
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel >
+            <Panel id="Panel6" class="sapUiSmallMarginBottom">
+                <Tab:Table id="Fifth_Table" rows="{oFifthTableDataModel>/aFifthTableData}" width="100%">
+                    <Tab:extension>
+                        <OverflowToolbar id="Fifth_oftb" style="Clear">
+                            <MenuButton id="MenuButton_forTotal" text="| Excel Download" icon="sap-icon://excel-attachment" defaultAction="onDefaultAction" beforeMenuOpen="onBeforeMenuOpen" useDefaultActionOnly="true" menuPosition="LeftCenter">
+			                    <menu>
+				                    <Menu id="Menu_forTotal" itemSelected="onMenuAction">
+					                    <MenuItem id="Table_ExcelDownloadButton_Template" press="ExcelTemplateDownload5" text="Template" icon="sap-icon://excel-attachment" />
+					                    <MenuItem id="Table_ExcelDownloadButton_TableData" press="ExcelTableDataDownload5" text="Table Data" icon="sap-icon://excel-attachment" />
+					                </Menu>
+			                    </menu>
+		                    </MenuButton>
+                            <ToolbarSpacer id="Fifth_tbs" />
+                            <Button id="Fifth_Table_ExcelUploadButton" text="Excel upload" press="onConfirmDialog" />
+                            <Button id="Fifth_Table_AddButton" icon="sap-icon://add" tooltip="Add Table records" press="AddFifthTableData"/>
+                            <Button id="Fifth_Table_DeleteButton" icon="sap-icon://delete" tooltip="Delete Table records" press="deleteFifthTable"/>
+                            <Button id="Fifth_Table_SaveButton" icon="sap-icon://save" tooltip="Save Table records" press="SaveFifthTableData"/>
+                        </OverflowToolbar>
+                    </Tab:extension>
+                    <Tab:columns>
+                        <Tab:Column id="Fifth_Table_tc1" width="100%" sortProperty="MaterialCode" filterProperty="MaterialCode">
+                            <Label id="Fifth_Table_Label1" text="Material Ccode" />
+                            <Tab:template>
+                                <Input id="Fifth_Table_Input1" type="Text" editable="true" value="{oFifthTableDataModel>MaterialCode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="tc3" width="100%" sortProperty="Companycode" filterProperty="Companycode">
+                            <Label id="la" text="Company Code" />
+                            <Tab:template>
+                                <Input id="d" type="Text" editable="true" value="{oFifthTableDataModel>Companycode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Fifth_Table_tc2" width="100%" sortProperty="Plant" filterProperty="Plant">
+                            <Label id="Fifth_Table_Label2" text="Plant" />
+                            <Tab:template>
+                                <Input id="Fifth_Table_Input2" type="Text" editable="true" value="{oFifthTableDataModel>Plant}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Fifth_Table_tc3" width="100%">
+                            <Label id="Fifth_Table_Label3" text="Customer Region Code" />
+                            <Tab:template>
+                                <Input id="Fifth_Table_Input3" type="Text" editable="true" value="{oFifthTableDataModel>CustomerRegionCode}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Fifth_Table_tc4" width="100%" filterProperty="LicNo" sortProperty="LicNo">
+                            <Label id="Fifth_Table_Label4" text="Lic No" />
+                            <Tab:template>
+                                <Input id="Fifth_Table_Input4" type="Text" editable="true" value="{oFifthTableDataModel>LicNo}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                        <Tab:Column id="Fifth_Table_tc5" width="100%">
+                            <Label id="Fifth_Table_Label5" text="Valid Upto" />
+                            <Tab:template>
+                                <DatePicker id="Fifth_Table_Input5" displayFormat="yyyy-MM-dd" valueFormat="yyyy-MM-dd" editable="true" value="{oFifthTableDataModel>valid_upto}"/>
+                            </Tab:template>
+                        </Tab:Column>
+                    </Tab:columns>
+                </Tab:Table>
+            </Panel >
+        </content>
+    </Page>
+</mvc:View>

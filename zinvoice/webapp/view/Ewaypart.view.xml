@@ -1,0 +1,103 @@
+<mvc:View controllerName="zinvoice.controller.Ewaypart"
+  xmlns:table="sap.ui.table"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+  xmlns="sap.m"
+  xmlns:smartTable="sap.ui.comp.smarttable"
+  xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+  xmlns:core="sap.ui.core"
+  xmlns:form="sap.ui.layout.form">
+  <App id="second">
+    <pages>
+      <Page id="page" title="E-Way Bill Part B">
+        <content>
+          <form:SimpleForm id="SimpleForm" layout="ResponsiveGridLayout" editable="true" columnsL="3">
+            <core:Title id="core"></core:Title>
+            <Label id="label1"  design="Bold" text="Invoice No."></Label>
+            <Input id="INVOICE" editable="false" ></Input>
+            <Label id="label2" design="Bold" text="From Place"></Label>
+            <Input id="idFromPlace" editable="false"></Input>
+            <Label id="label3" design="Bold" text="From State"></Label>
+            <Input id="idFromState" editable="false"></Input>
+            <Label id="label4" design="Bold" text="Base Unit"></Label>
+            <Input id="idBaseUnit" editable="false"></Input>
+            <core:Title id="core1"></core:Title>
+            <Label id="label5" design="Bold" text="Eway Bill Number"></Label>
+            <Input id="idEwayBill" editable="false" ></Input>
+            <Label id="label6" design="Bold" text="To Place"></Label>
+            <Input id="idToPlace" editable="false"></Input>
+            <Label id="label7" design="Bold" text="To State"></Label>
+            <Input id="idToState" editable="false"></Input>
+            <Label id="label8" design="Bold" text="Billing Quantity"></Label>
+            <Input id="idBillingQuant" editable="false"></Input>
+            <core:Title id="core2" ></core:Title>
+          </form:SimpleForm>
+          <form:SimpleForm id="SimpleForm1" layout="ResponsiveGridLayout">
+            <table:Table id="table" rows="{oTableDataModel>/aTableData}">
+              <table:extension>
+                <OverflowToolbar id="over">
+                  <ToolbarSpacer id="tool" />
+                  <Button id="add" icon="sap-icon://add" text="Add Vehicle" press="OnAdd"></Button>
+                  <Button id="delete" icon="sap-icon://delete" press="DeleteRow"></Button>
+                  <Button id="save" icon="sap-icon://save" text="Update E-Way Bill" press="UpdateEWay"></Button>
+                </OverflowToolbar>
+              </table:extension>
+              <table:columns>
+                <table:Column id="col3">
+                  <Label id="lab3" design="Bold" text="Vehicle No."></Label>
+                  <table:template>
+                    <Input id="inp3" editable="{oTableDataModel>Edit}" value="{oTableDataModel>VehicleNo}"></Input>
+                  </table:template>
+                </table:Column>
+
+                <!-- <table:Column id="col8" width="130px">
+                       <Label id="lab8" design="Bold" text="Transport Mode"></Label>
+                        <table:template>
+                          <Input id="inp8"> </Input>
+                        </table:template>
+                    </table:Column> -->
+                <!-- <table:Column id="col9" width="130px">
+                       <Label id="lab9" design="Bold" text="Total Quantity"></Label>
+                        <table:template>
+                          <Input id="inp9"> </Input>
+                        </table:template>
+                    </table:Column> -->
+                <table:Column id="col11">
+                  <Label id="lab11" design="Bold" text="Vehicle Quantity"></Label>
+                  <table:template>
+                    <Input id="inp11" editable="{oTableDataModel>Edit}"  value="{oTableDataModel>Quantity}"></Input>
+                  </table:template>
+                </table:Column>
+                <table:Column id="col12">
+                  <Label id="lab12" design="Bold" text="LR Number"></Label>
+                  <table:template>
+                    <Input id="inp12" editable="{oTableDataModel>Edit}" value="{oTableDataModel>DocumentNumber}"></Input>
+                  </table:template>
+                </table:Column>
+                <table:Column id="col13">
+                  <Label id="lab13" design="Bold" text="LR Date"></Label>
+                  <table:template>
+                    <DatePicker id="inp13" editable="{oTableDataModel>Edit}"  valueFormat="yyyy-MM-dd" displayFormat="dd-MM-yyyy" value="{oTableDataModel>DocumentDate}"></DatePicker>
+                  </table:template>
+                </table:Column>
+                <table:Column id="col10">
+                  <Label id="lab10" design="Bold" text="Status" ></Label>
+                  <table:template>
+                    <Input id="inp10" editable="false"  value="{oTableDataModel>Status}"></Input>
+                  </table:template>
+                </table:Column>
+              </table:columns>
+            </table:Table>
+          </form:SimpleForm>
+        </content>
+        <!-- <footer>
+          <Bar id="bar">
+            <contentRight>
+              <Button id="bt" type="Emphasized" text="Update E-Way Bill" press="" />
+            </contentRight>
+          </Bar>
+        </footer> -->
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

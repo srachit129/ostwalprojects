@@ -1,0 +1,64 @@
+<mvc:View controllerName="zppplan.controller.Plan"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <table:Table id="PP_PlanTable" rows="{oTableItemModel>/aTableItem}" selectionMode="MultiToggle" visibleRowCountMode="Auto" ariaLabelledBy="title">
+                <table:extension>
+                    <OverflowToolbar id="OverflowToolbar" style="Clear">
+                        <ToolbarSpacer id="ToolBar"/>
+                        <Button id="ExcelDataUploadButton" icon="sap-icon://excel-attachment" tooltip="Add item" press="onConfirmDialog" />
+                        <Button id="AddTableDataButton" icon="sap-icon://add" tooltip="Add item" press="AddSingleRowData" />
+                        <Button id="DeleteTableDataButton" icon="sap-icon://delete" tooltip="Add item" press="DeleteTableData" />
+                        <Button id="SaveTableDataButton" icon="sap-icon://save" tooltip="Add item" press="SaveTableData" />
+                        <!-- <Button id="PrintTableDataButton" text="Print" press="onPrintTable" /> -->
+                    </OverflowToolbar>
+                </table:extension>
+
+                <table:columns>
+                    <table:Column id="tc1">
+                        <Label id="TableLabel1" text="Company Code" />
+                        <table:template>
+                            <Input id="TableInput1" value="{oTableItemModel>CompanyCode}" maxLength="4" editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column id="tc2" sortProperty="MonthName">
+                        <Label id="TableLabel2" text="Month" />
+                        <table:template>
+                                <!-- <DatePicker displayFormat="MM" valueFormat="MM" id="TableInput232" editable="true" value="{oTableItemModel>MonthName}"/> -->
+                                <ComboBox id="TablesMonthField" width="100%" value="{oTableItemModel>MonthName}">
+                                    <items>
+                                        <core:Item id="com1" text="January" />
+                                        <core:Item id="com2" text="February" />
+                                        <core:Item id="com3" text="March" />
+                                        <core:Item id="com4" text="April" />
+                                        <core:Item id="com5" text="May" />
+                                        <core:Item id="com6" text="June" />
+                                        <core:Item id="com7" text="July" />
+                                        <core:Item id="com8" text="August" />
+                                        <core:Item id="com9" text="September" />
+                                        <core:Item id="com10" text="October" />
+                                        <core:Item id="com11" text="November" />
+                                        <core:Item id="com12" text="December" />
+                                    </items>
+                                </ComboBox>
+
+                        </table:template>
+                    </table:Column>
+                    <table:Column id="tc3">
+                        <Label id="TableLabel3" text="Material Code" />
+                        <table:template>
+                            <Input id="TableInput3" value="{oTableItemModel>MaterialCode}"  editable="true" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column id="tc4">
+                        <Label id="TableLabel4" text="Sales Qty." />
+                        <table:template>
+                            <Input id="TableInput4" value="{oTableItemModel>SalesQty}" editable="true" />
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:Table>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,245 @@
+<mvc:View controllerName="zsalesrebate.controller.rebatedetails"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel>
+
+                <f:SimpleForm layout="ResponsiveGridLayout" columnsL="3" editable="true">
+                    <f:content>
+                        <!-- <core:Title text="" />
+                        <Label text="Customer Code" />
+                        <Input value="{oHeaderModel>/BILLTOPARTY}" editable="false"></Input> -->
+                        <!-- <Label text="Ship to Code" />
+                        <Input editable="false" value="{oHeaderModel>/ShippingPartner}"></Input> -->
+                        <!-- <Label text="Customer District" />
+                        <Input value="{oHeaderModel>/DistrictName}" editable="false"></Input>
+                        <core:Title /> -->
+
+                        <!-- <Input placeholder="Enter To Location" id="Toloc" /> -->
+                        <!-- <Label text="Customer Name" />
+                        <Input value="{oHeaderModel>/CustomerName}" editable="false" submit="onReadData" />
+                        <Label labelFor="multiInput1"/>
+                        <MultiInput id="multiInput1" showSuggestion="false" width="70%" showValueHelp="false"/> -->
+                        <!-- <Label text="Ship to Name" />
+                        <Input value="{oHeaderModel>/SHIPTONAME}" editable="false" submit="onReadData" /> -->
+                        <!-- <core:Title/> -->
+                    </f:content>
+                </f:SimpleForm>
+
+                <table:Table id="idMyTable" width="auto" rows="{oTableItemModel>/aTableItem}" selectionMode="MultiToggle" ariaLabelledBy="title">
+                    <table:extension>
+                        <OverflowToolbar style="Clear">
+                            <ToolbarSpacer />
+                            <!-- <Button icon="sap-icon://add" tooltip="Add item" press="addRow" /> -->
+                            <Button text="Save" press="onSave"></Button>
+                            <Button text="Calculate GD" press="calculateGD2"></Button>
+                            <Button text="Calculate CD" press="calculateCD2"></Button>
+                            <Button text="Calculate LD" press="calculateLD2"></Button>
+                            <Button text="Calculate PD" press="calculatePD2"></Button>
+                            <!-- <Button icon="sap-icon://delete" tooltip="Delete Table records" press="removeRow" />
+                            <Button icon="sap-icon://add" tooltip="Add Table records" press="addRow" /> -->
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+                        <table:Column width="9rem" visible="false">
+                            <Label text="Item" />
+                            <table:template>
+                                <Input value="{oTableItemModel>BillingDocumentItem}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem" visible="false">
+                            <Label text="State Code" />
+                            <table:template>
+                                <Input value="{oTableItemModel>Shiptoregion}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Invoice Date" />
+                            <table:template>
+                                <Input value="{oTableItemModel>InvoiceDate}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem" visible="true">
+                            <Label text="Customer Code" />
+                            <table:template>
+                                <Input value="{oTableItemModel>BILLTOPARTY}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem" visible="true">
+                            <Label text="Customer Name" />
+                            <table:template>
+                                <Input value="{oTableItemModel>CustomerName}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="11rem">
+                            <Label text="Circular No" />
+                            <table:template>
+                                <Input value="{oTableItemModel>CircularNo}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="7rem">
+                            <Label text="Sales Group" />
+                            <table:template>
+                                <Input value="{oTableItemModel>SalesGroup}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column visible="false" width="8rem">
+                            <Label text="District" />
+                            <table:template>
+                                <Input value="{oTableItemModel>District}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="10rem">
+                            <Label text="Invoice No."/>
+                            <table:template>
+                                <Input id="batch" value="{oTableItemModel>InvoiceNo}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="10rem">
+                            <Label text="Material" />
+                            <table:template>
+                                <Input id="idMaterial" value="{oTableItemModel>Material}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="10rem" visible="false">
+                            <Label text="Material Code" />
+                            <table:template>
+                                <Input value="{oTableItemModel>MaterialCode}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="7rem">
+                            <Label text="Quantity" />
+                            <table:template>
+                                <Input value="{oTableItemModel>Quantity}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="7rem">
+                            <Label text="Return Quantity" />
+                            <table:template>
+                                <Input value="{oTableItemModel>ReturnQuantity}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="7rem">
+                            <Label text="Actual Quantity" />
+                            <table:template>
+                                <Input value="{oTableItemModel>ActualQuantity}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="7rem">
+                            <Label text="Rate" />
+                            <table:template>
+                                <Input value="{oTableItemModel>Rate}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="10rem">
+                            <Label text="Billing Amount" />
+                            <table:template>
+                                <Input value="{oTableItemModel>BillingAmount}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="8rem" visible="false">
+                            <Label text="GST" />
+                            <table:template>
+                                <Input value="{oTableItemModel>GST}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="General Discount" />
+                            <table:template>
+                                <Input value="{oTableItemModel>GeneralDiscount}" submit="onGenerate" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Cash Discount" />
+                            <table:template>
+                                <Input value="{oTableItemModel>CashDiscount}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Lifting Discount" />
+                            <table:template>
+                                <Input value="{oTableItemModel>LiftingDiscount}" editable="false"/>
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Price Difference" />
+                            <table:template>
+                                <Input value="{oTableItemModel>PriceDifference}" editable="false"/>
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Special Discount" />
+                            <table:template>
+                                <Input value="{oTableItemModel>SpecialDiscount}" type="Number" liveChange="SpecialDiscount" editable="true" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Other Discount" />
+                            <table:template>
+                                <Input value="{oTableItemModel>OtherDiscount}" type="Number" liveChange="OtherDiscount" editable="true" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Total Amount(PMT)" />
+                            <table:template>
+                                <Input value="{oTableItemModel>TotalAmount}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Amount" />
+                            <table:template>
+                                <Input value="{oTableItemModel>Amount}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="10rem" visible="false">
+                            <Label text="Credit Note No." />
+                            <table:template>
+                                <Input value="{oTableItemModel>CreditNoteNo}" editable="false" />
+                            </table:template>
+                        </table:Column>
+                        <!-- <table:Column width="11rem">
+                            <Label text="Generate Credit Note" />
+                            <table:template>
+                                <Button text="Generate" press="onGenerate"></Button>
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Reject" />
+                            <table:template>
+                                <Button text="Reject" press="onReject"></Button>
+                            </table:template>
+                        </table:Column> -->
+                        <table:Column width="11rem">
+                            <Label text="Save" />
+                            <table:template>
+                                <Button text="Save" press="saveSingle"></Button>
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="9rem">
+                            <Label text="Reject" />
+                            <table:template>
+                                <Button text="Reject" press="rejectSingle"></Button>
+                            </table:template>
+                        </table:Column>
+                        <table:Column visible="false">
+                            <Label text="SO Date" />
+                            <table:template>
+                                <Input value="{oTableItemModel>SODate}"></Input>
+                            </table:template>
+                        </table:Column>
+                        <table:Column visible="false">
+                            <Label text="Payment Terms" />
+                            <table:template>
+                                <Input value="{oTableItemModel>PaymentTerms}"></Input>
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>
